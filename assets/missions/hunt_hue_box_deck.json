@@ -1,0 +1,462 @@
+{
+  "boxName": "Hunt-Hue Box",
+  "tagline": "Device-optional party game \u2014 like Jenga meets I Spy",
+  "printLayout": {
+    "cardWidthMm": 63,
+    "cardHeightMm": 88,
+    "cardsPerSheet": 9,
+    "totalCards": 48
+  },
+  "cards": [
+    {
+      "boxCardId": "HHB-01",
+      "type": "hunt",
+      "hueName": "Smaller than your hand",
+      "hex": "#FF6B6B",
+      "clue": "Pass left after you find it!",
+      "picture": "\ud83e\udd0f",
+      "huntCategory": "object",
+      "objectPrompt": "Something smaller than your hand"
+    },
+    {
+      "boxCardId": "HHB-02",
+      "type": "hunt",
+      "hueName": "Aqua Rush",
+      "hex": "#4ECDC4",
+      "clue": "First team to show this colour wins.",
+      "picture": "\ud83c\udfa8",
+      "huntCategory": "color"
+    },
+    {
+      "boxCardId": "HHB-03",
+      "type": "hunt",
+      "hueName": "Cold Touch",
+      "hex": "#95E1D3",
+      "clue": "Fridge, drink, or window.",
+      "picture": "\ud83e\uddca",
+      "huntCategory": "texture",
+      "objectPrompt": "Something colder than room temperature"
+    },
+    {
+      "boxCardId": "HHB-04",
+      "type": "hunt",
+      "hueName": "Green Life",
+      "hex": "#81C784",
+      "clue": "Plant, salad, or shirt.",
+      "picture": "\ud83c\udf31",
+      "huntCategory": "combo",
+      "objectPrompt": "Something green AND living"
+    },
+    {
+      "boxCardId": "HHB-05",
+      "type": "hunt",
+      "hueName": "Screen Time",
+      "hex": "#AA96DA",
+      "clue": "Tech counts!",
+      "picture": "\ud83d\udcf1",
+      "huntCategory": "object",
+      "objectPrompt": "Something with buttons or a screen"
+    },
+    {
+      "boxCardId": "HHB-06",
+      "type": "relay",
+      "hueName": "Blue Relay",
+      "hex": "#FCBAD3",
+      "clue": "Each player finds one blue thing \u2014 15s each.",
+      "picture": "\u23f1\ufe0f"
+    },
+    {
+      "boxCardId": "HHB-07",
+      "type": "duel",
+      "hueName": "S-Print Duel",
+      "hex": "#FFFFD2",
+      "clue": "Race: first object starting with S.",
+      "picture": "\ud83c\udfc1"
+    },
+    {
+      "boxCardId": "HHB-08",
+      "type": "ritual",
+      "hueName": "Glow Ritual",
+      "hex": "#FFD93D",
+      "clue": "Dim lights \u2014 hunt something that glows.",
+      "picture": "\ud83c\udf1f"
+    },
+    {
+      "boxCardId": "HHB-09",
+      "type": "hunt",
+      "hueName": "Travel Ready",
+      "hex": "#6C5CE7",
+      "clue": "Bag, shoes, or toothbrush.",
+      "picture": "\ud83e\uddf3",
+      "huntCategory": "object",
+      "objectPrompt": "Something you would pack for a trip"
+    },
+    {
+      "boxCardId": "HHB-10",
+      "type": "hunt",
+      "hueName": "Orange Burst",
+      "hex": "#E17055",
+      "clue": "Orange hunt \u2014 no duplicate objects!",
+      "picture": "\ud83c\udf4a",
+      "huntCategory": "color"
+    },
+    {
+      "boxCardId": "HHB-11",
+      "type": "hunt",
+      "hueName": "Time Keeper",
+      "hex": "#546E7A",
+      "clue": "Watch, clock, or microwave.",
+      "picture": "\u23f0",
+      "huntCategory": "object",
+      "objectPrompt": "Something that tells time"
+    },
+    {
+      "boxCardId": "HHB-12",
+      "type": "hunt",
+      "hueName": "Rough Edge",
+      "hex": "#8D6E63",
+      "clue": "Brick, bark, or sole.",
+      "picture": "\ud83e\udea8",
+      "huntCategory": "texture",
+      "objectPrompt": "Something rough or bumpy"
+    },
+    {
+      "boxCardId": "HHB-13",
+      "type": "hunt",
+      "hueName": "White Square",
+      "hex": "#ECEFF1",
+      "clue": "Napkin, tile, or paper.",
+      "picture": "\u2b1c",
+      "huntCategory": "combo",
+      "objectPrompt": "Something white AND square"
+    },
+    {
+      "boxCardId": "HHB-14",
+      "type": "hunt",
+      "hueName": "Royal Plum",
+      "hex": "#7E57C2",
+      "clue": "Purple power \u2014 show the hue!",
+      "picture": "\ud83d\udc9c",
+      "huntCategory": "color"
+    },
+    {
+      "boxCardId": "HHB-15",
+      "type": "hunt",
+      "hueName": "Pour Station",
+      "hex": "#29B6F6",
+      "clue": "Cup, bowl, or bottle.",
+      "picture": "\ud83e\udd64",
+      "huntCategory": "object",
+      "objectPrompt": "Something you can pour liquid into"
+    },
+    {
+      "boxCardId": "HHB-16",
+      "type": "hunt",
+      "hueName": "On a Roll",
+      "hex": "#455A64",
+      "clue": "Toy, chair, or suitcase.",
+      "picture": "\ud83d\udede",
+      "huntCategory": "object",
+      "objectPrompt": "Something with wheels"
+    },
+    {
+      "boxCardId": "HHB-17",
+      "type": "hunt",
+      "hueName": "Shine Hunt",
+      "hex": "#B0BEC5",
+      "clue": "Glass, foil, or screen.",
+      "picture": "\u2728",
+      "huntCategory": "texture",
+      "objectPrompt": "Something shiny or reflective"
+    },
+    {
+      "boxCardId": "HHB-18",
+      "type": "hunt",
+      "hueName": "Soft Gold",
+      "hex": "#FFF176",
+      "clue": "Banana, sponge, or pillow.",
+      "picture": "\ud83c\udf4c",
+      "huntCategory": "combo",
+      "objectPrompt": "Something yellow AND soft"
+    },
+    {
+      "boxCardId": "HHB-19",
+      "type": "relay",
+      "hueName": "Red Relay",
+      "hex": "#AB47BC",
+      "clue": "Each player: one red object, 15s.",
+      "picture": "\u23f1\ufe0f"
+    },
+    {
+      "boxCardId": "HHB-20",
+      "type": "duel",
+      "hueName": "Metal Duel",
+      "hex": "#26A69A",
+      "clue": "First team with something metal wins.",
+      "picture": "\u2694\ufe0f"
+    },
+    {
+      "boxCardId": "HHB-21",
+      "type": "hunt",
+      "hueName": "Reader Hunt",
+      "hex": "#5C6BC0",
+      "clue": "Book, label, or screen.",
+      "picture": "\ud83d\udcd6",
+      "huntCategory": "object",
+      "objectPrompt": "Something you read"
+    },
+    {
+      "boxCardId": "HHB-22",
+      "type": "hunt",
+      "hueName": "True Red",
+      "hex": "#C62828",
+      "clue": "True red \u2014 crimson counts!",
+      "picture": "\u2764\ufe0f",
+      "huntCategory": "color"
+    },
+    {
+      "boxCardId": "HHB-23",
+      "type": "hunt",
+      "hueName": "Joy Object",
+      "hex": "#F06292",
+      "clue": "Photo, toy, or pet.",
+      "picture": "\ud83d\ude0a",
+      "huntCategory": "object",
+      "objectPrompt": "Something that makes you smile"
+    },
+    {
+      "boxCardId": "HHB-24",
+      "type": "hunt",
+      "hueName": "Stretch Test",
+      "hex": "#CE93D8",
+      "clue": "Band, hair tie, or fabric.",
+      "picture": "\ud83c\udf80",
+      "huntCategory": "texture",
+      "objectPrompt": "Something stretchy or flexible"
+    },
+    {
+      "boxCardId": "HHB-25",
+      "type": "hunt",
+      "hueName": "Smooth Dark",
+      "hex": "#212121",
+      "clue": "Phone, stone, or shoe.",
+      "picture": "\ud83d\udda4",
+      "huntCategory": "combo",
+      "objectPrompt": "Something black AND smooth"
+    },
+    {
+      "boxCardId": "HHB-26",
+      "type": "hunt",
+      "hueName": "Drawer Raid",
+      "hex": "#FF8A65",
+      "clue": "Utensil, clip, or towel.",
+      "picture": "\ud83c\udf73",
+      "huntCategory": "object",
+      "objectPrompt": "Something from a kitchen drawer"
+    },
+    {
+      "boxCardId": "HHB-27",
+      "type": "hunt",
+      "hueName": "Teal Tide",
+      "hex": "#00897B",
+      "clue": "Teal team showdown!",
+      "picture": "\ud83c\udf0a",
+      "huntCategory": "color"
+    },
+    {
+      "boxCardId": "HHB-28",
+      "type": "hunt",
+      "hueName": "Footwear",
+      "hex": "#795548",
+      "clue": "Shoe, sock, or slipper.",
+      "picture": "\ud83d\udc5f",
+      "huntCategory": "object",
+      "objectPrompt": "Something you wear on your feet"
+    },
+    {
+      "boxCardId": "HHB-29",
+      "type": "relay",
+      "hueName": "Rainbow Relay",
+      "hex": "#FFD54F",
+      "clue": "Chain: each player a different colour.",
+      "picture": "\u23f1\ufe0f"
+    },
+    {
+      "boxCardId": "HHB-30",
+      "type": "duel",
+      "hueName": "Round Duel",
+      "hex": "#5E35B1",
+      "clue": "First team with something round wins.",
+      "picture": "\ud83c\udfaf"
+    },
+    {
+      "boxCardId": "HHB-31",
+      "type": "hunt",
+      "hueName": "Plant Parent",
+      "hex": "#66BB6A",
+      "clue": "Pot, vase, or garden item.",
+      "picture": "\ud83e\udeb4",
+      "huntCategory": "object",
+      "objectPrompt": "Something that holds plants"
+    },
+    {
+      "boxCardId": "HHB-32",
+      "type": "hunt",
+      "hueName": "Fuzzy Find",
+      "hex": "#FFCC80",
+      "clue": "Sweater, towel, or toy.",
+      "picture": "\ud83d\udc11",
+      "huntCategory": "texture",
+      "objectPrompt": "Something fuzzy"
+    },
+    {
+      "boxCardId": "HHB-33",
+      "type": "hunt",
+      "hueName": "Cold Blue",
+      "hex": "#42A5F5",
+      "clue": "Ice pack, drink, or tile.",
+      "picture": "\ud83e\uddca",
+      "huntCategory": "combo",
+      "objectPrompt": "Something blue AND cold"
+    },
+    {
+      "boxCardId": "HHB-34",
+      "type": "hunt",
+      "hueName": "Autumn Hue",
+      "hex": "#D84315",
+      "clue": "Burnt orange \u2014 autumn vibes.",
+      "picture": "\ud83c\udf42",
+      "huntCategory": "color"
+    },
+    {
+      "boxCardId": "HHB-35",
+      "type": "hunt",
+      "hueName": "Clean Sweep",
+      "hex": "#78909C",
+      "clue": "Brush, cloth, or spray.",
+      "picture": "\ud83e\uddf9",
+      "huntCategory": "object",
+      "objectPrompt": "Something you use to clean"
+    },
+    {
+      "boxCardId": "HHB-36",
+      "type": "hunt",
+      "hueName": "Handle Hunt",
+      "hex": "#8E24AA",
+      "clue": "Mug, tool, or bag.",
+      "picture": "\ud83e\udef1",
+      "huntCategory": "object",
+      "objectPrompt": "Something with a handle"
+    },
+    {
+      "boxCardId": "HHB-37",
+      "type": "ritual",
+      "hueName": "Sunset Ritual",
+      "hex": "#F9A825",
+      "clue": "All teams: find warm-coloured glow.",
+      "picture": "\ud83c\udf05"
+    },
+    {
+      "boxCardId": "HHB-38",
+      "type": "hunt",
+      "hueName": "Slip Slide",
+      "hex": "#4DD0E1",
+      "clue": "Soap, glass, or ice.",
+      "picture": "\ud83e\uddf4",
+      "huntCategory": "texture",
+      "objectPrompt": "Something slippery or smooth"
+    },
+    {
+      "boxCardId": "HHB-39",
+      "type": "hunt",
+      "hueName": "Wood Brown",
+      "hex": "#6D4C41",
+      "clue": "Furniture, spoon, or frame.",
+      "picture": "\ud83e\udeb5",
+      "huntCategory": "combo",
+      "objectPrompt": "Something brown AND wooden"
+    },
+    {
+      "boxCardId": "HHB-40",
+      "type": "hunt",
+      "hueName": "Hot Pink",
+      "hex": "#EC407A",
+      "clue": "Hot pink \u2014 bold choices only!",
+      "picture": "\ud83d\udc97",
+      "huntCategory": "color"
+    },
+    {
+      "boxCardId": "HHB-41",
+      "type": "relay",
+      "hueName": "Nature Relay",
+      "hex": "#7CB342",
+      "clue": "Each player: one natural object.",
+      "picture": "\u23f1\ufe0f"
+    },
+    {
+      "boxCardId": "HHB-42",
+      "type": "duel",
+      "hueName": "Paper Race",
+      "hex": "#3949AB",
+      "clue": "First team with paper wins.",
+      "picture": "\ud83d\udcc4"
+    },
+    {
+      "boxCardId": "HHB-43",
+      "type": "hunt",
+      "hueName": "Light Hunt",
+      "hex": "#FFEE58",
+      "clue": "Lamp, LED, or screen.",
+      "picture": "\ud83d\udca1",
+      "huntCategory": "object",
+      "objectPrompt": "Something that lights up"
+    },
+    {
+      "boxCardId": "HHB-44",
+      "type": "hunt",
+      "hueName": "Tiny Treasure",
+      "hex": "#BDBDBD",
+      "clue": "Button, bead, or screw.",
+      "picture": "\ud83e\ude99",
+      "huntCategory": "object",
+      "objectPrompt": "Something smaller than a coin"
+    },
+    {
+      "boxCardId": "HHB-45",
+      "type": "hunt",
+      "hueName": "Hard Mode",
+      "hex": "#9E9E9E",
+      "clue": "Stone, shell, or key.",
+      "picture": "\ud83d\udc8e",
+      "huntCategory": "texture",
+      "objectPrompt": "Something hard as rock"
+    },
+    {
+      "boxCardId": "HHB-46",
+      "type": "hunt",
+      "hueName": "Silver Round",
+      "hex": "#B0BEC5",
+      "clue": "Coin, lid, or knob.",
+      "picture": "\u26aa",
+      "huntCategory": "combo",
+      "objectPrompt": "Something silver AND round"
+    },
+    {
+      "boxCardId": "HHB-47",
+      "type": "hunt",
+      "hueName": "Forest Deep",
+      "hex": "#1B5E20",
+      "clue": "Deep forest green.",
+      "picture": "\ud83c\udf32",
+      "huntCategory": "color"
+    },
+    {
+      "boxCardId": "HHB-48",
+      "type": "ritual",
+      "hueName": "Neon Finale",
+      "hex": "#E040FB",
+      "clue": "Finale: everyone finds a neon-bright colour.",
+      "picture": "\ud83c\udf86"
+    }
+  ]
+}

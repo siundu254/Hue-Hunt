@@ -1,0 +1,41 @@
+{
+  "family": [
+    {"type": "hunt", "huntCategory": "object", "hueName": "Kitchen Helper", "hex": "#E8B86D", "objectPrompt": "Find something you eat breakfast with", "clue": "Spoon, bowl, or toaster — your call!", "picture": "🥣", "funFact": "The Hue Spirit loves a good cereal mission."},
+    {"type": "hunt", "huntCategory": "object", "hueName": "Sky Pillow", "hex": "#87CEEB", "objectPrompt": "Find something soft and light you could rest on", "clue": "Pillow, cushion, or folded blanket.", "picture": "☁️"},
+    {"type": "hunt", "huntCategory": "texture", "hueName": "Cozy Cloud", "hex": "#F5F5F5", "objectPrompt": "Find something soft you could nap on", "clue": "Pillow, blanket, or plush toy.", "picture": "🛋️"},
+    {"type": "forge", "hueName": "Honey Toast", "hex": "#F4A460", "clue": "Warm breakfast gold.", "picture": "🍞"},
+    {"type": "echo", "hueName": "Garden Leaf", "hex": "#6BBF59", "clue": "Draw a leaf shape in green.", "picture": "🌿"},
+    {"type": "ritual", "hueName": "Firefly Gold", "hex": "#FFD700", "clue": "Gentle glow when lights are low.", "picture": "✨"}
+  ],
+  "friends": [
+    {"type": "hunt", "huntCategory": "combo", "hueName": "Party Pop", "hex": "#FF6F61", "objectPrompt": "Find something red AND round", "clue": "Apple, cup, balloon — be creative!", "picture": "🎈"},
+    {"type": "hunt", "huntCategory": "object", "hueName": "Playlist Hunt", "hex": "#9B59B6", "objectPrompt": "Find something that makes sound", "clue": "Speaker, phone, or musical instrument.", "picture": "🎵"},
+    {"type": "hunt", "huntCategory": "object", "hueName": "Neon Coral", "hex": "#FF6F61", "objectPrompt": "Find the loudest party object in the room", "clue": "Speaker, hat, or decoration.", "picture": "🎉"},
+    {"type": "echo", "hueName": "Grape Pop", "hex": "#9B59B6", "clue": "Sweet purple soda vibe.", "picture": "🍇"},
+    {"type": "relay", "hueName": "Electric Teal", "hex": "#1ABC9C", "clue": "Sharp teal — each friend adds a find.", "picture": "⚡"},
+    {"type": "duel", "hueName": "Midnight Blue", "hex": "#1B3A5C", "clue": "Teams race the same hue.", "picture": "🌃"}
+  ],
+  "party": [
+    {"type": "hunt", "huntCategory": "object", "hueName": "Snack Attack", "hex": "#FF9F1C", "objectPrompt": "Find the best party snack in the room", "clue": "Chips, fruit, or secret stash.", "picture": "🍿"},
+    {"type": "hunt", "huntCategory": "object", "hueName": "Lime Flash", "hex": "#32CD32", "objectPrompt": "Find a drink or snack that feels like party fuel", "clue": "Sports drink, soda, or candy.", "picture": "🟢"},
+    {"type": "hunt", "huntCategory": "texture", "hueName": "Shiny Thing", "hex": "#C0C0C0", "objectPrompt": "Find something shiny or reflective", "clue": "Glass, foil, or phone screen.", "picture": "✨"},
+    {"type": "relay", "hueName": "Hot Magenta", "hex": "#FF1493", "clue": "Neon pink under party lights.", "picture": "💃"},
+    {"type": "duel", "hueName": "Voltage Yellow", "hex": "#FFE135", "clue": "Two teams — first to show the object wins.", "picture": "⚡"},
+    {"type": "ritual", "hueName": "UV Violet", "hex": "#8A2BE2", "clue": "Blacklight purple finale.", "picture": "🌙"}
+  ],
+  "team": [
+    {"type": "hunt", "huntCategory": "object", "hueName": "Workspace Win", "hex": "#708090", "objectPrompt": "Find something that helps you work", "clue": "Pen, laptop, notebook — keep it professional.", "picture": "💼"},
+    {"type": "hunt", "huntCategory": "object", "hueName": "Slate Calm", "hex": "#708090", "objectPrompt": "Find something that helps you focus", "clue": "Notebook, headphones, or mug.", "picture": "📊"},
+    {"type": "forge", "hueName": "Brand Teal", "hex": "#008080", "clue": "Mix the team colour.", "picture": "🎨"},
+    {"type": "relay", "hueName": "Forest Brief", "hex": "#228B22", "clue": "Each colleague adds one find.", "picture": "🌿"},
+    {"type": "duel", "hueName": "Trust Navy", "hex": "#1B3A5C", "clue": "Bracket round — cooperative within team.", "picture": "🤝"}
+  ],
+  "kids": [
+    {"type": "hunt", "huntCategory": "object", "hueName": "Fuzzy Friend", "hex": "#FFB6C1", "objectPrompt": "Find a toy or stuffed animal", "clue": "Something huggable!", "picture": "🧸"},
+    {"type": "hunt", "huntCategory": "object", "hueName": "Bubblegum", "hex": "#FFB6C1", "objectPrompt": "Find something that looks tasty or sweet", "clue": "Snack, toy food, or a colourful wrapper.", "picture": "🍬"},
+    {"type": "hunt", "huntCategory": "texture", "hueName": "Bumpy Road", "hex": "#A0522D", "objectPrompt": "Find something bumpy or rough", "clue": "Brick, shoe sole, or bark.", "picture": "🪨"},
+    {"type": "echo", "hueName": "Sunshine", "hex": "#FFE135", "clue": "Happy yellow sun.", "picture": "☀️"},
+    {"type": "forge", "hueName": "Ocean Pop", "hex": "#4FC3F7", "clue": "Splashy pool blue.", "picture": "🐠"},
+    {"type": "ritual", "hueName": "Rainbow End", "hex": "#FF69B4", "clue": "Find your favourite colour together!", "picture": "🌈"}
+  ]
+}

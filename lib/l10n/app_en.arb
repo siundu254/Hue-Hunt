@@ -1,0 +1,170 @@
+{
+  "@@locale": "en",
+  "appTitle": "Hue Hunt",
+  "subBrand": "Family Mission",
+  "tagline": "The Chroma Expedition",
+  "studioName": "NovaLumina Studio",
+  "homeHeroBody": "Find objects, textures & combos in the room — then forge and echo colour on screen.",
+  "statBestScore": "Best score",
+  "statMapNodes": "Map nodes",
+  "statStickers": "Stickers",
+  "playMode": "Play {mode}",
+  "@playMode": {
+    "placeholders": {
+      "mode": {"type": "String"}
+    }
+  },
+  "howItWorks": "How it works",
+  "chooseMode": "Choose a mode",
+  "huntHueBoxButton": "Hunt-Hue Box — tabletop + app",
+  "chromaMap": "Chroma Map",
+  "journal": "Journal",
+  "settings": "Settings",
+  "next": "Next",
+  "skip": "Skip",
+  "startFamilyMission": "Start Family Mission",
+  "exploreAllModes": "Explore all modes",
+  "onboardingHuntTitle": "Hunt real things",
+  "onboardingHuntBody": "Every mission asks your group to find objects, textures, or combos in the room — not flat colour swatches. Works in any home, office, or party.",
+  "onboardingPassTitle": "One phone, whole group",
+  "onboardingPassBody": "Pass the device between players. Confirm finds together. Teams, scoring, and the Hue Spirit guide keep energy high without everyone on a screen.",
+  "onboardingBoxTitle": "Digital or tabletop",
+  "onboardingBoxBody": "Play in the app, or use the Hunt-Hue Box with zero phones. Same missions, same laughs — your choice.",
+  "settingsTitle": "Settings",
+  "settingsLanguage": "Language",
+  "settingsLanguageSystem": "System default",
+  "settingsLanguageEn": "English",
+  "settingsLanguageEs": "Español",
+  "settingsLanguageFr": "Français",
+  "settingsLanguageDe": "Deutsch",
+  "settingsLanguageZh": "中文 (简体)",
+  "settingsGameControls": "Game controls",
+  "settingsSoundEffects": "Sound effects",
+  "settingsSoundEffectsSub": "Mission cues and celebration sounds",
+  "settingsHaptics": "Haptic feedback",
+  "settingsHapticsSub": "Vibration on pass-device and confirms",
+  "settingsSpiritHints": "Hue Spirit hints",
+  "settingsSpiritHintsSub": "Narrator messages between missions",
+  "settingsPassReminders": "Pass-device reminders",
+  "settingsPassRemindersSub": "Extra prompts when handing off the phone",
+  "settingsMissionTimer": "Mission timer",
+  "settingsTimerShort": "Short (−25%)",
+  "settingsTimerStandard": "Standard",
+  "settingsTimerLong": "Long (+25%)",
+  "settingsCameraDefault": "Default camera bonus",
+  "settingsCameraDefaultSub": "When a mode allows optional photo verify",
+  "settingsData": "Data & privacy",
+  "settingsResetProgress": "Reset expedition progress",
+  "settingsResetProgressSub": "Clears map, journal, and best score",
+  "settingsReplayOnboarding": "Replay introduction",
+  "settingsMissionContentNote": "Mission card text stays in English in v1.0; UI follows your language.",
+  "settingsAbout": "About",
+  "settingsVersion": "Version {version}",
+  "@settingsVersion": {
+    "placeholders": {
+      "version": {"type": "String"}
+    }
+  },
+  "resetProgressTitle": "Reset progress?",
+  "resetProgressBody": "This clears your Chroma Map nodes, journal stickers, and best score. It cannot be undone.",
+  "cancel": "Cancel",
+  "reset": "Reset",
+  "progressResetDone": "Expedition progress reset",
+  "modeFamilyTitle": "Family Mission",
+  "modeFamilySubtitle": "Gentle co-op at home",
+  "modeFamilyAudience": "Parents + kids · ages 5+",
+  "modeFamilyIntro": "Welcome, explorers! We will hunt together — no rush, all teamwork.",
+  "modeFriendsTitle": "Friends Hunt",
+  "modeFriendsSubtitle": "Speed, streaks, laughs",
+  "modeFriendsAudience": "Teens & adults · 2–6 players",
+  "modeFriendsIntro": "Friends mode activated! Stack streaks and beat the clock — camera bonus optional.",
+  "modePartyTitle": "Party Mission",
+  "modePartySubtitle": "Room hunt · camera off",
+  "modePartyAudience": "Game night · 4–8 players",
+  "modePartyIntro": "Party time! Pass the device, hunt in the room, and confirm as a group.",
+  "modeTeamTitle": "Team Expedition",
+  "modeTeamSubtitle": "Workplace-safe missions",
+  "modeTeamAudience": "Colleagues · retreats",
+  "modeTeamIntro": "Team Expedition briefing. Neutral missions, shared scoreboard, no camera required.",
+  "modeKidsTitle": "Kids Co-Op",
+  "modeKidsSubtitle": "Picture clues · shared meter",
+  "modeKidsAudience": "Siblings & classrooms · 5–10",
+  "modeKidsIntro": "Hi team! Use the picture clues and help each other — everyone wins together.",
+  "sessionSetupBox": "Hunt-Hue Box setup",
+  "sessionPlayers": "Players",
+  "sessionTeams": "Teams",
+  "sessionTeamName": "Team {number} name",
+  "@sessionTeamName": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+  "sessionSummary": "{players} players · {teams} teams · {missions} missions",
+  "@sessionSummary": {
+    "placeholders": {
+      "players": {"type": "int"},
+      "teams": {"type": "int"},
+      "missions": {"type": "int"}
+    }
+  },
+  "sessionCameraOptional": "Camera verify (optional bonus)",
+  "sessionCameraOptionalSub": "Off by default. Party, Team, Kids, and Box stay camera-free.",
+  "sessionCameraDisabled": "Camera disabled",
+  "sessionCameraDisabledSub": "Manual and group confirm only.",
+  "sessionFeatureHunts": "Hunts: objects, textures & combo cards",
+  "sessionFeaturePass": "Pass-device + group confirm",
+  "sessionFeatureTurns": "Individual turns",
+  "sessionFeatureScoreboard": "Team scoreboard on every mission",
+  "sessionBeginBriefing": "Begin briefing",
+  "passDeviceTitle": "Pass the device",
+  "passDeviceTeam": "Team {name}",
+  "@passDeviceTeam": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "passDevicePlayer": "Player {current} of {total}",
+  "@passDevicePlayer": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "passDeviceNoPeek": "Don't peek at the next mission until it's your turn!",
+  "passDeviceReady": "I'm ready — show mission",
+  "chromaMapEmpty": "Complete a chapter to light up your first region on the map.",
+  "chromaMapProgress": "Your expedition has unlocked {count} map nodes. Keep hunting to reveal more.",
+  "@chromaMapProgress": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "chromaMapRegions": "{count} regions explored",
+  "@chromaMapRegions": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "spiritBoxIntro": "Hunt-Hue Box mode! Draw missions from your physical deck — this device is the scorekeeper.",
+  "spiritMissionReady": "Mission {number} — {team}, ready?",
+  "@spiritMissionReady": {
+    "placeholders": {
+      "number": {"type": "int"},
+      "team": {"type": "String"}
+    }
+  },
+  "spiritExplorers": "Explorers",
+  "spiritHuntGreat": "Stunning hunt! The Chroma Meter surges.",
+  "spiritHuntGood": "Nice find — keep the expedition rolling.",
+  "spiritRematch": "Spirit Rematch! Twist: try the object hunt another way.",
+  "spiritMapUnlock": "Brilliant sync! A new region glows on the Chroma Map.",
+  "spiritMapProgress": "Nice hunt — the Expedition remembers this chapter.",
+  "huntHueBox": "Hunt-Hue Box",
+  "whatsInside": "What's inside",
+  "boxCardsCount": "{count} mission cards (object, texture, combo hunts)",
+  "@boxCardsCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  }
+}
