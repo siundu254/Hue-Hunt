@@ -2,10 +2,12 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
+import 'package:hue_hunt/services/unlock_service.dart';
 
 class MissionRepository {
   Map<SessionMode, List<MissionDefinition>>? _cache;
   List<MissionDefinition>? _boxDeck;
+  List<MissionDefinition>? _bonusChapter;
   String? _boxTagline;
 
   Future<List<MissionDefinition>> chapterFor(SessionMode mode) async {
@@ -15,6 +17,15 @@ class MissionRepository {
     final length = ModeProfile.forMode(mode).chapterLength;
     return deck.take(length).toList();
   }
+
+  Future<List<MissionDefinition>> bonusChapter({int count = 4}) async {
+    await _ensureBonusLoaded();
+    final deck = List<MissionDefinition>.from(_bonusChapter!);
+    deck.shuffle();
+    return deck.take(count).toList();
+  }
+
+  Future<bool> canPlayBonusChapter() => UnlockService.isBonusChapterUnlocked();
 
   Future<List<MissionDefinition>> boxChapter({int count = 5}) async {
     await _ensureBoxLoaded();
@@ -31,6 +42,9 @@ class MissionRepository {
     await _ensureBoxLoaded();
     return List.unmodifiable(_boxDeck!);
   }
+
+  Set<MissionType> typesInChapter(List<MissionDefinition> chapter) =>
+      chapter.map((m) => m.type).toSet();
 
   Future<void> _ensureLoaded() async {
     if (_cache != null) return;
@@ -50,6 +64,15 @@ class MissionRepository {
     final json = jsonDecode(raw) as Map<String, dynamic>;
     _boxTagline = json['tagline'] as String?;
     _boxDeck = (json['cards'] as List<dynamic>)
+        .map((e) => MissionDefinition.fromJson(e as Map<String, dynamic>))
+        .toList();
+  }
+
+  Future<void> _ensureBonusLoaded() async {
+    if (_bonusChapter != null) return;
+    final raw = await rootBundle.loadString('assets/missions/bonus_chapter.json');
+    final json = jsonDecode(raw) as Map<String, dynamic>;
+    _bonusChapter = (json['missions'] as List<dynamic>)
         .map((e) => MissionDefinition.fromJson(e as Map<String, dynamic>))
         .toList();
   }

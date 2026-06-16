@@ -4,6 +4,6 @@ class AppBranding {
   static const subBrand = 'Family Mission';
   static const tagline = 'The Chroma Expedition';
   static const studioName = 'NovaLumina Studio';
-  static const version = '1.0.0';
+  static const version = '2.0.0';
   static const versionLabel = 'v$version';
 }

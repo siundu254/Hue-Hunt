@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
-import 'package:hue_hunt/widgets/target_hue_card.dart';
+import 'package:hue_hunt/widgets/mission_prompt_card.dart';
 
 class EchoMissionPanel extends StatefulWidget {
   const EchoMissionPanel({
@@ -27,11 +27,11 @@ class _EchoMissionPanelState extends State<EchoMissionPanel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Text('ECHO', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        const Text('SKETCH', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
         const SizedBox(height: 8),
         Text(missionTypeDescription(MissionType.echo, neutral: widget.profile.neutralCopy)),
         const SizedBox(height: 12),
-        TargetHueCard(mission: widget.mission, profile: widget.profile),
+        MissionPromptCard(mission: widget.mission, profile: widget.profile),
         const SizedBox(height: 12),
         AspectRatio(
           aspectRatio: 1.4,
@@ -44,16 +44,24 @@ class _EchoMissionPanelState extends State<EchoMissionPanel> {
                 border: Border.all(color: Colors.white24),
               ),
               child: CustomPaint(
-                painter: _EchoPainter(_strokes, widget.mission.targetColor),
+                painter: _SketchPainter(_strokes),
                 child: _strokes.isEmpty
-                    ? const Center(child: Text('Draw the shade here'))
+                    ? const Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            'Sketch the object here — stick figures welcome!\nTeammates guess what you drew.',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
                     : null,
               ),
             ),
           ),
         ),
         const SizedBox(height: 10),
-        const Text('Group rates the drawing:'),
+        const Text('Did the group guess the object?'),
         Row(
           children: [
             for (final stars in [1, 2, 3])
@@ -78,17 +86,16 @@ class _EchoMissionPanelState extends State<EchoMissionPanel> {
   }
 }
 
-class _EchoPainter extends CustomPainter {
-  _EchoPainter(this.points, this.color);
+class _SketchPainter extends CustomPainter {
+  _SketchPainter(this.points);
   final List<Offset> points;
-  final Color color;
 
   @override
   void paint(Canvas canvas, Size size) {
     if (points.length < 2) return;
     final paint = Paint()
-      ..color = color
-      ..strokeWidth = 6
+      ..color = Colors.white
+      ..strokeWidth = 5
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
     for (var i = 0; i < points.length - 1; i++) {
@@ -97,5 +104,5 @@ class _EchoPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _EchoPainter oldDelegate) => true;
+  bool shouldRepaint(covariant _SketchPainter oldDelegate) => true;
 }

@@ -149,6 +149,13 @@ class _HuntMissionPanelState extends State<HuntMissionPanel> {
           const SizedBox(height: 8),
           Text('Points go to ${expedition.activeTeam?.name ?? 'your team'}.'),
         ],
+        if (expedition.cameraEnabled && _step == _HuntStep.confirm) ...[
+          const SizedBox(height: 8),
+          Text(
+            'Honor bonus: +2 pts if your group took a photo of the find.',
+            style: TextStyle(color: Colors.amber.shade200, fontSize: 13),
+          ),
+        ],
         const SizedBox(height: 12),
         FilledButton(
           onPressed: () => _success(gain: widget.mission.isScavengerHunt ? 28 : 22),

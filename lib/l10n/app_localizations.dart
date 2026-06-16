@@ -131,7 +131,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeHeroBody.
   ///
   /// In en, this message translates to:
-  /// **'Find objects, textures & combos in the room — then forge and echo colour on screen.'**
+  /// **'Spirit Forge invents missions for your room — app, team phones, spectators, or Hunt-Hue Box tabletop.'**
   String get homeHeroBody;
 
   /// No description provided for @statBestScore.
@@ -317,8 +317,50 @@ abstract class AppLocalizations {
   /// No description provided for @settingsSoundEffectsSub.
   ///
   /// In en, this message translates to:
-  /// **'Mission cues and celebration sounds'**
+  /// **'Spirit voice, Game Show Drop, and mission cues'**
   String get settingsSoundEffectsSub;
+
+  /// No description provided for @settingsSpiritHost.
+  ///
+  /// In en, this message translates to:
+  /// **'Hue Spirit host'**
+  String get settingsSpiritHost;
+
+  /// No description provided for @settingsForgeDefaults.
+  ///
+  /// In en, this message translates to:
+  /// **'Spirit Forge'**
+  String get settingsForgeDefaults;
+
+  /// No description provided for @settingsDefaultOpenRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Open expedition room'**
+  String get settingsDefaultOpenRoom;
+
+  /// No description provided for @settingsDefaultOpenRoomSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Team and spectator phones join on the same Wi‑Fi'**
+  String get settingsDefaultOpenRoomSub;
+
+  /// No description provided for @settingsGameShowReveals.
+  ///
+  /// In en, this message translates to:
+  /// **'Game Show Drop reveals'**
+  String get settingsGameShowReveals;
+
+  /// No description provided for @settingsGameShowRevealsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Fullscreen voice countdown before each mission'**
+  String get settingsGameShowRevealsSub;
+
+  /// No description provided for @settingsMissionContentNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Mission prompts stay in English; all menus follow your language.'**
+  String get settingsMissionContentNote;
 
   /// No description provided for @settingsHaptics.
   ///
@@ -415,12 +457,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Replay introduction'**
   String get settingsReplayOnboarding;
-
-  /// No description provided for @settingsMissionContentNote.
-  ///
-  /// In en, this message translates to:
-  /// **'Mission card text stays in English in v1.0; UI follows your language.'**
-  String get settingsMissionContentNote;
 
   /// No description provided for @settingsAbout.
   ///

@@ -13,7 +13,7 @@ enum SessionPhase {
   chapterComplete,
 }
 
-enum PlaySource { digital, huntHueBox }
+enum PlaySource { digital, huntHueBox, bonusChapter, spiritForge }
 
 class MissionDefinition {
   const MissionDefinition({
@@ -38,7 +38,15 @@ class MissionDefinition {
   final String? funFact;
   final String? boxCardId;
 
-  bool get isColourHunt => false; // hunts in app use objects/textures, colour handled in Forge/Echo
+  bool get isColourHunt => false;
+
+  /// Primary player-facing instruction — always object/scene led.
+  String get challengePrompt {
+    if (objectPrompt != null && objectPrompt!.trim().isNotEmpty) {
+      return objectPrompt!.trim();
+    }
+    return clue;
+  }
   bool get isScavengerHunt => type == MissionType.hunt;
 
   String get huntHeadline {
@@ -73,8 +81,8 @@ class MissionDefinition {
 
 String missionTypeLabel(MissionType type) => switch (type) {
       MissionType.hunt => 'HUNT',
-      MissionType.forge => 'FORGE',
-      MissionType.echo => 'ECHO',
+      MissionType.forge => 'TRIO',
+      MissionType.echo => 'SKETCH',
       MissionType.relay => 'RELAY',
       MissionType.duel => 'DUEL',
       MissionType.ritual => 'RITUAL',
@@ -84,19 +92,19 @@ String missionTypeDescription(MissionType type, {required bool neutral}) {
   if (neutral) {
     return switch (type) {
       MissionType.hunt => 'Search the space for real-world objects and textures that fit the mission prompt.',
-      MissionType.forge => 'Blend the digital palette until it matches the target.',
-      MissionType.echo => 'Sketch the shade; teammates rate the match.',
-      MissionType.relay => 'Each participant contributes before the timer ends.',
-      MissionType.duel => 'Teams compete on the same objective.',
-      MissionType.ritual => 'Finale: find a glow-friendly colour together.',
+      MissionType.forge => 'Collect three real objects from the room that match the theme.',
+      MissionType.echo => 'Sketch an object on screen — teammates guess what you drew.',
+      MissionType.relay => 'Each participant finds one object, then passes the device.',
+      MissionType.duel => 'Teams race to find the same object prompt first.',
+      MissionType.ritual => 'Finale: group vote on the best find from the chapter.',
     };
   }
   return switch (type) {
     MissionType.hunt => 'Scavenger hunt — race to find the best object for the prompt!',
-    MissionType.forge => 'Mini art studio — mix paints on screen.',
-    MissionType.echo => 'Pictionary meets colour — draw and guess.',
-    MissionType.relay => 'Game-show relay — pass the device!',
-    MissionType.duel => 'Team vs team race!',
-    MissionType.ritual => 'Finale ritual — lights low, hunt the glow.',
+    MissionType.forge => 'Trio hunt — gather 3 objects from the room!',
+    MissionType.echo => 'Quick sketch — draw the object, group guesses!',
+    MissionType.relay => 'Game-show relay — pass the device, add your find!',
+    MissionType.duel => 'Team vs team object race!',
+    MissionType.ritual => 'Finale ritual — showcase your best find!',
   };
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
-import 'package:hue_hunt/services/color_math.dart';
-import 'package:hue_hunt/widgets/target_hue_card.dart';
+import 'package:hue_hunt/widgets/mission_prompt_card.dart';
 
 class ForgeMissionPanel extends StatefulWidget {
   const ForgeMissionPanel({
@@ -21,72 +20,49 @@ class ForgeMissionPanel extends StatefulWidget {
 }
 
 class _ForgeMissionPanelState extends State<ForgeMissionPanel> {
-  double _r = 128;
-  double _g = 128;
-  double _b = 128;
+  final _found = [false, false, false];
+
+  int get _foundCount => _found.where((f) => f).length;
 
   @override
   Widget build(BuildContext context) {
-    final mixed = ColorMath.fromChannels(_r.round(), _g.round(), _b.round());
-    final match = ColorMath.matchPercent(mixed, widget.mission.targetColor);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Text('FORGE', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        const Text('TRIO', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
         const SizedBox(height: 8),
         Text(missionTypeDescription(MissionType.forge, neutral: widget.profile.neutralCopy)),
         const SizedBox(height: 12),
-        TargetHueCard(mission: widget.mission, profile: widget.profile),
-        const SizedBox(height: 12),
-        Row(
-          children: [
-            Expanded(
-              child: Container(
-                height: 72,
-                decoration: BoxDecoration(
-                  color: mixed,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  'Your mix\n$match% match',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: ColorMath.onColor(mixed),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ],
+        MissionPromptCard(mission: widget.mission, profile: widget.profile),
+        const SizedBox(height: 16),
+        const Text(
+          'Hunt the room — tap each slot when your group has a real object.',
+          style: TextStyle(height: 1.35),
         ),
-        _slider('Red', _r, Colors.red, (v) => setState(() => _r = v)),
-        _slider('Green', _g, Colors.green, (v) => setState(() => _g = v)),
-        _slider('Blue', _b, Colors.blue, (v) => setState(() => _b = v)),
+        const SizedBox(height: 12),
+        for (var i = 0; i < _found.length; i++) ...[
+          CheckboxListTile(
+            value: _found[i],
+            onChanged: (v) => setState(() => _found[i] = v ?? false),
+            title: Text('Object ${i + 1} found in the room'),
+            subtitle: Text(_found[i] ? 'Nice — keep hunting!' : 'Still looking…'),
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+        ],
         const SizedBox(height: 8),
         FilledButton(
-          onPressed: () {
-            final gain = match >= 85 ? 30 : match >= 65 ? 22 : match >= 45 ? 12 : 5;
-            widget.onComplete(meterGain: gain, success: match >= 45);
-          },
-          child: Text(match >= 65 ? 'Lock forge ($match%)' : 'Submit mix ($match%)'),
-        ),
-      ],
-    );
-  }
-
-  Widget _slider(String label, double value, Color color, ValueChanged<double> onChanged) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(label),
-        Slider(
-          value: value,
-          min: 0,
-          max: 255,
-          activeColor: color,
-          onChanged: onChanged,
+          onPressed: _foundCount == 3
+              ? () => widget.onComplete(meterGain: 30, success: true)
+              : _foundCount >= 1
+                  ? () => widget.onComplete(meterGain: 12 + _foundCount * 4, success: true)
+                  : null,
+          child: Text(
+            _foundCount == 3
+                ? 'Trio complete!'
+                : _foundCount > 0
+                    ? 'Submit $_foundCount/3 finds'
+                    : 'Find objects in the room first',
+          ),
         ),
       ],
     );

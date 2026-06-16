@@ -152,7 +152,9 @@ class _SessionSetupScreenState extends State<SessionSetupScreen> {
             if (_profile.cameraAllowed)
               SwitchListTile(
                 title: Text(l.sessionCameraOptional),
-                subtitle: Text(l.sessionCameraOptionalSub),
+                subtitle: const Text(
+                  'Honor bonus: if your group snaps a photo of the find, award +2 pts manually.',
+                ),
                 value: _camera,
                 onChanged: (v) => setState(() => _camera = v),
               )

@@ -22,7 +22,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeHeroBody =>
-      'Find objects, textures & combos in the room — then forge and echo colour on screen.';
+      'Spirit Forge invents missions for your room — app, team phones, spectators, or Hunt-Hue Box tabletop.';
 
   @override
   String get statBestScore => 'Best score';
@@ -120,7 +120,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsSoundEffects => 'Sound effects';
 
   @override
-  String get settingsSoundEffectsSub => 'Mission cues and celebration sounds';
+  String get settingsSoundEffectsSub =>
+      'Spirit voice, Game Show Drop, and mission cues';
+
+  @override
+  String get settingsSpiritHost => 'Hue Spirit host';
+
+  @override
+  String get settingsForgeDefaults => 'Spirit Forge';
+
+  @override
+  String get settingsDefaultOpenRoom => 'Open expedition room';
+
+  @override
+  String get settingsDefaultOpenRoomSub =>
+      'Team and spectator phones join on the same Wi‑Fi';
+
+  @override
+  String get settingsGameShowReveals => 'Game Show Drop reveals';
+
+  @override
+  String get settingsGameShowRevealsSub =>
+      'Fullscreen voice countdown before each mission';
+
+  @override
+  String get settingsMissionContentNote =>
+      'Mission prompts stay in English; all menus follow your language.';
 
   @override
   String get settingsHaptics => 'Haptic feedback';
@@ -171,10 +196,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsReplayOnboarding => 'Replay introduction';
-
-  @override
-  String get settingsMissionContentNote =>
-      'Mission card text stays in English in v1.0; UI follows your language.';
 
   @override
   String get settingsAbout => 'About';

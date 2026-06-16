@@ -22,7 +22,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get homeHeroBody =>
-      'Findet Objekte, Texturen und Kombos im Raum — dann schmiedet und malt Farben auf dem Gerät.';
+      'Echte Objekte in jedem Raum jagen — skizzieren, sammeln, Staffeln und Team-Duelle mit dem Farbgeist als Gastgeber.';
 
   @override
   String get statBestScore => 'Bestpunktzahl';
@@ -120,7 +120,32 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settingsSoundEffects => 'Soundeffekte';
 
   @override
-  String get settingsSoundEffectsSub => 'Missions- und Feiertöne';
+  String get settingsSoundEffectsSub =>
+      'Spirit-Stimme, Game Show Drop und Missionshinweise';
+
+  @override
+  String get settingsSpiritHost => 'Hue-Spirit-Moderator';
+
+  @override
+  String get settingsForgeDefaults => 'Spirit Forge';
+
+  @override
+  String get settingsDefaultOpenRoom => 'Expeditionsraum öffnen';
+
+  @override
+  String get settingsDefaultOpenRoomSub =>
+      'Weitere Handys verbinden sich im gleichen WLAN';
+
+  @override
+  String get settingsGameShowReveals => 'Game-Show-Drop-Ankündigungen';
+
+  @override
+  String get settingsGameShowRevealsSub =>
+      'Vollbild-Countdown mit Stimme vor jeder Mission';
+
+  @override
+  String get settingsMissionContentNote =>
+      'Missionskarten bleiben auf Englisch; die Oberfläche folgt deiner Sprache.';
 
   @override
   String get settingsHaptics => 'Haptisches Feedback';
@@ -170,10 +195,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get settingsReplayOnboarding => 'Einführung erneut ansehen';
-
-  @override
-  String get settingsMissionContentNote =>
-      'Missionskartentext bleibt in v1.0 auf Englisch; die Oberfläche folgt Ihrer Sprache.';
 
   @override
   String get settingsAbout => 'Über';

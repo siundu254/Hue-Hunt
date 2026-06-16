@@ -7,6 +7,8 @@ import 'package:hue_hunt/screens/chroma_map_screen.dart';
 import 'package:hue_hunt/screens/hunt_hue_box_screen.dart';
 import 'package:hue_hunt/screens/journal_screen.dart';
 import 'package:hue_hunt/screens/onboarding_screen.dart';
+import 'package:hue_hunt/screens/spirit_forge_screen.dart';
+import 'package:hue_hunt/screens/join_expedition_screen.dart';
 import 'package:hue_hunt/screens/session_setup_screen.dart';
 import 'package:hue_hunt/screens/settings_screen.dart';
 import 'package:hue_hunt/theme/app_colors.dart';
@@ -97,6 +99,30 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   FilledButton.icon(
                     onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (_) => const SpiritForgeScreen()),
+                    ),
+                    icon: const Icon(Icons.auto_awesome),
+                    label: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 4),
+                      child: Text('Spirit Forge — start expedition'),
+                    ),
+                    style: FilledButton.styleFrom(
+                      minimumSize: const Size.fromHeight(52),
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: AppColors.backgroundDark,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  OutlinedButton.icon(
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (_) => const JoinExpeditionScreen()),
+                    ),
+                    icon: const Icon(Icons.phonelink_ring_outlined),
+                    label: const Text('Join expedition on this phone'),
+                  ),
+                  const SizedBox(height: 8),
+                  FilledButton.tonalIcon(
+                    onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(
                         builder: (_) => SessionSetupScreen(mode: provider.lastMode),
                       ),
@@ -104,12 +130,7 @@ class HomeScreen extends StatelessWidget {
                     icon: const Icon(Icons.play_arrow_rounded),
                     label: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Text(l.playMode(lastProfile.localizedTitle(l))),
-                    ),
-                    style: FilledButton.styleFrom(
-                      minimumSize: const Size.fromHeight(52),
-                      backgroundColor: AppColors.accent,
-                      foregroundColor: AppColors.backgroundDark,
+                      child: Text('Classic: ${lastProfile.localizedTitle(l)}'),
                     ),
                   ),
                   Align(

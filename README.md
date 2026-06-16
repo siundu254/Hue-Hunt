@@ -1,10 +1,12 @@
-# Hue Hunt: Family Mission
+# Hue Hunt — Spirit Forge Platform
 
-**The Chroma Expedition** — NovaLumina Studio’s first social scavenger rollout.
+**The Chroma Expedition** — NovaLumina Studio’s AI-hosted mission platform for any room.
 
-Hunt real **objects, textures, and combos** in any room, plus short on-device missions (Forge, Echo, Relay, Duel, Ritual). Five modes for family, friends, parties, teams, and kids. **Hunt-Hue Box** adds a device-optional tabletop path.
+Hunt real **objects, textures, and combos** — not colour swatches. **Spirit Forge** is the default way to play: the Hue Spirit forges missions for your room, runs a game-show countdown, and can host **multiple phones** plus **Hunt-Hue Box** tabletop.
 
-## Run the demo
+Platform spec: [docs/HUE_HUNT_V20_PLATFORM_SPEC.md](docs/HUE_HUNT_V20_PLATFORM_SPEC.md)
+
+## Run
 
 ```bash
 cd hue_hunt
@@ -12,39 +14,36 @@ flutter pub get
 flutter run
 ```
 
-Recommended: iOS Simulator or Android emulator in portrait. First launch shows a short onboarding; use **Play Family Mission** for the fastest investor walkthrough.
+## Primary path (v2.0)
 
-## What to show investors
+**Home → Spirit Forge** → App or **Hunt-Hue Box** → pick venue → **Forge & launch**
 
-1. **Home** — logo, stats, primary **Play** CTA, five mode cards  
-2. **Family Mission** — object-led hunt → group confirm → Chroma Meter → map unlock  
-3. **Hunt-Hue Box** — retail SKU story, rules PDF, 48-card gallery  
-4. **Chroma Map & Journal** — progression after one chapter  
+Optional: **Open expedition room** → lobby QR → team/spectator phones join on same Wi‑Fi.
 
-Formal documents: [`documents/`](documents/) (business plan, roadmap, investor pitch DOCX).
+## Multi-device
 
-## Settings & languages
+| Role | Action |
+|------|--------|
+| Host | Spirit Forge → open room → start chapter |
+| Team phone | Join expedition → Team |
+| Spectator | Join expedition → Spectator → vote ★1–5 on finds |
 
-Open **Settings** (gear on home) for game controls and language:
+## Board game
 
-| Language | Code |
-|----------|------|
-| English | `en` |
-| Español | `es` |
-| Français | `fr` |
-| Deutsch | `de` |
-| 中文 (简体) | `zh` |
+**Hunt-Hue Box** → **Spirit Forge with Hunt-Hue Box** — draw physical cards; app is AI host + scorekeeper. Same JSON pipeline as digital (`hunt_hue_box_deck.json`).
 
-**Game controls:** sound effects, haptics, Hue Spirit hints, pass-device reminders, mission timer (short / standard / long), default camera bonus, reset progress, replay introduction.
+Classic box scorekeeper (no forge) still available under Hunt-Hue Box.
 
-Mission card text in JSON remains English in v1.0; all UI chrome follows the selected language.
+## Classic modes
+
+Home → **Classic: Family Mission** (or mode cards) — original chapter decks without Spirit Forge.
 
 ## Version
 
-`1.0.0` — pitch build (see `pubspec.yaml` and `lib/constants/app_branding.dart`).
+`2.0.0` — Spirit Forge core, expedition room LAN, box integration. See `pubspec.yaml` and `lib/constants/app_branding.dart`.
 
 ## Tech
 
-- Flutter · Provider · SharedPreferences  
-- Mission content: `assets/missions/*.json`  
+- Flutter · Provider · LAN HTTP room sync (port 8765)
+- Mission content: `assets/missions/*.json`
 - Box rules: `assets/box/hunt_hue_box_rules.md`

@@ -1,0 +1,41 @@
+{
+  "title": "Spirit Expedition Bonus",
+  "missions": [
+    {
+      "type": "hunt",
+      "huntCategory": "object",
+      "hueName": "Spirit Lantern",
+      "hex": "#FFD700",
+      "objectPrompt": "Find something that glows or reflects light",
+      "clue": "Lamp, screen, or shiny gift wrap.",
+      "picture": "\ud83c\udfee"
+    },
+    {
+      "type": "hunt",
+      "huntCategory": "combo",
+      "hueName": "Holiday Duo",
+      "hex": "#C41E3A",
+      "objectPrompt": "Find something red AND soft",
+      "clue": "Blanket, sweater, or plush.",
+      "picture": "\ud83c\udf81"
+    },
+    {
+      "type": "hunt",
+      "huntCategory": "texture",
+      "hueName": "Winter Touch",
+      "hex": "#E8F4F8",
+      "objectPrompt": "Find something cold or smooth",
+      "clue": "Glass, metal, or window.",
+      "picture": "\u2744\ufe0f"
+    },
+    {
+      "type": "ritual",
+      "hueName": "Box Finale",
+      "hex": "#9B5DFF",
+      "clue": "Group vote on the champion object.",
+      "picture": "\u2728",
+      "boxCardId": "BONUS-04",
+      "objectPrompt": "Everyone reveals their favorite find from the box session"
+    }
+  ]
+}

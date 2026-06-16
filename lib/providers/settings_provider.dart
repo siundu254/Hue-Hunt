@@ -17,6 +17,8 @@ class SettingsProvider extends ChangeNotifier {
   bool _spiritHints = true;
   bool _passDeviceReminders = true;
   bool _defaultCameraBonus = false;
+  bool _defaultOpenRoom = true;
+  bool _defaultGameShowReveals = true;
   MissionTimerPreset _timerPreset = MissionTimerPreset.standard;
 
   Locale? get locale => _locale;
@@ -25,6 +27,8 @@ class SettingsProvider extends ChangeNotifier {
   bool get spiritHints => _spiritHints;
   bool get passDeviceReminders => _passDeviceReminders;
   bool get defaultCameraBonus => _defaultCameraBonus;
+  bool get defaultOpenRoom => _defaultOpenRoom;
+  bool get defaultGameShowReveals => _defaultGameShowReveals;
   MissionTimerPreset get timerPreset => _timerPreset;
 
   bool get useSystemLocale => _locale == null;
@@ -42,6 +46,8 @@ class SettingsProvider extends ChangeNotifier {
     _spiritHints = prefs.getBool('spirit_hints') ?? true;
     _passDeviceReminders = prefs.getBool('pass_device_reminders') ?? true;
     _defaultCameraBonus = prefs.getBool('default_camera_bonus') ?? false;
+    _defaultOpenRoom = prefs.getBool('default_open_room') ?? true;
+    _defaultGameShowReveals = prefs.getBool('default_game_show_reveals') ?? true;
     final timerIndex = prefs.getInt('timer_preset') ?? 1;
     _timerPreset = MissionTimerPreset.values[timerIndex.clamp(0, 2)];
     notifyListeners();
@@ -85,6 +91,16 @@ class SettingsProvider extends ChangeNotifier {
   Future<void> setDefaultCameraBonus(bool value) async {
     _defaultCameraBonus = value;
     await _saveBool('default_camera_bonus', value);
+  }
+
+  Future<void> setDefaultGameShowReveals(bool value) async {
+    _defaultGameShowReveals = value;
+    await _saveBool('default_game_show_reveals', value);
+  }
+
+  Future<void> setDefaultOpenRoom(bool value) async {
+    _defaultOpenRoom = value;
+    await _saveBool('default_open_room', value);
   }
 
   Future<void> setTimerPreset(MissionTimerPreset preset) async {

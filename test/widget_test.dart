@@ -13,8 +13,8 @@ void main() {
     await tester.pumpAndSettle(const Duration(seconds: 4));
 
     expect(find.text('Hue Hunt'), findsOneWidget);
-    expect(find.text('Family Mission'), findsWidgets);
-    expect(find.text('Play Family Mission'), findsOneWidget);
+    expect(find.text('Spirit Forge — start expedition'), findsOneWidget);
+    expect(find.textContaining('Classic:'), findsOneWidget);
 
     await tester.scrollUntilVisible(
       find.text('Friends Hunt'),

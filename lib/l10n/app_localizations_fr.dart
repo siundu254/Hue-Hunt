@@ -22,7 +22,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get homeHeroBody =>
-      'Trouvez objets, textures et combinaisons dans la pièce — puis forgez et dessinez les couleurs à l\'écran.';
+      'Cherchez de vrais objets dans n\'importe quelle pièce — croquis, collecte, relais et duels avec l\'Esprit des teintes comme hôte.';
 
   @override
   String get statBestScore => 'Meilleur score';
@@ -120,7 +120,32 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settingsSoundEffects => 'Effets sonores';
 
   @override
-  String get settingsSoundEffectsSub => 'Signaux de mission et célébrations';
+  String get settingsSoundEffectsSub =>
+      'Voix de l\'Esprit, Game Show Drop et signaux de mission';
+
+  @override
+  String get settingsSpiritHost => 'Animateur Hue Spirit';
+
+  @override
+  String get settingsForgeDefaults => 'Spirit Forge';
+
+  @override
+  String get settingsDefaultOpenRoom => 'Ouvrir la salle d\'expédition';
+
+  @override
+  String get settingsDefaultOpenRoomSub =>
+      'D\'autres téléphones rejoignent sur le même Wi‑Fi';
+
+  @override
+  String get settingsGameShowReveals => 'Annonces Game Show Drop';
+
+  @override
+  String get settingsGameShowRevealsSub =>
+      'Compte à rebours vocal plein écran avant chaque mission';
+
+  @override
+  String get settingsMissionContentNote =>
+      'Les cartes de mission restent en anglais ; l\'interface suit votre langue.';
 
   @override
   String get settingsHaptics => 'Retour haptique';
@@ -172,10 +197,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get settingsReplayOnboarding => 'Revoir l\'introduction';
-
-  @override
-  String get settingsMissionContentNote =>
-      'Le texte des cartes de mission reste en anglais en v1.0 ; l\'interface suit votre langue.';
 
   @override
   String get settingsAbout => 'À propos';

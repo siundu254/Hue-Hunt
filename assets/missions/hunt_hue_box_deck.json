@@ -62,24 +62,27 @@
       "type": "relay",
       "hueName": "Blue Relay",
       "hex": "#FCBAD3",
-      "clue": "Each player finds one blue thing \u2014 15s each.",
-      "picture": "\u23f1\ufe0f"
+      "clue": "Pass the device after each find.",
+      "picture": "\u23f1\ufe0f",
+      "objectPrompt": "Each player finds one object for \u201cBlue Relay\u201d"
     },
     {
       "boxCardId": "HHB-07",
       "type": "duel",
       "hueName": "S-Print Duel",
       "hex": "#FFFFD2",
-      "clue": "Race: first object starting with S.",
-      "picture": "\ud83c\udfc1"
+      "clue": "Tap when your team has a match in the room.",
+      "picture": "\ud83c\udfc1",
+      "objectPrompt": "Both teams hunt: S-Print Duel"
     },
     {
       "boxCardId": "HHB-08",
       "type": "ritual",
       "hueName": "Glow Ritual",
       "hex": "#FFD93D",
-      "clue": "Dim lights \u2014 hunt something that glows.",
-      "picture": "\ud83c\udf1f"
+      "clue": "Group vote on the best object \u2014 no camera required.",
+      "picture": "\ud83c\udf1f",
+      "objectPrompt": "Everyone reveals their favorite find from this chapter"
     },
     {
       "boxCardId": "HHB-09",
@@ -184,16 +187,18 @@
       "type": "relay",
       "hueName": "Red Relay",
       "hex": "#AB47BC",
-      "clue": "Each player: one red object, 15s.",
-      "picture": "\u23f1\ufe0f"
+      "clue": "Pass the device after each find.",
+      "picture": "\u23f1\ufe0f",
+      "objectPrompt": "Each player finds one object for \u201cRed Relay\u201d"
     },
     {
       "boxCardId": "HHB-20",
       "type": "duel",
       "hueName": "Metal Duel",
       "hex": "#26A69A",
-      "clue": "First team with something metal wins.",
-      "picture": "\u2694\ufe0f"
+      "clue": "Tap when your team has a match in the room.",
+      "picture": "\u2694\ufe0f",
+      "objectPrompt": "Both teams hunt: Metal Duel"
     },
     {
       "boxCardId": "HHB-21",
@@ -278,16 +283,18 @@
       "type": "relay",
       "hueName": "Rainbow Relay",
       "hex": "#FFD54F",
-      "clue": "Chain: each player a different colour.",
-      "picture": "\u23f1\ufe0f"
+      "clue": "Pass the device after each find.",
+      "picture": "\u23f1\ufe0f",
+      "objectPrompt": "Each player finds one object for \u201cRainbow Relay\u201d"
     },
     {
       "boxCardId": "HHB-30",
       "type": "duel",
       "hueName": "Round Duel",
       "hex": "#5E35B1",
-      "clue": "First team with something round wins.",
-      "picture": "\ud83c\udfaf"
+      "clue": "Tap when your team has a match in the room.",
+      "picture": "\ud83c\udfaf",
+      "objectPrompt": "Both teams hunt: Round Duel"
     },
     {
       "boxCardId": "HHB-31",
@@ -353,8 +360,9 @@
       "type": "ritual",
       "hueName": "Sunset Ritual",
       "hex": "#F9A825",
-      "clue": "All teams: find warm-coloured glow.",
-      "picture": "\ud83c\udf05"
+      "clue": "Group vote on the best object \u2014 no camera required.",
+      "picture": "\ud83c\udf05",
+      "objectPrompt": "Everyone reveals their favorite find from this chapter"
     },
     {
       "boxCardId": "HHB-38",
@@ -390,16 +398,18 @@
       "type": "relay",
       "hueName": "Nature Relay",
       "hex": "#7CB342",
-      "clue": "Each player: one natural object.",
-      "picture": "\u23f1\ufe0f"
+      "clue": "Pass the device after each find.",
+      "picture": "\u23f1\ufe0f",
+      "objectPrompt": "Each player finds one object for \u201cNature Relay\u201d"
     },
     {
       "boxCardId": "HHB-42",
       "type": "duel",
       "hueName": "Paper Race",
       "hex": "#3949AB",
-      "clue": "First team with paper wins.",
-      "picture": "\ud83d\udcc4"
+      "clue": "Tap when your team has a match in the room.",
+      "picture": "\ud83d\udcc4",
+      "objectPrompt": "Both teams hunt: Paper Race"
     },
     {
       "boxCardId": "HHB-43",
@@ -455,8 +465,9 @@
       "type": "ritual",
       "hueName": "Neon Finale",
       "hex": "#E040FB",
-      "clue": "Finale: everyone finds a neon-bright colour.",
-      "picture": "\ud83c\udf86"
+      "clue": "Speaker, toy, or decoration.",
+      "picture": "\ud83c\udf86",
+      "objectPrompt": "Everyone points at the loudest object in the room"
     }
   ]
 }

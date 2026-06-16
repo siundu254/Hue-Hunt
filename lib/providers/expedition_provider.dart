@@ -1,10 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:hue_hunt/data/mission_repository.dart';
+import 'package:hue_hunt/l10n/app_localizations.dart';
+import 'package:hue_hunt/models/chaos_twist.dart';
 import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
 import 'package:hue_hunt/models/spirit_mood.dart';
+import 'package:hue_hunt/models/venue_archetype.dart';
 import 'package:hue_hunt/l10n/spirit_l10n.dart';
 import 'package:hue_hunt/models/team_config.dart';
+import 'package:hue_hunt/models/expedition_format.dart';
+import 'package:hue_hunt/services/expedition_room_service.dart';
+import 'package:hue_hunt/services/spirit_forge_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ExpeditionProvider extends ChangeNotifier {
@@ -29,6 +35,14 @@ class ExpeditionProvider extends ChangeNotifier {
   List<TeamConfig> _teams = [];
   int _activeTeamIndex = 0;
   bool _cameraEnabled = false;
+  bool _gameShowReveals = false;
+  bool _awaitingGameShowReveal = false;
+  VenueArchetype? _forgeVenue;
+  ExpeditionFormat? _forgeFormat;
+  bool _roomHosting = false;
+  ChaosTwist? _activeChaos;
+  bool _chaosTriggered = false;
+  String? _spiritCustomLine;
   SpiritMessageKind _spiritKind = SpiritMessageKind.profileIntro;
   String? _spiritTeamName;
   SpiritMood _spiritMood = SpiritMood.neutral;
@@ -60,6 +74,14 @@ class ExpeditionProvider extends ChangeNotifier {
   int get activeTeamIndex => _activeTeamIndex;
   TeamConfig? get activeTeam => _teams.isEmpty ? null : _teams[_activeTeamIndex];
   bool get cameraEnabled => _cameraEnabled;
+  bool get gameShowReveals => _gameShowReveals;
+  bool get awaitingGameShowReveal => _awaitingGameShowReveal;
+  VenueArchetype? get forgeVenue => _forgeVenue;
+  ExpeditionFormat? get forgeFormat => _forgeFormat;
+  bool get roomHosting => _roomHosting;
+  ChaosTwist? get activeChaos => _activeChaos;
+  bool get isSpiritForge =>
+      _playSource == PlaySource.spiritForge || _forgeFormat != null;
   SpiritMessageKind get spiritKind => _spiritKind;
   String? get spiritTeamName => _spiritTeamName;
   SpiritMood get spiritMood => _spiritMood;
@@ -71,11 +93,26 @@ class ExpeditionProvider extends ChangeNotifier {
         teamName: _spiritTeamName,
         mode: _profile?.mode,
       );
+
+  String resolveSpiritText(AppLocalizations l) =>
+      _spiritCustomLine ?? spiritLine.resolve(l);
   Set<String> get stickers => Set.unmodifiable(_stickers);
   Set<String> get mapNodes => Set.unmodifiable(_mapNodes);
   bool get usesTeams => _teams.length >= 2;
   bool get needsPassDevice =>
-      _profile?.useGroupConfirm == true || _playSource == PlaySource.huntHueBox;
+      _profile?.useGroupConfirm == true ||
+      _playSource == PlaySource.huntHueBox ||
+      _forgeFormat == ExpeditionFormat.huntHueBox;
+
+  void syncRoomIfHosting() {
+    if (!_roomHosting || _forgeFormat == null) return;
+    ExpeditionRoomService.instance.publish(this, format: _forgeFormat!);
+  }
+
+  void setRoomHosting(bool hosting) {
+    _roomHosting = hosting;
+    notifyListeners();
+  }
 
   Future<void> loadProgress() async {
     final prefs = await SharedPreferences.getInstance();
@@ -117,6 +154,79 @@ class ExpeditionProvider extends ChangeNotifier {
     await prefs.setString('last_mode', mode.name);
   }
 
+  Future<void> configureForgeSession({
+    required VenueArchetype venue,
+    required SessionMode mode,
+    required int playerCount,
+    int teamCount = 2,
+    List<String>? teamNames,
+    String? roomNickname,
+    int? missionSecondsOverride,
+    bool gameShowReveals = true,
+    ExpeditionFormat format = ExpeditionFormat.digitalForge,
+    bool openRoom = false,
+  }) async {
+    _profile = ModeProfile.forMode(mode);
+    await _recordLastMode(mode);
+    _playerCount = playerCount.clamp(1, 12);
+    _forgeVenue = venue;
+    _forgeFormat = format;
+    _roomHosting = openRoom;
+    _gameShowReveals = gameShowReveals;
+    _chaosTriggered = false;
+    _activeChaos = null;
+    _effectiveMissionSeconds =
+        missionSecondsOverride ?? _profile!.missionSeconds;
+    _cameraEnabled = false;
+
+    if (format == ExpeditionFormat.huntHueBox) {
+      final box = await _missions.boxChapter(count: _profile!.chapterLength);
+      _chapter = SpiritForgeService.forgeFromBoxDeck(
+        box,
+        count: _profile!.chapterLength,
+      );
+      _playSource = PlaySource.huntHueBox;
+    } else {
+      _chapter = SpiritForgeService.forge(
+        venue: venue,
+        roomNickname: roomNickname,
+        count: _profile!.chapterLength,
+      );
+      _playSource = PlaySource.spiritForge;
+    }
+
+    _teams = List.generate(
+      teamCount.clamp(2, 4),
+      (i) => TeamConfig(
+        name: teamNames != null && i < teamNames.length
+            ? teamNames[i]
+            : defaultTeams(teamCount)[i].name,
+      ),
+    );
+
+    _missionIndex = 0;
+    _chromaMeter = 0;
+    _sessionScore = 0;
+    _streak = 0;
+    _relayPlayer = 0;
+    _passPlayerIndex = 0;
+    _activeTeamIndex = 0;
+    _teamAWins = 0;
+    _teamBWins = 0;
+    _phase = SessionPhase.briefing;
+    _spiritKind = SpiritMessageKind.profileIntro;
+    _spiritCustomLine = SpiritForgeService.forgeNarration(
+      venue,
+      roomNickname: roomNickname,
+      box: format == ExpeditionFormat.huntHueBox,
+    );
+    _spiritTeamName = null;
+    _spiritMood = SpiritMood.celebrating;
+    _awaitingGameShowReveal = false;
+    notifyListeners();
+    syncRoomIfHosting();
+  }
+
   Future<void> configureSession({
     required SessionMode mode,
     required int playerCount,
@@ -130,6 +240,14 @@ class ExpeditionProvider extends ChangeNotifier {
     await _recordLastMode(mode);
     _playerCount = playerCount.clamp(1, 12);
     _playSource = playSource;
+    _forgeVenue = null;
+    _forgeFormat = null;
+    _roomHosting = false;
+    _gameShowReveals = false;
+    _chaosTriggered = false;
+    _activeChaos = null;
+    _spiritCustomLine = null;
+    _awaitingGameShowReveal = false;
     _effectiveMissionSeconds =
         missionSecondsOverride ?? _profile!.missionSeconds;
     _cameraEnabled = cameraEnabled ?? _profile!.cameraDefault;
@@ -137,7 +255,9 @@ class ExpeditionProvider extends ChangeNotifier {
 
     _chapter = playSource == PlaySource.huntHueBox
         ? await _missions.boxChapter(count: _profile!.chapterLength)
-        : await _missions.chapterFor(mode);
+        : playSource == PlaySource.bonusChapter
+            ? await _missions.bonusChapter(count: _profile!.chapterLength)
+            : await _missions.chapterFor(mode);
 
     _teams = List.generate(
       teamCount.clamp(2, 4),
@@ -160,23 +280,47 @@ class ExpeditionProvider extends ChangeNotifier {
     _phase = SessionPhase.briefing;
     _spiritKind = playSource == PlaySource.huntHueBox
         ? SpiritMessageKind.boxIntro
-        : SpiritMessageKind.profileIntro;
+        : playSource == PlaySource.bonusChapter
+            ? SpiritMessageKind.mapUnlock
+            : SpiritMessageKind.profileIntro;
     _spiritTeamName = null;
     _spiritMood = SpiritMood.excited;
     notifyListeners();
   }
 
   void startChapter() {
+    _spiritCustomLine = null;
     _goToMissionIntro();
   }
 
   void _goToMissionIntro() {
     _phase = SessionPhase.missionIntro;
     _spiritMood = SpiritMood.excited;
-    _spiritKind = SpiritMessageKind.missionReady;
     _spiritTeamName =
         _teams.isNotEmpty ? _teams[_activeTeamIndex].name : null;
+
+    if (_forgeFormat != null &&
+        _missionIndex == 1 &&
+        !_chaosTriggered) {
+      _activeChaos = ChaosTwist.random();
+      _chaosTriggered = true;
+      _spiritCustomLine = _activeChaos!.spiritLine;
+      _spiritKind = SpiritMessageKind.missionReady;
+    } else {
+      _spiritCustomLine = null;
+      _spiritKind = SpiritMessageKind.missionReady;
+    }
+
+    if (_gameShowReveals) _awaitingGameShowReveal = true;
     notifyListeners();
+  }
+
+  void completeGameShowReveal() {
+    _awaitingGameShowReveal = false;
+    if (_activeChaos != null && _missionIndex == 1) {
+      _spiritCustomLine = null;
+    }
+    beginMissionPlay();
   }
 
   void acknowledgePassDevice() {
@@ -194,18 +338,23 @@ class ExpeditionProvider extends ChangeNotifier {
   }
 
   void completeMission({required int meterGain, required bool success, int? teamIndex}) {
+    var gain = meterGain;
+    if (success && _roomHosting) {
+      gain += ExpeditionRoomService.instance.spectatorBonus();
+      ExpeditionRoomService.instance.clearVotesForMission();
+    }
     if (success) {
       _streak++;
-      _chromaMeter = (_chromaMeter + meterGain).clamp(0, 100);
-      _sessionScore += meterGain * 10;
+      _chromaMeter = (_chromaMeter + gain).clamp(0, 100);
+      _sessionScore += gain * 10;
       if (teamIndex != null && teamIndex < _teams.length) {
-        _teams[teamIndex].score += meterGain;
+        _teams[teamIndex].score += gain;
       } else if (_teams.isNotEmpty) {
-        _teams[_activeTeamIndex].score += meterGain;
+        _teams[_activeTeamIndex].score += gain;
       }
-      _spiritMood = meterGain >= 25 ? SpiritMood.celebrating : SpiritMood.excited;
+      _spiritMood = gain >= 25 ? SpiritMood.celebrating : SpiritMood.excited;
       _spiritKind =
-          meterGain >= 25 ? SpiritMessageKind.huntGreat : SpiritMessageKind.huntGood;
+          gain >= 25 ? SpiritMessageKind.huntGreat : SpiritMessageKind.huntGood;
     } else {
       _streak = 0;
       _spiritMood = SpiritMood.rematch;
@@ -213,6 +362,7 @@ class ExpeditionProvider extends ChangeNotifier {
     }
     _phase = SessionPhase.meterSync;
     notifyListeners();
+    syncRoomIfHosting();
   }
 
   void advanceAfterMeter() {
@@ -222,6 +372,7 @@ class ExpeditionProvider extends ChangeNotifier {
         ? SpiritMessageKind.mapUnlock
         : SpiritMessageKind.mapProgress;
     notifyListeners();
+    syncRoomIfHosting();
   }
 
   void advanceAfterSpirit() {
@@ -234,11 +385,13 @@ class ExpeditionProvider extends ChangeNotifier {
       _phase = SessionPhase.chapterComplete;
       _stickers.add(_profile!.mode.name);
       if (_playSource == PlaySource.huntHueBox) _stickers.add('hunt_hue_box');
+      if (_playSource == PlaySource.spiritForge) _stickers.add('spirit_forge');
       _persist();
     } else {
       _goToMissionIntro();
     }
     notifyListeners();
+    syncRoomIfHosting();
   }
 
   void nextRelayPlayer() {
@@ -287,6 +440,12 @@ class ExpeditionProvider extends ChangeNotifier {
     _teams = [];
     _phase = SessionPhase.briefing;
     _missionIndex = 0;
+    _forgeVenue = null;
+    _activeChaos = null;
+    _chaosTriggered = false;
+    _spiritCustomLine = null;
+    _forgeFormat = null;
+    _roomHosting = false;
     notifyListeners();
   }
 }

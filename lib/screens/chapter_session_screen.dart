@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hue_hunt/l10n/mode_l10n.dart';
-import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
+import 'package:hue_hunt/models/mission.dart';
+import 'package:hue_hunt/models/expedition_format.dart';
+import 'package:hue_hunt/models/venue_archetype.dart';
 import 'package:hue_hunt/providers/expedition_provider.dart';
 import 'package:hue_hunt/providers/settings_provider.dart';
 import 'package:hue_hunt/utils/l10n_ext.dart';
 import 'package:hue_hunt/screens/chapter_complete_screen.dart';
 import 'package:hue_hunt/screens/chroma_map_screen.dart';
+import 'package:hue_hunt/widgets/chaos_twist_banner.dart';
+import 'package:hue_hunt/widgets/host_mode_panel.dart';
+import 'package:hue_hunt/widgets/mission_reveal_overlay.dart';
 import 'package:hue_hunt/widgets/chroma_meter_bar.dart';
 import 'package:hue_hunt/widgets/hue_spirit_banner.dart';
 import 'package:hue_hunt/widgets/missions/mission_host.dart';
+import 'package:hue_hunt/widgets/mission_taxonomy_chip.dart';
 import 'package:hue_hunt/widgets/pass_device_banner.dart';
+import 'package:hue_hunt/widgets/spirit_tts_listener.dart';
 import 'package:hue_hunt/widgets/team_scoreboard.dart';
 import 'package:provider/provider.dart';
 
@@ -25,14 +32,18 @@ class ChapterSessionScreen extends StatelessWidget {
     final profile = expedition.profile!;
     final mission = expedition.currentMission;
     final spiritText = settings.spiritHints
-        ? expedition.spiritLine.resolve(l)
+        ? expedition.resolveSpiritText(l)
         : '';
+
+    final appTitle = switch (expedition.playSource) {
+      PlaySource.huntHueBox => expedition.forgeFormat != null ? 'Spirit Forge · Box' : l.huntHueBox,
+      PlaySource.spiritForge => 'Spirit Forge',
+      _ => profile.localizedTitle(l),
+    };
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          expedition.playSource == PlaySource.huntHueBox ? l.huntHueBox : profile.localizedTitle(l),
-        ),
+        title: Text(appTitle),
         actions: [
           if (expedition.phase != SessionPhase.briefing &&
               expedition.phase != SessionPhase.chapterComplete)
@@ -47,35 +58,61 @@ class ChapterSessionScreen extends StatelessWidget {
             ),
         ],
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ChromaMeterBar(
-              value: expedition.chromaMeter,
-              streak: profile.showStreaks ? expedition.streak : null,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ChromaMeterBar(
+                  value: expedition.chromaMeter,
+                  streak: profile.showStreaks ? expedition.streak : null,
+                ),
+                const SizedBox(height: 10),
+                TeamScoreboard(
+                  teams: expedition.teams,
+                  highlightIndex: expedition.activeTeamIndex,
+                ),
+                const SizedBox(height: 12),
+                if (expedition.roomHosting)
+                  HostModePanel(expedition: expedition, mission: mission),
+                if (expedition.activeChaos != null &&
+                    (expedition.phase == SessionPhase.missionPlay ||
+                        expedition.phase == SessionPhase.missionIntro))
+                  ChaosTwistBanner(twist: expedition.activeChaos!),
+                if (settings.spiritHints && spiritText.isNotEmpty)
+                  HueSpiritBanner(
+                    message: spiritText,
+                    mood: expedition.spiritMood,
+                    compact: expedition.phase == SessionPhase.missionPlay,
+                  ),
+                if (settings.spiritHints && spiritText.isNotEmpty)
+                  SpiritTtsListener(
+                    text: spiritText,
+                    enabled: settings.soundEffects,
+                    mode: profile.mode,
+                  ),
+                if (settings.spiritHints && spiritText.isNotEmpty) const SizedBox(height: 16),
+                _PhaseBody(
+                  expedition: expedition,
+                  profile: profile,
+                  mission: mission,
+                ),
+              ],
             ),
-            const SizedBox(height: 10),
-            TeamScoreboard(
-              teams: expedition.teams,
-              highlightIndex: expedition.activeTeamIndex,
-            ),
-            const SizedBox(height: 12),
-            if (settings.spiritHints && spiritText.isNotEmpty)
-              HueSpiritBanner(
-                message: spiritText,
-                mood: expedition.spiritMood,
-                compact: expedition.phase == SessionPhase.missionPlay,
-              ),
-            if (settings.spiritHints && spiritText.isNotEmpty) const SizedBox(height: 16),
-            _PhaseBody(
-              expedition: expedition,
-              profile: profile,
+          ),
+          if (expedition.awaitingGameShowReveal && mission != null)
+            MissionRevealOverlay(
               mission: mission,
+              missionIndex: expedition.missionIndex,
+              totalMissions: expedition.chapter.length,
+              teamName: expedition.activeTeam?.name,
+              soundEnabled: settings.soundEffects,
+              chaosTwist: expedition.activeChaos,
+              onComplete: expedition.completeGameShowReveal,
             ),
-          ],
-        ),
+        ],
       ),
     );
   }
@@ -98,6 +135,7 @@ class _PhaseBody extends StatelessWidget {
       case SessionPhase.briefing:
         return _BriefingPhase(profile: profile, expedition: expedition, onStart: expedition.startChapter);
       case SessionPhase.missionIntro:
+        if (expedition.awaitingGameShowReveal) return const SizedBox.shrink();
         final introMission = mission;
         if (introMission == null) return const SizedBox.shrink();
         return _MissionIntroPhase(
@@ -143,6 +181,7 @@ class _PhaseBody extends StatelessWidget {
           meter: expedition.chromaMeter,
           modeTitle: profile.localizedTitle(context.l10n),
           teams: expedition.teams,
+          isTeamExpedition: profile.mode == SessionMode.team,
           onViewMap: () => Navigator.of(context).push(
             MaterialPageRoute<void>(
               builder: (_) => ChromaMapScreen(highlight: profile.mode),
@@ -174,12 +213,49 @@ class _BriefingPhase extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text('Session briefing', style: Theme.of(context).textTheme.titleLarge),
-        const SizedBox(height: 8),
+        if (expedition.isSpiritForge && expedition.forgeVenue != null) ...[
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.all(14),
+            decoration: BoxDecoration(
+              color: Colors.amber.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: Colors.amber.withValues(alpha: 0.35)),
+            ),
+            child: Row(
+              children: [
+                Text(expedition.forgeVenue!.emoji, style: const TextStyle(fontSize: 32)),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    'Spirit Forge chapter for ${expedition.forgeVenue!.label} — '
+                    '${expedition.chapter.length} missions forged live. Game Show Drops enabled.',
+                    style: const TextStyle(height: 1.35, fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+        const SizedBox(height: 10),
+        MissionTypeOverviewRow(
+          types: expedition.chapter.map((m) => m.type).toSet().toList(),
+        ),
+        const SizedBox(height: 12),
         Text(
-          expedition.spiritLine.resolve(context.l10n),
+          expedition.resolveSpiritText(context.l10n),
           style: const TextStyle(height: 1.4),
         ),
-        if (expedition.playSource == PlaySource.huntHueBox) ...[
+        if (expedition.forgeFormat == ExpeditionFormat.huntHueBox ||
+            expedition.playSource == PlaySource.huntHueBox) ...[
+          const SizedBox(height: 12),
+          const Text(
+            'Draw the matching card from your Hunt-Hue Box — or mirror it on this screen. '
+            'Spirit Forge shuffled object-led box missions for this room.',
+            style: TextStyle(height: 1.35),
+          ),
+        ],
+        if (expedition.playSource == PlaySource.huntHueBox && expedition.forgeFormat == null) ...[
           const SizedBox(height: 12),
           const Text(
             'Use physical Hunt-Hue cards from your box, or mirror them on this device. '
@@ -191,7 +267,7 @@ class _BriefingPhase extends StatelessWidget {
         Text('Teams: ${expedition.teams.map((t) => t.name).join(' · ')}'),
         const SizedBox(height: 8),
         const Text(
-          'Hunt colours, objects, textures, and combos — not colour-only.\n'
+          'Hunt real objects, textures, and combos in the room — never colour swatches.\n'
           'Flow: intro → pass device (party/box) → play → meter → map sticker.',
         ),
         const SizedBox(height: 20),
@@ -228,18 +304,22 @@ class _MissionIntroPhase extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text('Mission ${index + 1} of $total', style: Theme.of(context).textTheme.titleLarge),
-        if (mission.boxCardId != null)
+        const SizedBox(height: 10),
+        MissionTaxonomyChip(mission: mission, large: true),
+        if (mission.boxCardId != null) ...[
+          const SizedBox(height: 6),
           Text('Box card ${mission.boxCardId}', style: TextStyle(color: Colors.amber.shade200)),
-        const SizedBox(height: 8),
+        ],
+        const SizedBox(height: 10),
         Text(
-          missionTypeLabel(mission.type),
-          style: TextStyle(
-            fontSize: 28,
+          mission.challengePrompt,
+          style: const TextStyle(
+            fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: mission.targetColor,
-            letterSpacing: 2,
           ),
         ),
+        const SizedBox(height: 6),
+        Text(mission.clue, style: const TextStyle(height: 1.35)),
         const SizedBox(height: 8),
         Text(missionTypeDescription(mission.type, neutral: profile.neutralCopy)),
         const SizedBox(height: 20),

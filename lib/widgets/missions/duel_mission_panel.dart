@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
-import 'package:hue_hunt/widgets/target_hue_card.dart';
+import 'package:hue_hunt/widgets/mission_prompt_card.dart';
 import 'package:provider/provider.dart';
 import 'package:hue_hunt/providers/expedition_provider.dart';
 
@@ -37,8 +37,14 @@ class DuelMissionPanel extends StatelessWidget {
         const SizedBox(height: 8),
         Text(missionTypeDescription(MissionType.duel, neutral: profile.neutralCopy)),
         const SizedBox(height: 12),
-        TargetHueCard(mission: mission, profile: profile),
-        const SizedBox(height: 16),
+        MissionPromptCard(mission: mission, profile: profile),
+        const SizedBox(height: 12),
+        const Text(
+          'Both teams hunt the same prompt in the room. Tap when your team has a match.',
+          textAlign: TextAlign.center,
+          style: TextStyle(height: 1.35),
+        ),
+        const SizedBox(height: 8),
         Text(
           'First team to $needed wins takes the duel.',
           textAlign: TextAlign.center,

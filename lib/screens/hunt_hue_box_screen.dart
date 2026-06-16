@@ -4,8 +4,14 @@ import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
 import 'package:hue_hunt/screens/box_card_gallery_screen.dart';
 import 'package:hue_hunt/screens/box_rules_screen.dart';
+import 'package:hue_hunt/models/expedition_format.dart';
+import 'package:hue_hunt/screens/spirit_forge_screen.dart';
 import 'package:hue_hunt/screens/session_setup_screen.dart';
 import 'package:hue_hunt/utils/l10n_ext.dart';
+import 'package:hue_hunt/screens/qr_unlock_screen.dart';
+import 'package:hue_hunt/services/facilitator_kit_pdf.dart';
+import 'package:hue_hunt/services/unlock_service.dart';
+import 'package:printing/printing.dart';
 
 /// Retail Hunt-Hue Box companion — device-optional tabletop play.
 class HuntHueBoxScreen extends StatefulWidget {
@@ -18,18 +24,24 @@ class HuntHueBoxScreen extends StatefulWidget {
 class _HuntHueBoxScreenState extends State<HuntHueBoxScreen> {
   String _tagline = '';
   int _cardCount = 0;
+  bool _bonusUnlocked = false;
 
   final _repo = MissionRepository();
 
   @override
   void initState() {
     super.initState();
-    _repo.allBoxCards().then((_) {
-      if (!mounted) return;
-      setState(() {
-        _tagline = _repo.boxTagline;
-        _cardCount = _repo.boxCardCount;
-      });
+    _load();
+  }
+
+  Future<void> _load() async {
+    await _repo.allBoxCards();
+    final unlocked = await UnlockService.isBonusChapterUnlocked();
+    if (!mounted) return;
+    setState(() {
+      _tagline = _repo.boxTagline;
+      _cardCount = _repo.boxCardCount;
+      _bonusUnlocked = unlocked;
     });
   }
 
@@ -90,12 +102,61 @@ class _HuntHueBoxScreenState extends State<HuntHueBoxScreen> {
               style: TextStyle(height: 1.4),
             ),
             const SizedBox(height: 24),
-            FilledButton(
-              onPressed: () => _startBoxSession(context, deviceOptional: true),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 14),
-                child: Text('Play with box + app scorekeeper'),
+            FilledButton.icon(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const SpiritForgeScreen(
+                    initialFormat: ExpeditionFormat.huntHueBox,
+                  ),
+                ),
               ),
+              icon: const Icon(Icons.auto_awesome),
+              label: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 14),
+                child: Text('Spirit Forge with Hunt-Hue Box'),
+              ),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton(
+              onPressed: () => _startBoxSession(context, deviceOptional: true),
+              child: const Text('Classic box scorekeeper (no forge)'),
+            ),
+            const SizedBox(height: 10),
+            OutlinedButton.icon(
+              onPressed: () async {
+                final ok = await Navigator.of(context).push<bool>(
+                  MaterialPageRoute<bool>(builder: (_) => const QrUnlockScreen()),
+                );
+                if (ok == true) _load();
+              },
+              icon: const Icon(Icons.qr_code_scanner),
+              label: Text(_bonusUnlocked ? 'Bonus chapter unlocked ✓' : 'Scan box QR'),
+            ),
+            if (_bonusUnlocked) ...[
+              const SizedBox(height: 8),
+              FilledButton.icon(
+                onPressed: () => _startBonusChapter(context),
+                icon: const Icon(Icons.auto_awesome),
+                label: const Text('Play Spirit Expedition bonus'),
+              ),
+            ],
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () async {
+                final bytes = await FacilitatorKitPdf.build();
+                await Printing.sharePdf(
+                  bytes: bytes,
+                  filename: 'hue_hunt_facilitator_kit.pdf',
+                );
+              },
+              icon: const Icon(Icons.menu_book_outlined),
+              label: const Text('Facilitator kit (PDF)'),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.campaign_outlined),
+              label: const Text('Pre-order Hunt-Hue Box — coming to Gamefound'),
             ),
             const SizedBox(height: 10),
             OutlinedButton.icon(
@@ -119,6 +180,17 @@ class _HuntHueBoxScreenState extends State<HuntHueBoxScreen> {
               child: const Text('Quick tabletop tips'),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  void _startBonusChapter(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const SessionSetupScreen(
+          mode: SessionMode.family,
+          playSource: PlaySource.bonusChapter,
         ),
       ),
     );

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
-import 'package:hue_hunt/widgets/target_hue_card.dart';
+import 'package:hue_hunt/widgets/mission_prompt_card.dart';
 import 'package:provider/provider.dart';
 import 'package:hue_hunt/providers/expedition_provider.dart';
 
@@ -75,7 +75,7 @@ class _RelayMissionPanelState extends State<RelayMissionPanel> {
         const SizedBox(height: 8),
         Text(missionTypeDescription(MissionType.relay, neutral: widget.profile.neutralCopy)),
         const SizedBox(height: 12),
-        TargetHueCard(mission: widget.mission, profile: widget.profile),
+        MissionPromptCard(mission: widget.mission, profile: widget.profile),
         const SizedBox(height: 16),
         Container(
           padding: const EdgeInsets.all(16),
@@ -102,7 +102,7 @@ class _RelayMissionPanelState extends State<RelayMissionPanel> {
             expedition.nextRelayPlayer();
             if (_contributions >= widget.playerCount) _finish();
           },
-          child: const Text('I added my colour beat'),
+          child: const Text('I found my object — pass it on'),
         ),
       ],
     );

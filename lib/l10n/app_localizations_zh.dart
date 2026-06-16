@@ -21,7 +21,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get studioName => 'NovaLumina Studio';
 
   @override
-  String get homeHeroBody => '在房间里寻找物品、质地与组合——然后在屏幕上调配与描绘色彩。';
+  String get homeHeroBody => '在任何房间寻找真实物品——速写、收集、接力与团队竞赛，由色彩精灵主持。';
 
   @override
   String get statBestScore => '最高分';
@@ -118,7 +118,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsSoundEffects => '音效';
 
   @override
-  String get settingsSoundEffectsSub => '任务提示与庆祝音效';
+  String get settingsSoundEffectsSub => '色彩精灵语音、Game Show Drop 与任务提示音';
+
+  @override
+  String get settingsSpiritHost => '色彩精灵主持';
+
+  @override
+  String get settingsForgeDefaults => 'Spirit Forge';
+
+  @override
+  String get settingsDefaultOpenRoom => '默认开启远征房间';
+
+  @override
+  String get settingsDefaultOpenRoomSub => '同一 Wi‑Fi 下其他手机可加入';
+
+  @override
+  String get settingsGameShowReveals => 'Game Show Drop 揭晓';
+
+  @override
+  String get settingsGameShowRevealsSub => '每次任务前全屏语音倒计时';
+
+  @override
+  String get settingsMissionContentNote => '任务卡文本仍为英文；界面跟随所选语言。';
 
   @override
   String get settingsHaptics => '触觉反馈';
@@ -167,9 +188,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get settingsReplayOnboarding => '重新观看介绍';
-
-  @override
-  String get settingsMissionContentNote => 'v1.0 中任务卡文本仍为英文；界面将使用所选语言。';
 
   @override
   String get settingsAbout => '关于';
