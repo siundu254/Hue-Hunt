@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="lb2-bg" x1="0" y1="0" x2="400" y2="280"><stop stop-color="#1A2030"/><stop offset="1" stop-color="#0A1018"/></linearGradient>
+    <linearGradient id="lb2-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE566"/><stop offset="1" stop-color="#9A7420"/></linearGradient>
+    <radialGradient id="lb2-chandelier" cx="200" cy="40" r="80"><stop stop-color="#FFE566" stop-opacity="0.35"/><stop offset="1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#lb2-bg)" rx="8"/>
+  <ellipse cx="200" cy="60" rx="120" ry="80" fill="url(#lb2-chandelier)"/>
+  <!-- Marble floor -->
+  <rect x="0" y="180" width="400" height="100" fill="#3A3428" fill-opacity="0.6"/>
+  <g stroke="#E8C547" stroke-opacity="0.08">
+    <line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="230" x2="400" y2="230"/><line x1="0" y1="260" x2="400" y2="260"/>
+  </g>
+  <!-- Reception desk -->
+  <path d="M120 120 L280 120 L300 180 L100 180 Z" fill="#2B2D42" stroke="url(#lb2-gold)" stroke-opacity="0.4"/>
+  <rect x="140" y="128" width="120" height="40" rx="2" fill="#3A3D52"/>
+  <!-- Bell -->
+  <path d="M200 88 Q200 72 212 72 Q224 72 224 88" fill="url(#lb2-gold)"/>
+  <circle cx="212" cy="92" r="4" fill="#9A7420"/>
+  <!-- Lounge seating -->
+  <rect x="48" y="148" width="72" height="28" rx="8" fill="#4A5060" fill-opacity="0.7"/>
+  <rect x="280" y="148" width="72" height="28" rx="8" fill="#4A5060" fill-opacity="0.7"/>
+  <!-- Art on wall -->
+  <rect x="168" y="32" width="64" height="48" rx="2" fill="#1A1008" stroke="url(#lb2-gold)" stroke-opacity="0.4"/>
+  <rect x="176" y="40" width="48" height="32" fill="#6B4E71" fill-opacity="0.4"/>
+  <!-- Luggage cart -->
+  <rect x="320" y="160" width="48" height="32" rx="2" fill="#5A5048"/>
+  <circle cx="332" cy="200" r="6" fill="#3A3428"/><circle cx="356" cy="200" r="6" fill="#3A3428"/>
+  <!-- Potted palm -->
+  <rect x="24" y="156" width="24" height="20" rx="3" fill="#6A4030"/>
+  <path d="M36 140 Q24 120 36 100 Q48 120 36 140" fill="#2D6A4F" fill-opacity="0.7"/>
+  <path d="M36 140 Q48 120 52 100 Q44 130 36 140" fill="#38A169" fill-opacity="0.6"/>
+</svg>

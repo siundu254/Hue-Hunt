@@ -12,13 +12,36 @@ import 'package:hue_hunt/screens/join_expedition_screen.dart';
 import 'package:hue_hunt/screens/session_setup_screen.dart';
 import 'package:hue_hunt/screens/settings_screen.dart';
 import 'package:hue_hunt/theme/app_colors.dart';
+import 'package:hue_hunt/theme/raid_ui.dart';
 import 'package:hue_hunt/utils/l10n_ext.dart';
 import 'package:hue_hunt/widgets/branding/expedition_scaffold.dart';
 import 'package:hue_hunt/widgets/branding/hue_hunt_logo.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+  late final AnimationController _heroGlow;
+
+  @override
+  void initState() {
+    super.initState();
+    _heroGlow = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 2200),
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _heroGlow.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +56,7 @@ class HomeScreen extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(12, 4, 8, 4),
+              padding: const EdgeInsets.fromLTRB(12, 4, 8, 0),
               child: Align(
                 alignment: Alignment.centerRight,
                 child: IconButton(
@@ -48,71 +71,70 @@ class HomeScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 4),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+              child: AnimatedBuilder(
+                animation: _heroGlow,
+                builder: (context, child) => Container(
+                  padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
+                  decoration: RaidUi.heroPanel(glow: _heroGlow.value),
+                  child: child,
+                ),
+                child: Column(
+                  children: [
+                    const HueHuntLogo(size: 88),
+                    const SizedBox(height: 14),
+                    Text(l.appTitle, style: RaidUi.title(context)),
+                    const SizedBox(height: 4),
+                    Text(
+                      l.tagline.toUpperCase(),
+                      style: TextStyle(
+                        color: AppColors.treasureYellow.withValues(alpha: 0.95),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1.6,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      l.homeHeroBody,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.82),
+                        height: 1.4,
+                        fontSize: 14,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    const _FeaturePillRow(),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Expanded(child: _StatChip(label: l.statBestScore, value: '${provider.bestScore}')),
+                        const SizedBox(width: 8),
+                        Expanded(child: _StatChip(label: l.statMapNodes, value: '$mapCount')),
+                        const SizedBox(width: 8),
+                        Expanded(child: _StatChip(label: l.statStickers, value: '$stickerCount')),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const HueHuntLogo(size: 80),
-                  const SizedBox(height: 12),
-                  Text(
-                    l.appTitle,
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                  Text(
-                    l.subBrand,
-                    style: TextStyle(
-                      color: AppColors.amber.withValues(alpha: 0.95),
-                      fontSize: 15,
-                      letterSpacing: 0.4,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    l.tagline,
-                    style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.75),
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    l.homeHeroBody,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.82),
-                      height: 1.35,
-                      fontSize: 14,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      Expanded(child: _StatChip(label: l.statBestScore, value: '${provider.bestScore}')),
-                      const SizedBox(width: 8),
-                      Expanded(child: _StatChip(label: l.statMapNodes, value: '$mapCount')),
-                      const SizedBox(width: 8),
-                      Expanded(child: _StatChip(label: l.statStickers, value: '$stickerCount')),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  FilledButton.icon(
+                  RaidPrimaryButton(
+                    label: 'Spirit Forge — start raid',
+                    icon: Icons.flashlight_on_rounded,
                     onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(builder: (_) => const SpiritForgeScreen()),
                     ),
-                    icon: const Icon(Icons.auto_awesome),
-                    label: const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 4),
-                      child: Text('Spirit Forge — start expedition'),
-                    ),
-                    style: FilledButton.styleFrom(
-                      minimumSize: const Size.fromHeight(52),
-                      backgroundColor: AppColors.accent,
-                      foregroundColor: AppColors.backgroundDark,
-                    ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
                   OutlinedButton.icon(
                     onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(builder: (_) => const JoinExpeditionScreen()),
@@ -120,18 +142,20 @@ class HomeScreen extends StatelessWidget {
                     icon: const Icon(Icons.phonelink_ring_outlined),
                     label: const Text('Join expedition on this phone'),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
                   FilledButton.tonalIcon(
                     onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(
                         builder: (_) => SessionSetupScreen(mode: provider.lastMode),
                       ),
                     ),
-                    icon: const Icon(Icons.play_arrow_rounded),
-                    label: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Text('Classic: ${lastProfile.localizedTitle(l)}'),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.mysteryPurple.withValues(alpha: 0.35),
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size.fromHeight(48),
                     ),
+                    icon: const Icon(Icons.play_arrow_rounded),
+                    label: Text('Classic: ${lastProfile.localizedTitle(l)}'),
                   ),
                   Align(
                     alignment: Alignment.centerRight,
@@ -145,17 +169,8 @@ class HomeScreen extends StatelessWidget {
                       label: Text(l.howItWorks),
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      l.chooseMode,
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
+                  Text(l.chooseMode, style: RaidUi.sectionLabel()),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),
@@ -191,6 +206,10 @@ class HomeScreen extends StatelessWidget {
               child: FilledButton.tonalIcon(
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute<void>(builder: (_) => const HuntHueBoxScreen()),
+                ),
+                style: FilledButton.styleFrom(
+                  backgroundColor: Colors.white.withValues(alpha: 0.08),
+                  minimumSize: const Size.fromHeight(52),
                 ),
                 icon: const Icon(Icons.inventory_2_outlined),
                 label: Padding(
@@ -232,19 +251,42 @@ class HomeScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 16),
+              padding: const EdgeInsets.only(bottom: 20),
               child: Text(
                 '${l.studioName} · ${AppBranding.versionLabel}',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 11,
-                  color: Colors.white.withValues(alpha: 0.45),
-                ),
+                style: TextStyle(fontSize: 11, color: Colors.white.withValues(alpha: 0.4)),
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _FeaturePillRow extends StatelessWidget {
+  const _FeaturePillRow();
+
+  @override
+  Widget build(BuildContext context) {
+    const items = ['🕵️ Secret', '⏱️ Sudden death', '🃏 Decoys', '🌪️ Chaos'];
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 6,
+      runSpacing: 6,
+      children: items
+          .map(
+            (t) => Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              decoration: RaidUi.featurePill(),
+              child: Text(
+                t,
+                style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }
@@ -259,18 +301,21 @@ class _StatChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
-      ),
+      decoration: RaidUi.statTile(),
       child: Column(
         children: [
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+          Text(
+            value,
+            style: const TextStyle(
+              fontWeight: FontWeight.w800,
+              fontSize: 18,
+              color: AppColors.treasureYellow,
+            ),
+          ),
           const SizedBox(height: 2),
           Text(
             label,
-            style: TextStyle(fontSize: 11, color: Colors.white.withValues(alpha: 0.65)),
+            style: TextStyle(fontSize: 10, color: Colors.white.withValues(alpha: 0.65)),
             textAlign: TextAlign.center,
           ),
         ],
@@ -303,13 +348,19 @@ class _ModeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         child: Ink(
           decoration: BoxDecoration(
-            gradient: LinearGradient(colors: profile.gradient),
+            gradient: LinearGradient(
+              colors: [
+                profile.gradient.first.withValues(alpha: 0.85),
+                profile.gradient.last.withValues(alpha: 0.65),
+              ],
+            ),
             borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.12)),
             boxShadow: [
               BoxShadow(
-                color: profile.gradient.first.withValues(alpha: 0.35),
-                blurRadius: 12,
-                offset: const Offset(0, 4),
+                color: profile.gradient.first.withValues(alpha: 0.3),
+                blurRadius: 14,
+                offset: const Offset(0, 5),
               ),
             ],
           ),
@@ -317,27 +368,33 @@ class _ModeCard extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
-                CircleAvatar(
-                  backgroundColor: Colors.black26,
-                  radius: 28,
-                  child: Icon(profile.icon, color: Colors.white, size: 30),
+                Container(
+                  width: 52,
+                  height: 52,
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.25),
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
+                  ),
+                  alignment: Alignment.center,
+                  child: Icon(profile.icon, color: Colors.white, size: 28),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                      Text(subtitle),
+                      Text(title, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800)),
+                      Text(subtitle, style: TextStyle(color: Colors.white.withValues(alpha: 0.9))),
                       const SizedBox(height: 4),
                       Text(
                         audience,
-                        style: TextStyle(fontSize: 12, color: Colors.white.withValues(alpha: 0.85)),
+                        style: TextStyle(fontSize: 11, color: Colors.white.withValues(alpha: 0.75)),
                       ),
                     ],
                   ),
                 ),
-                const Icon(Icons.chevron_right),
+                Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.white.withValues(alpha: 0.6)),
               ],
             ),
           ),

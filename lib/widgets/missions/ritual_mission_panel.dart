@@ -13,7 +13,7 @@ class RitualMissionPanel extends StatelessWidget {
 
   final MissionDefinition mission;
   final ModeProfile profile;
-  final void Function({required int meterGain, required bool success, int? teamIndex}) onComplete;
+  final MissionCompleteCallback onComplete;
 
   @override
   Widget build(BuildContext context) {

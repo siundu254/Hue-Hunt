@@ -4,6 +4,7 @@ import 'package:hue_hunt/providers/expedition_provider.dart';
 import 'package:hue_hunt/screens/home_screen.dart';
 import 'package:hue_hunt/screens/session_setup_screen.dart';
 import 'package:hue_hunt/theme/app_colors.dart';
+import 'package:hue_hunt/theme/raid_ui.dart';
 import 'package:hue_hunt/utils/l10n_ext.dart';
 import 'package:hue_hunt/widgets/branding/expedition_scaffold.dart';
 import 'package:hue_hunt/widgets/branding/hue_hunt_logo.dart';
@@ -119,7 +120,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 width: _page == i ? 24 : 8,
                 height: 8,
                 decoration: BoxDecoration(
-                  color: _page == i ? AppColors.accent : Colors.white30,
+                  color: _page == i ? AppColors.adventureOrange : Colors.white.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(4),
                 ),
               ),
@@ -180,7 +181,11 @@ class _OnboardingPage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, size: 56, color: AppColors.accent),
+        Container(
+          padding: const EdgeInsets.all(20),
+          decoration: RaidUi.glassPanel(accent: AppColors.adventureOrange),
+          child: Icon(icon, size: 48, color: AppColors.adventureOrange),
+        ),
         const SizedBox(height: 20),
         Text(
           title,

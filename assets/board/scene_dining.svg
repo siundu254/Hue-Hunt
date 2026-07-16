@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="dn-bg" x1="0" y1="0" x2="400" y2="280"><stop stop-color="#2A1818"/><stop offset="1" stop-color="#140E0E"/></linearGradient>
+    <linearGradient id="dn-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE566"/><stop offset="1" stop-color="#9A7420"/></linearGradient>
+    <radialGradient id="dn-candle" cx="200" cy="100" r="100"><stop stop-color="#FFE566" stop-opacity="0.3"/><stop offset="1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#dn-bg)" rx="8"/>
+  <ellipse cx="200" cy="100" rx="120" ry="80" fill="url(#dn-candle)"/>
+  <!-- Tablecloth -->
+  <rect x="48" y="128" width="304" height="16" rx="4" fill="#F5F0E8"/>
+  <path d="M48 144 Q200 160 352 144 L352 200 Q200 220 48 200 Z" fill="#E8E0D4"/>
+  <!-- Plates & settings -->
+  <g>
+    <circle cx="100" cy="112" r="14" fill="#FAFAFA" stroke="#C8C0B4"/><circle cx="180" cy="108" r="14" fill="#FAFAFA" stroke="#C8C0B4"/>
+    <circle cx="260" cy="108" r="14" fill="#FAFAFA" stroke="#C8C0B4"/><circle cx="340" cy="112" r="14" fill="#FAFAFA" stroke="#C8C0B4"/>
+    <circle cx="100" cy="112" r="6" fill="#BC4749" fill-opacity="0.35"/><circle cx="180" cy="108" r="6" fill="#BC4749" fill-opacity="0.35"/>
+  </g>
+  <!-- Wine glasses -->
+  <path d="M92 96 L96 112 L88 112 Z" fill="rgba(200,210,220,0.5)"/>
+  <path d="M172 92 L176 108 L168 108 Z" fill="rgba(200,210,220,0.5)"/>
+  <path d="M252 92 L256 108 L248 108 Z" fill="rgba(200,210,220,0.5)"/>
+  <!-- Chairs -->
+  <rect x="72" y="168" width="36" height="40" rx="4" fill="#5C3820" fill-opacity="0.7"/>
+  <rect x="152" y="168" width="36" height="40" rx="4" fill="#5C3820" fill-opacity="0.7"/>
+  <rect x="232" y="168" width="36" height="40" rx="4" fill="#5C3820" fill-opacity="0.7"/>
+  <rect x="312" y="168" width="36" height="40" rx="4" fill="#5C3820" fill-opacity="0.7"/>
+  <!-- Chandelier -->
+  <line x1="200" y1="20" x2="200" y2="48" stroke="url(#dn-gold)" stroke-width="1.5"/>
+  <ellipse cx="200" cy="56" rx="40" ry="12" fill="#FFE566" fill-opacity="0.4"/>
+  <!-- Centerpiece -->
+  <ellipse cx="200" cy="120" rx="20" ry="8" fill="#81C784" fill-opacity="0.45"/>
+</svg>

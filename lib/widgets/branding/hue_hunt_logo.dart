@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hue_hunt/theme/app_colors.dart';
+import 'package:hue_hunt/constants/app_branding.dart';
 
-/// Vector-style logo mark — no external image asset required.
+/// Room Raiders app icon / logo mark.
 class HueHuntLogo extends StatelessWidget {
   const HueHuntLogo({super.key, this.size = 72, this.showGlow = true});
 
@@ -10,52 +10,29 @@ class HueHuntLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: size,
       height: size,
-      child: CustomPaint(
-        painter: _LogoPainter(showGlow: showGlow),
+      decoration: showGlow
+          ? BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFFFF8A00).withValues(alpha: 0.35),
+                  blurRadius: size * 0.2,
+                  spreadRadius: size * 0.02,
+                ),
+              ],
+            )
+          : null,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(size * 0.22),
+        child: Image.asset(
+          AppBranding.logoAsset,
+          width: size,
+          height: size,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
-}
-
-class _LogoPainter extends CustomPainter {
-  _LogoPainter({required this.showGlow});
-
-  final bool showGlow;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-    final r = size.width * 0.42;
-
-    if (showGlow) {
-      final glow = Paint()
-        ..color = AppColors.accent.withValues(alpha: 0.25)
-        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12);
-      canvas.drawCircle(center, r * 1.1, glow);
-    }
-
-    final ring = Paint()
-      ..shader = const SweepGradient(
-        colors: [AppColors.primary, AppColors.accent, AppColors.amber, AppColors.primary],
-      ).createShader(Rect.fromCircle(center: center, radius: r))
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.08;
-    canvas.drawCircle(center, r, ring);
-
-    final core = Paint()..color = AppColors.backgroundDark;
-    canvas.drawCircle(center, r * 0.55, core);
-
-    final dotPaint = Paint()..color = AppColors.accent;
-    for (var i = 0; i < 3; i++) {
-      final dx = center.dx + r * 0.35 * (i == 1 ? 0 : 0.9) * (i == 0 ? -1 : 1);
-      final dy = center.dy + r * 0.35 * (i == 1 ? -0.95 : 0.35);
-      canvas.drawCircle(Offset(dx, dy), size.width * 0.07, dotPaint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _LogoPainter oldDelegate) => false;
 }

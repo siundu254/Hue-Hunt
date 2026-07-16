@@ -10,6 +10,10 @@ import 'package:hue_hunt/l10n/spirit_l10n.dart';
 import 'package:hue_hunt/models/team_config.dart';
 import 'package:hue_hunt/models/expedition_format.dart';
 import 'package:hue_hunt/services/expedition_room_service.dart';
+import 'package:hue_hunt/models/chapter_award.dart';
+import 'package:hue_hunt/models/raid_session_stats.dart';
+import 'package:hue_hunt/models/secret_objective.dart';
+import 'package:hue_hunt/services/raid_engine_service.dart';
 import 'package:hue_hunt/services/spirit_forge_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -47,6 +51,14 @@ class ExpeditionProvider extends ChangeNotifier {
   String? _spiritTeamName;
   SpiritMood _spiritMood = SpiritMood.neutral;
   int _effectiveMissionSeconds = 60;
+  final RaidSessionStats _raidStats = RaidSessionStats();
+  List<SecretObjective> _secretObjectives = [];
+  List<ChapterAward> _chapterAwards = [];
+  bool _suddenDeathActive = false;
+  int _suddenDeathSeconds = 45;
+  bool _doublePointsActive = false;
+  int _clueStageIndex = 0;
+  int _missionSecondsAtStart = 60;
   final Set<String> _stickers = {};
   final Set<String> _mapNodes = {};
   bool _onboardingComplete = false;
@@ -85,7 +97,19 @@ class ExpeditionProvider extends ChangeNotifier {
   SpiritMessageKind get spiritKind => _spiritKind;
   String? get spiritTeamName => _spiritTeamName;
   SpiritMood get spiritMood => _spiritMood;
-  int get effectiveMissionSeconds => _effectiveMissionSeconds;
+  int get effectiveMissionSeconds =>
+      _suddenDeathActive ? _suddenDeathSeconds : _effectiveMissionSeconds;
+  bool get suddenDeathActive => _suddenDeathActive;
+  bool get doublePointsActive => _doublePointsActive;
+  int get clueStageIndex => _clueStageIndex;
+  List<SecretObjective> get secretObjectives => List.unmodifiable(_secretObjectives);
+  List<ChapterAward> get chapterAwards => List.unmodifiable(_chapterAwards);
+  RaidSessionStats get raidStats => _raidStats;
+
+  SecretObjective? secretObjectiveForPlayer(int playerIndex) {
+    if (playerIndex < 0 || playerIndex >= _secretObjectives.length) return null;
+    return _secretObjectives[playerIndex];
+  }
 
   SpiritL10n get spiritLine => SpiritL10n(
         kind: _spiritKind,
@@ -195,6 +219,9 @@ class ExpeditionProvider extends ChangeNotifier {
       _playSource = PlaySource.spiritForge;
     }
 
+    _chapter = RaidEngineService.prepareChapter(_chapter);
+    _initRaidSession();
+
     _teams = List.generate(
       teamCount.clamp(2, 4),
       (i) => TeamConfig(
@@ -259,6 +286,9 @@ class ExpeditionProvider extends ChangeNotifier {
             ? await _missions.bonusChapter(count: _profile!.chapterLength)
             : await _missions.chapterFor(mode);
 
+    _chapter = RaidEngineService.prepareChapter(_chapter);
+    _initRaidSession();
+
     _teams = List.generate(
       teamCount.clamp(2, 4),
       (i) => TeamConfig(
@@ -298,17 +328,33 @@ class ExpeditionProvider extends ChangeNotifier {
     _spiritMood = SpiritMood.excited;
     _spiritTeamName =
         _teams.isNotEmpty ? _teams[_activeTeamIndex].name : null;
+    _clueStageIndex = 0;
+    _missionSecondsAtStart = effectiveMissionSeconds;
+    _suddenDeathActive = false;
+    _doublePointsActive = false;
 
-    if (_forgeFormat != null &&
-        _missionIndex == 1 &&
-        !_chaosTriggered) {
+    if (_missionIndex == 1 && !_chaosTriggered) {
       _activeChaos = ChaosTwist.random();
       _chaosTriggered = true;
       _spiritCustomLine = _activeChaos!.spiritLine;
       _spiritKind = SpiritMessageKind.missionReady;
+      if (_activeChaos!.forcesSuddenDeath) {
+        _suddenDeathActive = true;
+        _suddenDeathSeconds = _activeChaos!.suddenDeathSeconds;
+      }
+    } else if (RaidEngineService.rollSuddenDeath(_missionIndex)) {
+      _suddenDeathActive = true;
+      _suddenDeathSeconds = 45;
+      _spiritCustomLine =
+          'Sudden death! All teams have $_suddenDeathSeconds seconds — go!';
+      _spiritKind = SpiritMessageKind.missionReady;
     } else {
       _spiritCustomLine = null;
       _spiritKind = SpiritMessageKind.missionReady;
+    }
+
+    if (_activeChaos?.title == 'DOUBLE POINTS') {
+      _doublePointsActive = true;
     }
 
     if (_gameShowReveals) _awaitingGameShowReveal = true;
@@ -337,8 +383,28 @@ class ExpeditionProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void completeMission({required int meterGain, required bool success, int? teamIndex}) {
-    var gain = meterGain;
+  void completeMission({
+    required int meterGain,
+    required bool success,
+    int? teamIndex,
+    int? secondsElapsed,
+  }) {
+    final mission = currentMission;
+    var gain = mission?.isDecoy == true && success ? 0 : meterGain;
+    if (success && _doublePointsActive) gain *= 2;
+
+    if (success && mission != null) {
+      _raidStats.recordMissionWin(
+        playerIndex: _passPlayerIndex,
+        secondsUsed: secondsElapsed ?? _missionSecondsAtStart,
+        duringChaos: _activeChaos != null,
+        wasDecoy: mission.isDecoy,
+      );
+      if (mission.type == MissionType.echo) {
+        _raidStats.recordEcho(playerIndex: _passPlayerIndex, stars: gain ~/ 10);
+      }
+    }
+
     if (success && _roomHosting) {
       gain += ExpeditionRoomService.instance.spectatorBonus();
       ExpeditionRoomService.instance.clearVotesForMission();
@@ -383,6 +449,12 @@ class ExpeditionProvider extends ChangeNotifier {
 
     if (_missionIndex >= _chapter.length) {
       _phase = SessionPhase.chapterComplete;
+      _chapterAwards = RaidEngineService.computeAwards(
+        stats: _raidStats,
+        playerCount: _playerCount,
+        teamNames: _teams.map((t) => t.name).toList(),
+        secretObjectivesCompleted: _raidStats.secretObjectivesCompleted,
+      );
       _stickers.add(_profile!.mode.name);
       if (_playSource == PlaySource.huntHueBox) _stickers.add('hunt_hue_box');
       if (_playSource == PlaySource.spiritForge) _stickers.add('spirit_forge');
@@ -434,6 +506,43 @@ class ExpeditionProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void advanceClueStage() {
+    final mission = currentMission;
+    if (mission == null || !mission.hasClueChain) return;
+    if (_clueStageIndex < mission.clueStages.length - 1) {
+      _clueStageIndex++;
+      notifyListeners();
+    }
+  }
+
+  void completeSecretObjective(int playerIndex) {
+    if (playerIndex < 0 || playerIndex >= _secretObjectives.length) return;
+    if (_secretObjectives[playerIndex].completed) return;
+    _secretObjectives[playerIndex] =
+        _secretObjectives[playerIndex].copyWith(completed: true);
+    _raidStats.secretObjectivesCompleted++;
+    _sessionScore += 50;
+    notifyListeners();
+  }
+
+  void _initRaidSession() {
+    _raidStats
+      ..fastestMissionSeconds = 999
+      ..fastestMissionPlayer = 0
+      ..bestEchoStars = 0
+      ..bestEchoPlayer = 0
+      ..chaosMissionsWon = 0
+      ..decoysTriggered = 0
+      ..secretObjectivesCompleted = 0
+      ..playerMissionWins.clear()
+      ..missionSecondsUsed.clear();
+    _secretObjectives = RaidEngineService.assignSecretObjectives(_playerCount);
+    _chapterAwards = [];
+    _suddenDeathActive = false;
+    _doublePointsActive = false;
+    _clueStageIndex = 0;
+  }
+
   void resetToHome() {
     _profile = null;
     _chapter = [];
@@ -446,6 +555,9 @@ class ExpeditionProvider extends ChangeNotifier {
     _spiritCustomLine = null;
     _forgeFormat = null;
     _roomHosting = false;
+    _secretObjectives = [];
+    _chapterAwards = [];
+    _suddenDeathActive = false;
     notifyListeners();
   }
 }

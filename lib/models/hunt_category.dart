@@ -1,6 +1,5 @@
-/// What players search for in the room — not colour-only.
+/// What players search for in the room — object, texture, or combo (never colour-only).
 enum HuntCategory {
-  color,
   object,
   texture,
   combo,
@@ -8,14 +7,12 @@ enum HuntCategory {
 
 extension HuntCategoryX on HuntCategory {
   String get label => switch (this) {
-        HuntCategory.color => 'Colour hunt',
         HuntCategory.object => 'Object hunt',
         HuntCategory.texture => 'Texture hunt',
         HuntCategory.combo => 'Combo hunt',
       };
 
   String get icon => switch (this) {
-        HuntCategory.color => '🎨',
         HuntCategory.object => '🔍',
         HuntCategory.texture => '✋',
         HuntCategory.combo => '🎯',

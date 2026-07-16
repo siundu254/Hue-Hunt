@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="wt-bg" x1="0" y1="0" x2="400" y2="280"><stop stop-color="#1E3848"/><stop offset="1" stop-color="#102028"/></linearGradient>
+    <linearGradient id="wt-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE566"/><stop offset="1" stop-color="#9A7420"/></linearGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#wt-bg)" rx="8"/>
+  <!-- Waiting chairs row -->
+  <g>
+    <rect x="40" y="148" width="48" height="32" rx="6" fill="#6A8090" fill-opacity="0.65"/>
+    <rect x="104" y="148" width="48" height="32" rx="6" fill="#5A7080" fill-opacity="0.65"/>
+    <rect x="168" y="148" width="48" height="32" rx="6" fill="#6A8090" fill-opacity="0.65"/>
+    <rect x="232" y="148" width="48" height="32" rx="6" fill="#5A7080" fill-opacity="0.65"/>
+    <rect x="296" y="148" width="48" height="32" rx="6" fill="#6A8090" fill-opacity="0.65"/>
+  </g>
+  <!-- Coffee table -->
+  <rect x="160" y="196" width="80" height="8" rx="2" fill="#5C3820"/>
+  <rect x="176" y="204" width="6" height="20" fill="#3A2410"/><rect x="218" y="204" width="6" height="20" fill="#3A2410"/>
+  <!-- Magazines -->
+  <rect x="172" y="188" width="16" height="10" rx="1" fill="#E85D04" fill-opacity="0.5"/>
+  <rect x="192" y="186" width="14" height="12" rx="1" fill="#4ECDC4" fill-opacity="0.4"/>
+  <!-- Reception window -->
+  <rect x="80" y="40" width="240" height="72" rx="4" fill="#4ECDC4" fill-opacity="0.12" stroke="url(#wt-gold)" stroke-opacity="0.35"/>
+  <rect x="96" y="56" width="80" height="40" rx="2" fill="#2A4858" fill-opacity="0.5"/>
+  <text x="200" y="88" fill="#FFE566" font-family="Outfit,sans-serif" font-size="14" font-weight="700" text-anchor="middle">WELCOME</text>
+  <!-- Toy corner -->
+  <circle cx="340" cy="200" r="16" fill="#FFE566" fill-opacity="0.5"/>
+  <rect x="328" y="216" width="24" height="20" rx="3" fill="#E85D04" fill-opacity="0.4"/>
+  <!-- Calm plant -->
+  <rect x="32" y="120" width="20" height="16" rx="2" fill="#6A4030"/>
+  <ellipse cx="42" cy="108" rx="16" ry="18" fill="#81C784" fill-opacity="0.6"/>
+</svg>

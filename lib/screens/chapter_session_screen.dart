@@ -17,8 +17,11 @@ import 'package:hue_hunt/widgets/hue_spirit_banner.dart';
 import 'package:hue_hunt/widgets/missions/mission_host.dart';
 import 'package:hue_hunt/widgets/mission_taxonomy_chip.dart';
 import 'package:hue_hunt/widgets/pass_device_banner.dart';
+import 'package:hue_hunt/widgets/secret_objective_banner.dart';
 import 'package:hue_hunt/widgets/spirit_tts_listener.dart';
 import 'package:hue_hunt/widgets/team_scoreboard.dart';
+import 'package:hue_hunt/theme/app_colors.dart';
+import 'package:hue_hunt/theme/raid_ui.dart';
 import 'package:provider/provider.dart';
 
 class ChapterSessionScreen extends StatelessWidget {
@@ -146,27 +149,58 @@ class _PhaseBody extends StatelessWidget {
           onStart: expedition.beginMissionPlay,
         );
       case SessionPhase.passDevice:
-        return PassDeviceBanner(
-          playerNumber: expedition.passPlayerIndex + 1,
-          totalPlayers: expedition.playerCount,
-          team: expedition.activeTeam,
-          missionLabel: mission?.huntHeadline,
-          onReady: expedition.acknowledgePassDevice,
+        final secret = expedition.secretObjectiveForPlayer(expedition.passPlayerIndex);
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (secret != null) ...[
+              SecretObjectiveBanner(
+                objective: secret,
+                playerNumber: expedition.passPlayerIndex + 1,
+              ),
+              const SizedBox(height: 12),
+            ],
+            PassDeviceBanner(
+              playerNumber: expedition.passPlayerIndex + 1,
+              totalPlayers: expedition.playerCount,
+              team: expedition.activeTeam,
+              missionLabel: mission?.huntHeadline,
+              onReady: expedition.acknowledgePassDevice,
+            ),
+          ],
         );
       case SessionPhase.missionPlay:
         final playMission = mission;
         if (playMission == null) return const SizedBox.shrink();
-        return Card(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: MissionHost(
-              mission: playMission,
-              profile: profile,
-              seconds: expedition.effectiveMissionSeconds,
-              playerCount: expedition.playerCount,
-              onComplete: expedition.completeMission,
+        final secret = expedition.secretObjectiveForPlayer(expedition.passPlayerIndex);
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (secret != null) ...[
+              SecretObjectiveBanner(
+                objective: secret,
+                playerNumber: expedition.passPlayerIndex + 1,
+              ),
+              if (!secret.completed)
+                TextButton(
+                  onPressed: () =>
+                      expedition.completeSecretObjective(expedition.passPlayerIndex),
+                  child: const Text('Done — secret objective complete'),
+                ),
+              const SizedBox(height: 10),
+            ],
+            Container(
+              decoration: RaidUi.glassPanel(),
+              padding: const EdgeInsets.all(16),
+              child: MissionHost(
+                mission: playMission,
+                profile: profile,
+                seconds: expedition.effectiveMissionSeconds,
+                playerCount: expedition.playerCount,
+                onComplete: expedition.completeMission,
+              ),
             ),
-          ),
+          ],
         );
       case SessionPhase.meterSync:
         return _MeterSyncPhase(
@@ -181,6 +215,7 @@ class _PhaseBody extends StatelessWidget {
           meter: expedition.chromaMeter,
           modeTitle: profile.localizedTitle(context.l10n),
           teams: expedition.teams,
+          awards: expedition.chapterAwards,
           isTeamExpedition: profile.mode == SessionMode.team,
           onViewMap: () => Navigator.of(context).push(
             MaterialPageRoute<void>(
@@ -217,11 +252,7 @@ class _BriefingPhase extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
             padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: Colors.amber.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: Colors.amber.withValues(alpha: 0.35)),
-            ),
+            decoration: RaidUi.glassPanel(accent: AppColors.treasureYellow),
             child: Row(
               children: [
                 Text(expedition.forgeVenue!.emoji, style: const TextStyle(fontSize: 32)),
@@ -267,8 +298,8 @@ class _BriefingPhase extends StatelessWidget {
         Text('Teams: ${expedition.teams.map((t) => t.name).join(' · ')}'),
         const SizedBox(height: 8),
         const Text(
-          'Hunt real objects, textures, and combos in the room — never colour swatches.\n'
-          'Flow: intro → pass device (party/box) → play → meter → map sticker.',
+          'Hunt real objects, textures, and combos — never colour-based hunts.\n'
+          'Secret objectives · sudden death · decoys · chaos twists · raid awards.',
         ),
         const SizedBox(height: 20),
         FilledButton(
@@ -343,9 +374,9 @@ class _MeterSyncPhase extends StatelessWidget {
       children: [
         const Icon(Icons.sync, size: 48),
         const SizedBox(height: 12),
-        Text('Chroma Meter synced to $meter%', style: Theme.of(context).textTheme.titleLarge),
+        Text('Raid Meter synced to $meter%', style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: 20),
-        FilledButton(onPressed: onContinue, child: const Text('Hue Spirit reacts…')),
+        FilledButton(onPressed: onContinue, child: const Text('Raid Captain reacts…')),
       ],
     );
   }

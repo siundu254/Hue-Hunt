@@ -11,9 +11,11 @@ import 'package:hue_hunt/screens/join_expedition_screen.dart';
 import 'package:hue_hunt/services/spirit_forge_service.dart';
 import 'package:hue_hunt/services/spirit_tts_service.dart';
 import 'package:hue_hunt/theme/app_colors.dart';
+import 'package:hue_hunt/theme/raid_ui.dart';
+import 'package:hue_hunt/widgets/branding/hue_hunt_logo.dart';
 import 'package:provider/provider.dart';
 
-/// Core Hue Hunt flow — Spirit Forge for app + Hunt-Hue Box tabletop.
+/// Core Room Raiders flow — Spirit Forge for app + Hunt-Hue Box tabletop.
 class SpiritForgeScreen extends StatefulWidget {
   const SpiritForgeScreen({super.key, this.initialFormat});
 
@@ -65,10 +67,24 @@ class _SpiritForgeScreenState extends State<SpiritForgeScreen>
   }
 
   SessionMode _modeForVenue() => switch (_venue) {
-        VenueArchetype.office || VenueArchetype.hotel => SessionMode.team,
-        VenueArchetype.classroom => SessionMode.kids,
-        VenueArchetype.party || VenueArchetype.restaurant => SessionMode.party,
-        _ => SessionMode.friends,
+        VenueArchetype.office ||
+        VenueArchetype.hotel ||
+        VenueArchetype.airport ||
+        VenueArchetype.retail ||
+        VenueArchetype.campus =>
+          SessionMode.team,
+        VenueArchetype.classroom ||
+        VenueArchetype.hospital ||
+        VenueArchetype.seniorLiving ||
+        VenueArchetype.library =>
+          SessionMode.kids,
+        VenueArchetype.party ||
+        VenueArchetype.restaurant ||
+        VenueArchetype.gym ||
+        VenueArchetype.museum ||
+        VenueArchetype.community =>
+          SessionMode.party,
+        VenueArchetype.livingRoom => SessionMode.family,
       };
 
   Future<void> _forge() async {
@@ -153,26 +169,27 @@ class _SpiritForgeScreenState extends State<SpiritForgeScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: _venue.gradient),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    children: [
-                      const Text('✨', style: TextStyle(fontSize: 48)),
-                      const Text(
-                        'Spirit Forge',
-                        style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        'The AI host invents your game — app, phones, or Hunt-Hue Box.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white.withValues(alpha: 0.9), height: 1.35),
-                      ),
-                    ],
+                AnimatedBuilder(
+                  animation: _glow,
+                  builder: (context, _) => Container(
+                    padding: const EdgeInsets.all(22),
+                    decoration: RaidUi.heroPanel(glow: _glow.value),
+                    child: const Column(
+                      children: [
+                        HueHuntLogo(size: 64),
+                        SizedBox(height: 12),
+                        Text(
+                          'Spirit Forge',
+                          style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'Raid Captain forges your room — app, phones, or Hunt-Hue Box.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(height: 1.35),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -250,23 +267,11 @@ class _SpiritForgeScreenState extends State<SpiritForgeScreen>
                 ),
                 Text(_venue.pitchLine, style: TextStyle(color: Colors.white.withValues(alpha: 0.75))),
                 const SizedBox(height: 20),
-                FilledButton.icon(
+                RaidPrimaryButton(
+                  label: _forging ? 'Forging…' : 'Forge & launch raid',
+                  icon: Icons.flashlight_on_rounded,
+                  loading: _forging,
                   onPressed: _forging ? null : _forge,
-                  icon: _forging
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : const Icon(Icons.auto_awesome),
-                  label: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    child: Text(_forging ? 'Forging…' : 'Forge & launch expedition'),
-                  ),
-                  style: FilledButton.styleFrom(
-                    backgroundColor: AppColors.accent,
-                    foregroundColor: AppColors.backgroundDark,
-                  ),
                 ),
               ],
             ),

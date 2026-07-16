@@ -25,7 +25,7 @@ class SpiritForgeService {
         picture: chapter[0].picture,
         huntCategory: chapter[0].huntCategory,
         objectPrompt: '${chapter[0].challengePrompt} (for $nick)',
-        funFact: 'Forged live by the Hue Spirit for this exact room.',
+        funFact: 'Forged live by the Raid Captain for this exact room.',
       );
     }
     return chapter;
@@ -49,12 +49,7 @@ class SpiritForgeService {
     List<MissionDefinition> pool, {
     int count = 5,
   }) {
-    final objectLed = pool
-        .where(
-          (m) => m.type != MissionType.hunt || m.huntCategory != HuntCategory.color,
-        )
-        .toList();
-    final deck = List<MissionDefinition>.from(objectLed.isEmpty ? pool : objectLed);
+    final deck = List<MissionDefinition>.from(pool);
     deck.shuffle(_rng);
     return deck.take(count).toList();
   }
@@ -66,6 +61,15 @@ class SpiritForgeService {
         VenueArchetype.classroom => _classroom,
         VenueArchetype.restaurant => _restaurant,
         VenueArchetype.hotel => _hotel,
+        VenueArchetype.hospital => _hospital,
+        VenueArchetype.museum => _museum,
+        VenueArchetype.gym => _gym,
+        VenueArchetype.library => _library,
+        VenueArchetype.airport => _airport,
+        VenueArchetype.community => _community,
+        VenueArchetype.retail => _retail,
+        VenueArchetype.campus => _campus,
+        VenueArchetype.seniorLiving => _seniorLiving,
       };
 
   static const _livingRoom = [
@@ -97,10 +101,10 @@ class SpiritForgeService {
     ),
     MissionDefinition(
       type: MissionType.echo,
-      hueName: 'Pet Sketch',
+      hueName: 'Pet Echo',
       hex: '#F6AD55',
-      objectPrompt: 'Sketch a pet toy or something a pet would steal',
-      clue: 'Stick figures welcome — group guesses the object.',
+      objectPrompt: 'Find a real object a pet would steal',
+      clue: 'No drawing: hold up the object and let teammates guess.',
       picture: '🐾',
     ),
     MissionDefinition(
@@ -158,10 +162,10 @@ class SpiritForgeService {
     ),
     MissionDefinition(
       type: MissionType.echo,
-      hueName: 'Whiteboard Sketch',
+      hueName: 'Whiteboard Echo',
       hex: '#805AD5',
-      objectPrompt: 'Sketch your worst meeting face',
-      clue: 'Teammates guess the expression — laughter counts.',
+      objectPrompt: 'Find an object that captures your worst meeting mood',
+      clue: 'No drawing: show the object and teammates guess the vibe.',
       picture: '😬',
     ),
     MissionDefinition(
@@ -221,8 +225,8 @@ class SpiritForgeService {
       type: MissionType.echo,
       hueName: 'Dance Move',
       hex: '#F687B3',
-      objectPrompt: 'Sketch a dance move your group would do tonight',
-      clue: 'Abstract is fine — group guesses the move.',
+      objectPrompt: "Find an object that represents tonight's dance move",
+      clue: 'No drawing: reveal your object and let the group guess the move.',
       picture: '💃',
     ),
     MissionDefinition(
@@ -257,7 +261,7 @@ class SpiritForgeService {
       huntCategory: HuntCategory.object,
       hueName: 'Pencil Panic',
       hex: '#2C5282',
-      objectPrompt: 'Find something you write or draw with',
+      objectPrompt: 'Find something you write with',
       clue: 'Pencil, marker, crayon, or chalk.',
       picture: '✏️',
     ),
@@ -280,10 +284,10 @@ class SpiritForgeService {
     ),
     MissionDefinition(
       type: MissionType.echo,
-      hueName: 'Mascot Sketch',
+      hueName: 'Mascot Echo',
       hex: '#4299E1',
-      objectPrompt: 'Sketch your school mascot or a silly teacher face',
-      clue: 'Group guesses — keep it kind!',
+      objectPrompt: 'Find an object that could represent your school mascot',
+      clue: 'No drawing: show your object and classmates guess the mascot.',
       picture: '🦁',
     ),
     MissionDefinition(
@@ -341,10 +345,10 @@ class SpiritForgeService {
     ),
     MissionDefinition(
       type: MissionType.echo,
-      hueName: 'Chef Sketch',
+      hueName: 'Chef Echo',
       hex: '#F6AD55',
-      objectPrompt: 'Sketch the dish you wish was on the menu',
-      clue: 'Group guesses the food.',
+      objectPrompt: 'Find an object that represents your dream menu dish',
+      clue: 'No drawing: reveal your object and group guesses the food.',
       picture: '👨‍🍳',
     ),
     MissionDefinition(
@@ -402,10 +406,10 @@ class SpiritForgeService {
     ),
     MissionDefinition(
       type: MissionType.echo,
-      hueName: 'Suite Sketch',
+      hueName: 'Suite Echo',
       hex: '#63B3ED',
-      objectPrompt: 'Sketch the view from this window or doorway',
-      clue: 'Abstract skyline counts — group guesses.',
+      objectPrompt: 'Find an object that captures the vibe of this hotel view',
+      clue: 'No drawing: teammates guess the view from your object.',
       picture: '🌆',
     ),
     MissionDefinition(
@@ -432,5 +436,107 @@ class SpiritForgeService {
       clue: 'Perfect conference icebreaker finale.',
       picture: '🏆',
     ),
+  ];
+
+  static const _hospital = [
+    MissionDefinition(
+      type: MissionType.hunt,
+      huntCategory: HuntCategory.texture,
+      hueName: 'Soft Touch',
+      hex: '#5B9BD5',
+      objectPrompt: 'Find something soft that comforts you',
+      clue: 'Blanket, plush toy, or cushion — gentle only.',
+      picture: '🧸',
+    ),
+    MissionDefinition(
+      type: MissionType.hunt,
+      huntCategory: HuntCategory.object,
+      hueName: 'Cheerful Find',
+      hex: '#70AD47',
+      objectPrompt: 'Find something that makes you smile',
+      clue: 'Photo, magazine, or colorful object.',
+      picture: '😊',
+    ),
+    MissionDefinition(
+      type: MissionType.hunt,
+      huntCategory: HuntCategory.object,
+      hueName: 'Waiting Room Read',
+      hex: '#4A90A4',
+      objectPrompt: 'Find something you can read',
+      clue: 'Book, pamphlet, or sign — no clinical charts.',
+      picture: '📖',
+    ),
+    MissionDefinition(
+      type: MissionType.relay,
+      hueName: 'Calm Relay',
+      hex: '#90E0EF',
+      objectPrompt: 'Each player finds one calming object',
+      clue: 'Walk, do not run. Facilitator approves each find.',
+      picture: '🧘',
+    ),
+    MissionDefinition(
+      type: MissionType.ritual,
+      hueName: 'Care Circle',
+      hex: '#F6E05E',
+      objectPrompt: 'Group shares one object that represents hope',
+      clue: 'Perfect for waiting rooms and wellness groups.',
+      picture: '💛',
+    ),
+  ];
+
+  static const _museum = [
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Framed', hex: '#6B4E71', objectPrompt: 'Find something in a frame', clue: 'Art, photo, or display — look only.', picture: '🖼️'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.combo, hueName: 'Ancient', hex: '#D4A574', objectPrompt: 'Find something older than you', clue: 'Plaque, artifact label, or history.', picture: '🏛️'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.texture, hueName: 'Marble Touch', hex: '#8B7355', objectPrompt: 'Find something smooth and cool', clue: 'Stone, metal, or glass case.', picture: '✨'),
+    MissionDefinition(type: MissionType.duel, hueName: 'Curator Duel', hex: '#9F7AEA', objectPrompt: 'Teams race to find the most interesting exhibit label', clue: 'Read it aloud — judges pick winner.', picture: '🏆'),
+  ];
+
+  static const _gym = [
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Hydration', hex: '#457B9D', objectPrompt: 'Find something you drink from', clue: 'Bottle, fountain, or shaker.', picture: '💧'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.texture, hueName: 'Foam Feel', hex: '#E63946', objectPrompt: 'Find something rubbery or foamy', clue: 'Mat, band, or roller — do not move it.', picture: '🧘'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.combo, hueName: 'Rep Combo', hex: '#1D3557', objectPrompt: 'Find something round AND heavy-looking', clue: 'Point only — no lifting.', picture: '🏋️'),
+    MissionDefinition(type: MissionType.relay, hueName: 'Lap Relay', hex: '#A8DADC', objectPrompt: 'Each player points at one piece of equipment', clue: 'Stay in your lane — no blocking.', picture: '🏃'),
+  ];
+
+  static const _library = [
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Bookmark Hunt', hex: '#2C5282', objectPrompt: 'Find a bookmark or page holder', clue: 'Whisper when you find it.', picture: '🔖'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'ISBN', hex: '#4A5568', objectPrompt: 'Find something with an ISBN or barcode', clue: 'Book back cover counts.', picture: '📚'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.texture, hueName: 'Paper Feel', hex: '#90CDF4', objectPrompt: 'Find something rough or crinkly', clue: 'Paper, card, or dust jacket.', picture: '📄'),
+    MissionDefinition(type: MissionType.ritual, hueName: 'Quiet Vote', hex: '#63B3ED', objectPrompt: 'Group picks the most interesting title spine', clue: 'Library-silent finger voting.', picture: '🤫'),
+  ];
+
+  static const _airport = [
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Destination', hex: '#1D3557', objectPrompt: 'Find a sign with a city name', clue: 'Departures board or poster.', picture: '✈️'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Rolling', hex: '#A8DADC', objectPrompt: 'Find something with wheels', clue: 'Luggage, cart, or stroller.', picture: '🧳'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.combo, hueName: 'Travel Combo', hex: '#457B9D', objectPrompt: 'Something portable AND zippered', clue: 'Bag, pouch, or case.', picture: '💼'),
+    MissionDefinition(type: MissionType.duel, hueName: 'Gate Rush', hex: '#E63946', objectPrompt: 'First team to find a gate number wins', clue: 'Call it out — no sprinting.', picture: '🛫'),
+  ];
+
+  static const _community = [
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Handmade', hex: '#588157', objectPrompt: 'Find something handmade', clue: 'Craft, quilt, or poster.', picture: '🎨'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Donation', hex: '#A3B18A', objectPrompt: 'Find something donated or shared', clue: 'Food drive, toy bin, or pantry.', picture: '🤝'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.combo, hueName: 'Folded Paper', hex: '#6B8E23', objectPrompt: 'Paper AND folded', clue: 'Flyer, program, or origami.', picture: '📄'),
+    MissionDefinition(type: MissionType.ritual, hueName: 'Circle Share', hex: '#F6E05E', objectPrompt: 'Each person holds up one community object', clue: 'Great for youth group opener.', picture: '🎪'),
+  ];
+
+  static const _retail = [
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'On Sale', hex: '#E85D04', objectPrompt: 'Find a sale sign or tag', clue: 'Red tag, sticker, or banner.', picture: '🏷️'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Branded', hex: '#FFC83D', objectPrompt: 'Find something with the store logo', clue: 'Bag, receipt, or display.', picture: '🛍️'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.texture, hueName: 'Display Shine', hex: '#BC4749', objectPrompt: 'Find the shiniest thing on display', clue: 'Point only — no touching stock.', picture: '✨'),
+    MissionDefinition(type: MissionType.duel, hueName: 'Aisle Race', hex: '#F4A261', objectPrompt: 'Teams race to find a checkout item first', clue: 'First to call wins — stay in aisles.', picture: '🛒'),
+  ];
+
+  static const _campus = [
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Campus Logo', hex: '#5A189A', objectPrompt: 'Find something with school branding', clue: 'Shirt, mug, or poster.', picture: '🎓'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Lanyard', hex: '#C77DFF', objectPrompt: 'Find an ID or lanyard', clue: 'Yours or a friend\'s — with permission.', picture: '🪪'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.combo, hueName: 'Event Poster', hex: '#4ECDC4', objectPrompt: 'Paper AND mentions a date', clue: 'Bulletin board classic.', picture: '📌'),
+    MissionDefinition(type: MissionType.relay, hueName: 'Quad Relay', hex: '#588157', objectPrompt: 'Each player finds one outdoor campus object', clue: 'Stay on paths — no lawns if forbidden.', picture: '🌳'),
+  ];
+
+  static const _seniorLiving = [
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Memory', hex: '#E8C547', objectPrompt: 'Find something that sparks a memory', clue: 'Photo, ornament, or keepsake.', picture: '💛'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.texture, hueName: 'Cozy', hex: '#7B6B8A', objectPrompt: 'Find the softest thing nearby', clue: 'Blanket, shawl, or cushion.', picture: '🧶'),
+    MissionDefinition(type: MissionType.hunt, huntCategory: HuntCategory.object, hueName: 'Craft', hex: '#5B9BD5', objectPrompt: 'Find something made by hand', clue: 'Knitting, puzzle, or craft project.', picture: '🎲'),
+    MissionDefinition(type: MissionType.ritual, hueName: 'Story Circle', hex: '#F6E05E', objectPrompt: 'Each person shares one object and a short story', clue: 'Seated, unhurried, facilitator guides.', picture: '🌻'),
   ];
 }

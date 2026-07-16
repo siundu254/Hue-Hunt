@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hue_hunt/data/mission_repository.dart';
 import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
+import 'package:hue_hunt/screens/board_prototype_screen.dart';
 import 'package:hue_hunt/screens/box_card_gallery_screen.dart';
 import 'package:hue_hunt/screens/box_rules_screen.dart';
 import 'package:hue_hunt/models/expedition_format.dart';
@@ -11,6 +12,10 @@ import 'package:hue_hunt/utils/l10n_ext.dart';
 import 'package:hue_hunt/screens/qr_unlock_screen.dart';
 import 'package:hue_hunt/services/facilitator_kit_pdf.dart';
 import 'package:hue_hunt/services/unlock_service.dart';
+import 'package:hue_hunt/models/raid_map_venue.dart';
+import 'package:hue_hunt/theme/raid_ui.dart';
+import 'package:hue_hunt/widgets/board/raid_map_venue_picker.dart';
+import 'package:hue_hunt/widgets/branding/hue_hunt_logo.dart';
 import 'package:printing/printing.dart';
 
 /// Retail Hunt-Hue Box companion — device-optional tabletop play.
@@ -56,26 +61,21 @@ class _HuntHueBoxScreenState extends State<HuntHueBoxScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xFFE85D04), Color(0xFFF48C06), Color(0xFFFAA307)],
-                ),
-                borderRadius: BorderRadius.circular(20),
-              ),
+              padding: const EdgeInsets.all(22),
+              decoration: RaidUi.heroPanel(),
               child: const Column(
                 children: [
-                  Text('📦', style: TextStyle(fontSize: 48)),
+                  HueHuntLogo(size: 56),
                   SizedBox(height: 8),
                   Text(
                     'Hunt-Hue Box',
-                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
                   ),
                   SizedBox(height: 6),
                   Text(
-                    'Tabletop party game — Monopoly meets I Spy',
+                    'Tabletop party game — Room Raiders in a box',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(height: 1.35),
                   ),
                 ],
               ),
@@ -89,7 +89,7 @@ class _HuntHueBoxScreenState extends State<HuntHueBoxScreen> {
               icon: Icons.style,
               text: l.boxCardsCount(_cardCount),
             ),
-            const _BoxItem(icon: Icons.hourglass_bottom, text: 'Sand timer + Hue Spirit guide booklet'),
+            const _BoxItem(icon: Icons.hourglass_bottom, text: 'Sand timer + Raid Captain guide booklet'),
             const _BoxItem(icon: Icons.groups, text: 'Team tokens for 4 squads'),
             const _BoxItem(icon: Icons.qr_code, text: 'QR unlocks bonus digital chapters in the app'),
             const SizedBox(height: 20),
@@ -158,7 +158,54 @@ class _HuntHueBoxScreenState extends State<HuntHueBoxScreen> {
               icon: const Icon(Icons.campaign_outlined),
               label: const Text('Pre-order Hunt-Hue Box — coming to Gamefound'),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
+            Text('The Raid Map — ${RaidMapVenues.all.length} venues', style: RaidUi.sectionLabel()),
+            const SizedBox(height: 8),
+            Text(
+              'One board, swappable overlays for home, office, school, hospital, and more. Tap a venue to preview.',
+              style: TextStyle(color: Colors.white.withValues(alpha: 0.75), height: 1.35),
+            ),
+            const SizedBox(height: 12),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1.55,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+              ),
+              itemCount: RaidMapVenues.all.length,
+              itemBuilder: (context, i) {
+                final v = RaidMapVenues.all[i];
+                return RaidMapVenueCard(
+                  venue: v,
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => BoardPrototypeScreen(initialVenue: v.id),
+                    ),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 16),
+            FilledButton.icon(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const BoardPrototypeScreen()),
+              ),
+              icon: const Icon(Icons.view_quilt_outlined),
+              label: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12),
+                child: Text('Open full board demo'),
+              ),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () => _showSlidesInfo(context),
+              icon: const Icon(Icons.slideshow_outlined),
+              label: const Text('Google Slides deck (PPTX + HTML in documents/)'),
+            ),
+            const SizedBox(height: 8),
             OutlinedButton.icon(
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute<void>(builder: (_) => const BoxRulesScreen()),
@@ -203,6 +250,26 @@ class _HuntHueBoxScreenState extends State<HuntHueBoxScreen> {
           mode: SessionMode.party,
           playSource: PlaySource.huntHueBox,
         ),
+      ),
+    );
+  }
+
+  void _showSlidesInfo(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('The Raid Map slide deck'),
+        content: const Text(
+          'In the project documents/ folder:\n\n'
+          '• Hunt-Hue-Box-Board-Deck-NovaLumina-FY2026-27.pptx\n'
+          '  The Raid Map v2 — upload to Google Drive → Open with Google Slides\n\n'
+          '• Hunt-Hue-Box-Board-Deck.html\n'
+          '  Browser presentation — arrow keys + F11 fullscreen\n\n'
+          'Regenerate: python3 documents/generate_board_deck.py',
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('Got it')),
+        ],
       ),
     );
   }

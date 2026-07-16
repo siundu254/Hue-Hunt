@@ -9,13 +9,13 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get appTitle => 'Hue Hunt';
+  String get appTitle => 'Room Raiders';
 
   @override
-  String get subBrand => '家庭任务';
+  String get subBrand => '突袭任务';
 
   @override
-  String get tagline => '色彩远征';
+  String get tagline => '搜索房间，争分夺秒。';
 
   @override
   String get studioName => 'NovaLumina Studio';
@@ -47,7 +47,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get huntHueBoxButton => 'Hunt-Hue Box — 桌游 + 应用';
 
   @override
-  String get chromaMap => '色彩地图';
+  String get chromaMap => '突袭地图';
 
   @override
   String get journal => '探险日志';
@@ -121,7 +121,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsSoundEffectsSub => '色彩精灵语音、Game Show Drop 与任务提示音';
 
   @override
-  String get settingsSpiritHost => '色彩精灵主持';
+  String get settingsSpiritHost => '突袭队长主持';
 
   @override
   String get settingsForgeDefaults => 'Spirit Forge';
@@ -148,7 +148,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsHapticsSub => '传递设备与确认时振动';
 
   @override
-  String get settingsSpiritHints => '色彩精灵提示';
+  String get settingsSpiritHints => '突袭队长提示';
 
   @override
   String get settingsSpiritHintsSub => '任务之间的旁白信息';

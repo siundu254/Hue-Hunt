@@ -37,7 +37,7 @@ class HueHuntApp extends StatelessWidget {
       child: Consumer<SettingsProvider>(
         builder: (context, settings, _) {
           return MaterialApp(
-            title: 'Hue Hunt',
+            title: 'Room Raiders',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.dark,
             locale: settings.locale,

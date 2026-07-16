@@ -9,13 +9,13 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
-  String get appTitle => 'Hue Hunt';
+  String get appTitle => 'Room Raiders';
 
   @override
-  String get subBrand => 'Familienmission';
+  String get subBrand => 'Raid-Missionen';
 
   @override
-  String get tagline => 'Die Chroma-Expedition';
+  String get tagline => 'Durchsuche den Raum. Schlag die Uhr.';
 
   @override
   String get studioName => 'NovaLumina Studio';
@@ -48,7 +48,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get huntHueBoxButton => 'Hunt-Hue Box — Tisch + App';
 
   @override
-  String get chromaMap => 'Chroma-Karte';
+  String get chromaMap => 'Raid-Karte';
 
   @override
   String get journal => 'Tagebuch';
@@ -124,7 +124,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Spirit-Stimme, Game Show Drop und Missionshinweise';
 
   @override
-  String get settingsSpiritHost => 'Hue-Spirit-Moderator';
+  String get settingsSpiritHost => 'Raid-Captain-Moderator';
 
   @override
   String get settingsForgeDefaults => 'Spirit Forge';
@@ -154,7 +154,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settingsHapticsSub => 'Vibration beim Gerätewechsel';
 
   @override
-  String get settingsSpiritHints => 'Farbgeist-Hinweise';
+  String get settingsSpiritHints => 'Raid-Captain-Hinweise';
 
   @override
   String get settingsSpiritHintsSub => 'Erzähler zwischen Missionen';

@@ -107,19 +107,19 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Hue Hunt'**
+  /// **'Room Raiders'**
   String get appTitle;
 
   /// No description provided for @subBrand.
   ///
   /// In en, this message translates to:
-  /// **'Family Mission'**
+  /// **'Raid Missions'**
   String get subBrand;
 
   /// No description provided for @tagline.
   ///
   /// In en, this message translates to:
-  /// **'The Chroma Expedition'**
+  /// **'Search the room. Beat the clock.'**
   String get tagline;
 
   /// No description provided for @studioName.
@@ -131,7 +131,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeHeroBody.
   ///
   /// In en, this message translates to:
-  /// **'Spirit Forge invents missions for your room — app, team phones, spectators, or Hunt-Hue Box tabletop.'**
+  /// **'Room Raiders forges object-led missions for your room — app, team phones, spectators, or Hunt-Hue Box tabletop.'**
   String get homeHeroBody;
 
   /// No description provided for @statBestScore.
@@ -179,7 +179,7 @@ abstract class AppLocalizations {
   /// No description provided for @chromaMap.
   ///
   /// In en, this message translates to:
-  /// **'Chroma Map'**
+  /// **'Raid Map'**
   String get chromaMap;
 
   /// No description provided for @journal.
@@ -227,7 +227,7 @@ abstract class AppLocalizations {
   /// No description provided for @onboardingHuntBody.
   ///
   /// In en, this message translates to:
-  /// **'Every mission asks your group to find objects, textures, or combos in the room — not flat colour swatches. Works in any home, office, or party.'**
+  /// **'Every mission asks your group to find objects, textures, or combos in the room — never colour-based hunts or swatches. Works in any home, office, or party.'**
   String get onboardingHuntBody;
 
   /// No description provided for @onboardingPassTitle.
@@ -239,7 +239,7 @@ abstract class AppLocalizations {
   /// No description provided for @onboardingPassBody.
   ///
   /// In en, this message translates to:
-  /// **'Pass the device between players. Confirm finds together. Teams, scoring, and the Hue Spirit guide keep energy high without everyone on a screen.'**
+  /// **'Pass the device between players. Secret objectives, sudden-death timers, and the Raid Captain keep energy high without everyone on a screen.'**
   String get onboardingPassBody;
 
   /// No description provided for @onboardingBoxTitle.
@@ -317,13 +317,13 @@ abstract class AppLocalizations {
   /// No description provided for @settingsSoundEffectsSub.
   ///
   /// In en, this message translates to:
-  /// **'Spirit voice, Game Show Drop, and mission cues'**
+  /// **'Raid Captain voice, Game Show Drop, and mission cues'**
   String get settingsSoundEffectsSub;
 
   /// No description provided for @settingsSpiritHost.
   ///
   /// In en, this message translates to:
-  /// **'Hue Spirit host'**
+  /// **'Raid Captain host'**
   String get settingsSpiritHost;
 
   /// No description provided for @settingsForgeDefaults.
@@ -377,7 +377,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsSpiritHints.
   ///
   /// In en, this message translates to:
-  /// **'Hue Spirit hints'**
+  /// **'Raid Captain hints'**
   String get settingsSpiritHints;
 
   /// No description provided for @settingsSpiritHintsSub.
@@ -479,7 +479,7 @@ abstract class AppLocalizations {
   /// No description provided for @resetProgressBody.
   ///
   /// In en, this message translates to:
-  /// **'This clears your Chroma Map nodes, journal stickers, and best score. It cannot be undone.'**
+  /// **'This clears your Raid Map nodes, journal stickers, and best score. It cannot be undone.'**
   String get resetProgressBody;
 
   /// No description provided for @cancel.
@@ -755,7 +755,7 @@ abstract class AppLocalizations {
   /// No description provided for @spiritBoxIntro.
   ///
   /// In en, this message translates to:
-  /// **'Hunt-Hue Box mode! Draw missions from your physical deck — this device is the scorekeeper.'**
+  /// **'Hunt-Hue Box mode! Draw object-led missions from your physical deck — Room Raiders is the scorekeeper.'**
   String get spiritBoxIntro;
 
   /// No description provided for @spiritMissionReady.
@@ -773,31 +773,31 @@ abstract class AppLocalizations {
   /// No description provided for @spiritHuntGreat.
   ///
   /// In en, this message translates to:
-  /// **'Stunning hunt! The Chroma Meter surges.'**
+  /// **'Stunning hunt! The Raid Meter surges.'**
   String get spiritHuntGreat;
 
   /// No description provided for @spiritHuntGood.
   ///
   /// In en, this message translates to:
-  /// **'Nice find — keep the expedition rolling.'**
+  /// **'Nice find — keep the raid rolling.'**
   String get spiritHuntGood;
 
   /// No description provided for @spiritRematch.
   ///
   /// In en, this message translates to:
-  /// **'Spirit Rematch! Twist: try the object hunt another way.'**
+  /// **'Raid Rematch! Twist: try the object hunt another way.'**
   String get spiritRematch;
 
   /// No description provided for @spiritMapUnlock.
   ///
   /// In en, this message translates to:
-  /// **'Brilliant sync! A new region glows on the Chroma Map.'**
+  /// **'Brilliant sync! A new region glows on the Raid Map.'**
   String get spiritMapUnlock;
 
   /// No description provided for @spiritMapProgress.
   ///
   /// In en, this message translates to:
-  /// **'Nice hunt — the Expedition remembers this chapter.'**
+  /// **'Nice hunt — Room Raiders remembers this chapter.'**
   String get spiritMapProgress;
 
   /// No description provided for @huntHueBox.

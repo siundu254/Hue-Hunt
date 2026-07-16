@@ -98,7 +98,7 @@ String missionTaxonomyIcon(MissionDefinition mission) {
   }
   return switch (mission.type) {
     MissionType.forge => '📦',
-    MissionType.echo => '✏️',
+    MissionType.echo => '🗣️',
     MissionType.relay => '🔄',
     MissionType.duel => '⚔️',
     MissionType.ritual => '✨',

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="gd-sky" x1="200" y1="0" x2="200" y2="120"><stop stop-color="#6BA8C8" stop-opacity="0.4"/><stop offset="1" stop-color="#1A4D3A" stop-opacity="0.08"/></linearGradient>
+    <linearGradient id="gd-grass" x1="0" y1="120" x2="0" y2="280"><stop stop-color="#3A8A58"/><stop offset="1" stop-color="#1A4D32"/></linearGradient>
+    <linearGradient id="gd-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE566"/><stop offset="1" stop-color="#9A7420"/></linearGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#gd-sky)" rx="8"/>
+  <rect x="0" y="120" width="400" height="160" fill="url(#gd-grass)"/>
+  <!-- Patio stones -->
+  <g>
+    <rect x="24" y="148" width="56" height="36" rx="3" fill="#9A9088"/><rect x="88" y="148" width="56" height="36" rx="3" fill="#7A7068"/>
+    <rect x="152" y="148" width="56" height="36" rx="3" fill="#9A9088"/><rect x="216" y="148" width="56" height="36" rx="3" fill="#6A6058"/>
+    <rect x="56" y="192" width="56" height="36" rx="3" fill="#7A7068"/><rect x="120" y="192" width="56" height="36" rx="3" fill="#9A9088"/>
+    <rect x="184" y="192" width="56" height="36" rx="3" fill="#6A6058"/>
+  </g>
+  <!-- French doors -->
+  <rect x="288" y="36" width="80" height="148" rx="4" fill="#5C3820"/>
+  <rect x="296" y="44" width="30" height="132" rx="2" fill="#8B6914" fill-opacity="0.4" stroke="#E8C547" stroke-opacity="0.25"/>
+  <rect x="330" y="44" width="30" height="132" rx="2" fill="#8B6914" fill-opacity="0.35" stroke="#E8C547" stroke-opacity="0.25"/>
+  <circle cx="358" cy="110" r="4" fill="url(#gd-gold)"/>
+  <!-- Potted plants -->
+  <rect x="40" y="108" width="26" height="20" rx="3" fill="#8B5A2B"/>
+  <ellipse cx="53" cy="88" rx="24" ry="28" fill="#2D6A4F" fill-opacity="0.8"/>
+  <path d="M53 64 Q38 82 44 104" stroke="#38A169" stroke-width="2.5" fill="none"/>
+  <path d="M53 64 Q68 80 62 102" stroke="#48BB78" stroke-width="2.5" fill="none"/>
+  <rect x="108" y="116" width="24" height="18" rx="3" fill="#8B5A2B"/>
+  <ellipse cx="120" cy="98" rx="20" ry="24" fill="#276749" fill-opacity="0.85"/>
+  <rect x="168" y="112" width="28" height="22" rx="3" fill="#8B5A2B"/>
+  <ellipse cx="182" cy="90" rx="28" ry="30" fill="#2F855A" fill-opacity="0.75"/>
+  <!-- Outdoor furniture -->
+  <rect x="56" y="228" width="64" height="8" rx="2" fill="#5C3820"/>
+  <rect x="64" y="236" width="6" height="20" fill="#3A2410"/><rect x="106" y="236" width="6" height="20" fill="#3A2410"/>
+  <!-- Shoes by door -->
+  <rect x="272" y="208" width="30" height="14" rx="6" fill="#3A2818"/><rect x="304" y="212" width="30" height="14" rx="6" fill="#4A3828"/>
+  <!-- Fence -->
+  <g stroke="#E8C547" stroke-opacity="0.28" stroke-width="1.2">
+    <line x1="16" y1="128" x2="16" y2="148"/><line x1="32" y1="128" x2="32" y2="148"/>
+    <line x1="48" y1="128" x2="48" y2="148"/><line x1="16" y1="132" x2="48" y2="132"/>
+  </g>
+  <!-- Sun -->
+  <circle cx="80" cy="48" r="20" fill="#FFE566" fill-opacity="0.4"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="280"><stop stop-color="#2A1048"/><stop offset="1" stop-color="#100820"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="188" x2="0" y2="280"><stop stop-color="#6A6058"/><stop offset="1" stop-color="#3A3428"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE566"/><stop offset="0.5" stop-color="#E8C547"/><stop offset="1" stop-color="#9A7420"/></linearGradient>
+    <radialGradient id="spot" cx="200" cy="72" r="120"><stop stop-color="#FFE566" stop-opacity="0.22"/><stop offset="1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#bg)" rx="8"/>
+  <rect x="0" y="188" width="400" height="92" fill="url(#floor)"/>
+  <ellipse cx="200" cy="72" rx="120" ry="80" fill="url(#spot)"/>
+  <line x1="0" y1="188" x2="400" y2="188" stroke="#E8C547" stroke-opacity="0.2" stroke-width="1.2"/>
+
+  <rect x="48" y="140" width="304" height="120" rx="4" fill="#1A0828" fill-opacity="0.6"/>
+  <rect x="24" y="100" width="32" height="56" rx="3" fill="#2A2820"/>
+  <circle cx="40" cy="128" r="10" fill="#1A1818"/>
+  <circle cx="200" cy="36" r="20" fill="#C8D0D8" fill-opacity="0.6" stroke="url(#gold)"/>
+  <ellipse cx="80" cy="72" rx="14" ry="18" fill="#FF8A00" fill-opacity="0.7"/>
+  <ellipse cx="320" cy="68" rx="14" ry="18" fill="#B5179E" fill-opacity="0.7"/></svg>

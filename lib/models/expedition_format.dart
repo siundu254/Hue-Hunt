@@ -17,7 +17,7 @@ extension ExpeditionFormatX on ExpeditionFormat {
 
   String get description => switch (this) {
         ExpeditionFormat.digitalForge =>
-          'Hue Spirit forges missions for your room. Phones optional — one device can host the whole group.',
+          'Raid Captain forges object-led missions for your room. Phones optional — one device can host the whole group.',
         ExpeditionFormat.huntHueBox =>
           'Draw physical cards from the Hunt-Hue Box deck. This app is the AI host + scorekeeper.',
       };

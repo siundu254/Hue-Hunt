@@ -6,9 +6,9 @@
       "hueName": "Kitchen Helper",
       "hex": "#E8B86D",
       "objectPrompt": "Find something you eat breakfast with",
-      "clue": "Spoon, bowl, or toaster \u2014 your call!",
-      "picture": "\ud83e\udd63",
-      "funFact": "The Hue Spirit loves a good cereal mission."
+      "clue": "Spoon, bowl, or toaster — your call!",
+      "picture": "🥣",
+      "funFact": "The Raid Captain loves a good cereal mission."
     },
     {
       "type": "hunt",
@@ -17,7 +17,7 @@
       "hex": "#87CEEB",
       "objectPrompt": "Find something soft and light you could rest on",
       "clue": "Pillow, cushion, or folded blanket.",
-      "picture": "\u2601\ufe0f"
+      "picture": "☁️"
     },
     {
       "type": "hunt",
@@ -26,30 +26,30 @@
       "hex": "#F5F5F5",
       "objectPrompt": "Find something soft you could nap on",
       "clue": "Pillow, blanket, or plush toy.",
-      "picture": "\ud83d\udecb\ufe0f"
+      "picture": "🛋️"
     },
     {
       "type": "forge",
       "hueName": "Honey Toast",
       "hex": "#F4A460",
-      "clue": "Mug, spoon, cereal box \u2014 real things only.",
-      "picture": "\ud83c\udf5e",
+      "clue": "Mug, spoon, cereal box — real things only.",
+      "picture": "🍞",
       "objectPrompt": "Collect 3 breakfast-related objects from the room"
     },
     {
       "type": "echo",
       "hueName": "Garden Leaf",
       "hex": "#6BBF59",
-      "clue": "Teammates guess what you drew \u2014 no colouring skills needed.",
-      "picture": "\ud83c\udf3f",
-      "objectPrompt": "Sketch a plant, leaf, or flower"
+      "clue": "No drawing: grab an object from the room and let teammates guess your pick.",
+      "picture": "🌿",
+      "objectPrompt": "Find a real object that matches \"Garden Leaf\""
     },
     {
       "type": "ritual",
       "hueName": "Firefly Gold",
       "hex": "#FFD700",
       "clue": "Group vote on the best object.",
-      "picture": "\u2728",
+      "picture": "✨",
       "objectPrompt": "Everyone reveals their favorite find from this chapter"
     },
     {
@@ -59,7 +59,7 @@
       "hex": "#8B4513",
       "objectPrompt": "Find something you read or write with",
       "clue": "Book, pen, or magazine.",
-      "picture": "\ud83d\udcda"
+      "picture": "📚"
     },
     {
       "type": "hunt",
@@ -68,39 +68,39 @@
       "hex": "#B0B0B0",
       "objectPrompt": "Find something smooth and cool",
       "clue": "Glass, tile, or phone.",
-      "picture": "\ud83e\udea8"
+      "picture": "🪨"
     },
     {
       "type": "hunt",
       "huntCategory": "combo",
       "hueName": "Garden Pair",
       "hex": "#2E8B57",
-      "objectPrompt": "Find something green AND living",
+      "objectPrompt": "Find something living AND growing",
       "clue": "Plant, herb, or fruit.",
-      "picture": "\ud83c\udf31"
+      "picture": "🌱"
     },
     {
       "type": "forge",
       "hueName": "Berry Jam",
       "hex": "#8B0000",
       "clue": "Candy, fruit, or anything sugary.",
-      "picture": "\ud83e\uded0",
+      "picture": "🫐",
       "objectPrompt": "Collect 3 sweet snacks from the room"
     },
     {
       "type": "echo",
       "hueName": "Ocean Wave",
       "hex": "#1E90FF",
-      "clue": "Shell, towel, or surfboard \u2014 not a colour patch.",
-      "picture": "\ud83c\udf0a",
-      "objectPrompt": "Sketch something you'd find at the beach"
+      "clue": "No drawing: grab an object from the room and let teammates guess your pick.",
+      "picture": "🌊",
+      "objectPrompt": "Find a real object that matches \"Ocean Wave\""
     },
     {
       "type": "relay",
       "hueName": "Sunset Peach",
       "hex": "#FFCC99",
       "clue": "Blanket, mug, or sweater.",
-      "picture": "\ud83c\udf51",
+      "picture": "🍑",
       "objectPrompt": "Each player finds one cozy or warm object"
     },
     {
@@ -110,14 +110,14 @@
       "hex": "#D2691E",
       "objectPrompt": "Find something a pet would love",
       "clue": "Toy, leash, or treat jar.",
-      "picture": "\ud83d\udc3e"
+      "picture": "🐾"
     },
     {
       "type": "ritual",
       "hueName": "Candle Glow",
       "hex": "#FFA500",
       "clue": "No lights-out required.",
-      "picture": "\ud83d\udd6f\ufe0f",
+      "picture": "🕯️",
       "objectPrompt": "Show the most surprising object anyone found tonight"
     }
   ],
@@ -127,9 +127,9 @@
       "huntCategory": "combo",
       "hueName": "Party Pop",
       "hex": "#FF6F61",
-      "objectPrompt": "Find something red AND round",
-      "clue": "Apple, cup, balloon \u2014 be creative!",
-      "picture": "\ud83c\udf88"
+      "objectPrompt": "Find something round AND bouncy",
+      "clue": "Apple, cup, balloon — be creative!",
+      "picture": "🎈"
     },
     {
       "type": "hunt",
@@ -138,7 +138,7 @@
       "hex": "#9B59B6",
       "objectPrompt": "Find something that makes sound",
       "clue": "Speaker, phone, or musical instrument.",
-      "picture": "\ud83c\udfb5"
+      "picture": "🎵"
     },
     {
       "type": "hunt",
@@ -147,22 +147,22 @@
       "hex": "#FF6F61",
       "objectPrompt": "Find the loudest party object in the room",
       "clue": "Speaker, hat, or decoration.",
-      "picture": "\ud83c\udf89"
+      "picture": "🎉"
     },
     {
       "type": "echo",
       "hueName": "Grape Pop",
       "hex": "#9B59B6",
-      "clue": "Apple, soda can, or smoothie.",
-      "picture": "\ud83c\udf47",
-      "objectPrompt": "Sketch a fruit or drink"
+      "clue": "No drawing: grab an object from the room and let teammates guess your pick.",
+      "picture": "🍇",
+      "objectPrompt": "Find a real object that matches \"Grape Pop\""
     },
     {
       "type": "relay",
       "hueName": "Electric Teal",
       "hex": "#1ABC9C",
       "clue": "Gadget, glass, or accessory.",
-      "picture": "\u26a1",
+      "picture": "⚡",
       "objectPrompt": "Each friend adds one sharp or shiny find"
     },
     {
@@ -170,7 +170,7 @@
       "hueName": "Midnight Blue",
       "hex": "#1B3A5C",
       "clue": "Remote, book, or closed curtain.",
-      "picture": "\ud83c\udf03",
+      "picture": "🌃",
       "objectPrompt": "Find something dark or nighttime-themed"
     },
     {
@@ -178,9 +178,9 @@
       "huntCategory": "combo",
       "hueName": "Snack Stack",
       "hex": "#FF4500",
-      "objectPrompt": "Find something orange AND edible",
-      "clue": "Cheetos, orange, or cheese.",
-      "picture": "\ud83e\uddc0"
+      "objectPrompt": "Find something crunchy AND edible",
+      "clue": "Chips, fruit, or crackers.",
+      "picture": "🧀"
     },
     {
       "type": "hunt",
@@ -189,7 +189,7 @@
       "hex": "#FF69B4",
       "objectPrompt": "Find the most photogenic object",
       "clue": "Hat, sunglasses, or neon sign.",
-      "picture": "\ud83d\udcf8"
+      "picture": "📸"
     },
     {
       "type": "hunt",
@@ -198,14 +198,14 @@
       "hex": "#FFFFFF",
       "objectPrompt": "Find the fuzziest thing nearby",
       "clue": "Sweater, towel, or plush.",
-      "picture": "\ud83c\udfb2"
+      "picture": "🎲"
     },
     {
       "type": "forge",
       "hueName": "Sour Lime",
       "hex": "#32CD32",
       "clue": "Soda, chips, or lime garnish.",
-      "picture": "\ud83c\udf4b",
+      "picture": "🍋",
       "objectPrompt": "Collect 3 party drinks or snacks"
     },
     {
@@ -213,15 +213,15 @@
       "hueName": "Cherry Bomb",
       "hex": "#DC143C",
       "clue": "Apple, cup, or clothing.",
-      "picture": "\ud83c\udf52",
-      "objectPrompt": "Find something red in the room"
+      "picture": "🍒",
+      "objectPrompt": "Find something with a label or sticker on it"
     },
     {
       "type": "ritual",
       "hueName": "Neon Finale",
       "hex": "#00FFFF",
       "clue": "Speaker, toy, or decoration.",
-      "picture": "\ud83d\udca1",
+      "picture": "💡",
       "objectPrompt": "Everyone points at the loudest object in the room"
     },
     {
@@ -231,15 +231,15 @@
       "hex": "#4B0082",
       "objectPrompt": "Find something you play with",
       "clue": "Controller, cards, or board game.",
-      "picture": "\ud83c\udfae"
+      "picture": "🎮"
     },
     {
       "type": "relay",
-      "hueName": "Aqua Rush",
+      "hueName": "Smooth Rush",
       "hex": "#00CED1",
       "clue": "Pass the device after each find.",
-      "picture": "\ud83d\udca7",
-      "objectPrompt": "Each player finds one object for \u201cAqua Rush\u201d"
+      "picture": "💧",
+      "objectPrompt": "Each player finds one object for “Aqua Rush”"
     }
   ],
   "party": [
@@ -250,7 +250,7 @@
       "hex": "#FF9F1C",
       "objectPrompt": "Find the best party snack in the room",
       "clue": "Chips, fruit, or secret stash.",
-      "picture": "\ud83c\udf7f"
+      "picture": "🍿"
     },
     {
       "type": "hunt",
@@ -259,7 +259,7 @@
       "hex": "#32CD32",
       "objectPrompt": "Find a drink or snack that feels like party fuel",
       "clue": "Sports drink, soda, or candy.",
-      "picture": "\ud83d\udfe2"
+      "picture": "🟢"
     },
     {
       "type": "hunt",
@@ -268,14 +268,14 @@
       "hex": "#C0C0C0",
       "objectPrompt": "Find something shiny or reflective",
       "clue": "Glass, foil, or phone screen.",
-      "picture": "\u2728"
+      "picture": "✨"
     },
     {
       "type": "relay",
       "hueName": "Hot Magenta",
       "hex": "#FF1493",
       "clue": "Decoration, drink, or game.",
-      "picture": "\ud83d\udc83",
+      "picture": "💃",
       "objectPrompt": "Each player finds one party object"
     },
     {
@@ -283,7 +283,7 @@
       "hueName": "Voltage Yellow",
       "hex": "#FFE135",
       "clue": "Lamp, screen, or highlighter.",
-      "picture": "\u26a1",
+      "picture": "⚡",
       "objectPrompt": "Find the brightest object in the room"
     },
     {
@@ -291,7 +291,7 @@
       "hueName": "UV Violet",
       "hex": "#8A2BE2",
       "clue": "Celebrate the winner together.",
-      "picture": "\ud83c\udf19",
+      "picture": "🌙",
       "objectPrompt": "Group picks the best party object from the room"
     },
     {
@@ -299,9 +299,9 @@
       "huntCategory": "combo",
       "hueName": "Disco Duo",
       "hex": "#FF00FF",
-      "objectPrompt": "Find something shiny AND colourful",
+      "objectPrompt": "Find something shiny AND patterned",
       "clue": "Tinsel, LED, or cocktail umbrella.",
-      "picture": "\ud83e\udea9"
+      "picture": "🪩"
     },
     {
       "type": "hunt",
@@ -310,7 +310,7 @@
       "hex": "#FFD700",
       "objectPrompt": "Find the best party cup or glass",
       "clue": "Red solo, wine glass, or mug.",
-      "picture": "\ud83e\udd64"
+      "picture": "🥤"
     },
     {
       "type": "hunt",
@@ -319,23 +319,23 @@
       "hex": "#4B0082",
       "objectPrompt": "Find something soft and fancy",
       "clue": "Scarf, curtain, or jacket.",
-      "picture": "\ud83c\udfad"
+      "picture": "🎭"
     },
     {
       "type": "forge",
       "hueName": "Punch Bowl",
       "hex": "#FF6347",
       "clue": "Chips, dip, or finger food.",
-      "picture": "\ud83c\udf79",
+      "picture": "🍹",
       "objectPrompt": "Collect 3 party snacks for a snack table"
     },
     {
       "type": "echo",
       "hueName": "Star Burst",
       "hex": "#FFFF00",
-      "clue": "Firework, speaker, or party hat.",
-      "picture": "\ud83c\udf86",
-      "objectPrompt": "Sketch something loud or exciting"
+      "clue": "No drawing: grab an object from the room and let teammates guess your pick.",
+      "picture": "🎆",
+      "objectPrompt": "Find a real object that matches \"Star Burst\""
     },
     {
       "type": "hunt",
@@ -344,14 +344,14 @@
       "hex": "#FF1493",
       "objectPrompt": "Find something that screams dance party",
       "clue": "Speaker, lights, or heels.",
-      "picture": "\ud83d\udc83"
+      "picture": "💃"
     },
     {
       "type": "duel",
       "hueName": "Gold Rush",
       "hex": "#DAA520",
       "clue": "Medal, trophy, or shiny decor.",
-      "picture": "\ud83c\udfc6",
+      "picture": "🏆",
       "objectPrompt": "Find the most golden or trophy-worthy object"
     },
     {
@@ -359,7 +359,7 @@
       "hueName": "Midnight Spark",
       "hex": "#191970",
       "clue": "Share why it wins.",
-      "picture": "\ud83c\udf0c",
+      "picture": "🌌",
       "objectPrompt": "Group vote: best object hunt of the night"
     }
   ],
@@ -370,8 +370,8 @@
       "hueName": "Workspace Win",
       "hex": "#708090",
       "objectPrompt": "Find something that helps you work",
-      "clue": "Pen, laptop, notebook \u2014 keep it professional.",
-      "picture": "\ud83d\udcbc"
+      "clue": "Pen, laptop, notebook — keep it professional.",
+      "picture": "💼"
     },
     {
       "type": "hunt",
@@ -380,14 +380,14 @@
       "hex": "#708090",
       "objectPrompt": "Find something that helps you focus",
       "clue": "Notebook, headphones, or mug.",
-      "picture": "\ud83d\udcca"
+      "picture": "📊"
     },
     {
       "type": "forge",
       "hueName": "Brand Teal",
       "hex": "#008080",
       "clue": "Badge, notebook, or branded swag.",
-      "picture": "\ud83c\udfa8",
+      "picture": "🎨",
       "objectPrompt": "Collect 3 items that represent your team at work"
     },
     {
@@ -395,7 +395,7 @@
       "hueName": "Forest Brief",
       "hex": "#228B22",
       "clue": "Plant, wood item, or photo.",
-      "picture": "\ud83c\udf3f",
+      "picture": "🌿",
       "objectPrompt": "Each colleague adds one nature-themed object"
     },
     {
@@ -403,7 +403,7 @@
       "hueName": "Trust Navy",
       "hex": "#1B3A5C",
       "clue": "Shared notebook, charger, or mug.",
-      "picture": "\ud83e\udd1d",
+      "picture": "🤝",
       "objectPrompt": "Find something that represents teamwork"
     },
     {
@@ -413,7 +413,7 @@
       "hex": "#6F4E37",
       "objectPrompt": "Find something from the break room",
       "clue": "Mug, snack, or water bottle.",
-      "picture": "\u2615"
+      "picture": "☕"
     },
     {
       "type": "hunt",
@@ -422,31 +422,31 @@
       "hex": "#2F4F4F",
       "objectPrompt": "Find something that supports your work",
       "clue": "Chair, stand, or wrist rest.",
-      "picture": "\ud83e\ude91"
+      "picture": "🪑"
     },
     {
       "type": "hunt",
       "huntCategory": "combo",
       "hueName": "Brand Match",
       "hex": "#003366",
-      "objectPrompt": "Find something blue AND rectangular",
+      "objectPrompt": "Find something rectangular AND flat",
       "clue": "Notebook, screen, or badge.",
-      "picture": "\ud83d\udcd8"
+      "picture": "📘"
     },
     {
       "type": "echo",
-      "hueName": "Growth Green",
+      "hueName": "Growth Spurt",
       "hex": "#3CB371",
-      "clue": "Arrow, chart, or trophy.",
-      "picture": "\ud83d\udcc8",
-      "objectPrompt": "Sketch something that means progress"
+      "clue": "No drawing: grab an object from the room and let teammates guess your pick.",
+      "picture": "📈",
+      "objectPrompt": "Find a real object that matches \"Growth Spurt\""
     },
     {
       "type": "relay",
       "hueName": "Sprint Silver",
       "hex": "#C0C0C0",
       "clue": "Pen, laptop, or notebook.",
-      "picture": "\ud83c\udfc3",
+      "picture": "🏃",
       "objectPrompt": "Each teammate adds one professional object"
     },
     {
@@ -454,7 +454,7 @@
       "hueName": "Pitch Purple",
       "hex": "#663399",
       "clue": "Whiteboard marker, prototype, or prop.",
-      "picture": "\ud83c\udfa4",
+      "picture": "🎤",
       "objectPrompt": "Find the most creative object for a pitch"
     },
     {
@@ -462,7 +462,7 @@
       "hueName": "Unity White",
       "hex": "#F5F5F5",
       "clue": "Place it in the center.",
-      "picture": "\ud83e\udd1d",
+      "picture": "🤝",
       "objectPrompt": "Together find one object that represents your team"
     },
     {
@@ -470,7 +470,7 @@
       "hueName": "Innovation Orange",
       "hex": "#FF8C00",
       "clue": "Something weird, useful, or funny.",
-      "picture": "\ud83d\udca1",
+      "picture": "💡",
       "objectPrompt": "Collect 3 creative or quirky objects"
     }
   ],
@@ -482,7 +482,7 @@
       "hex": "#FFB6C1",
       "objectPrompt": "Find a toy or stuffed animal",
       "clue": "Something huggable!",
-      "picture": "\ud83e\uddf8"
+      "picture": "🧸"
     },
     {
       "type": "hunt",
@@ -490,8 +490,8 @@
       "hueName": "Bubblegum",
       "hex": "#FFB6C1",
       "objectPrompt": "Find something that looks tasty or sweet",
-      "clue": "Snack, toy food, or a colourful wrapper.",
-      "picture": "\ud83c\udf6c"
+      "clue": "Snack, toy food, or a shiny wrapper.",
+      "picture": "🍬"
     },
     {
       "type": "hunt",
@@ -500,30 +500,30 @@
       "hex": "#A0522D",
       "objectPrompt": "Find something bumpy or rough",
       "clue": "Brick, shoe sole, or bark.",
-      "picture": "\ud83e\udea8"
+      "picture": "🪨"
     },
     {
       "type": "echo",
       "hueName": "Sunshine",
       "hex": "#FFE135",
-      "clue": "Smiley, pet, or favorite toy.",
-      "picture": "\u2600\ufe0f",
-      "objectPrompt": "Sketch something that makes you happy"
+      "clue": "No drawing: grab an object from the room and let teammates guess your pick.",
+      "picture": "☀️",
+      "objectPrompt": "Find a real object that matches \"Sunshine\""
     },
     {
       "type": "forge",
       "hueName": "Ocean Pop",
       "hex": "#4FC3F7",
-      "clue": "Hunt the room \u2014 tap each find on screen.",
-      "picture": "\ud83d\udc20",
-      "objectPrompt": "Collect 3 real objects that fit \u201cOcean Pop\u201d"
+      "clue": "Hunt the room — tap each find on screen.",
+      "picture": "🐠",
+      "objectPrompt": "Collect 3 real objects that fit “Ocean Pop”"
     },
     {
       "type": "ritual",
       "hueName": "Rainbow End",
       "hex": "#FF69B4",
       "clue": "Kids pick the winner.",
-      "picture": "\ud83c\udf08",
+      "picture": "🌈",
       "objectPrompt": "Each player shows their favorite object from the chapter"
     },
     {
@@ -531,18 +531,18 @@
       "huntCategory": "object",
       "hueName": "Crayon Box",
       "hex": "#FF4500",
-      "objectPrompt": "Find something you draw or colour with",
+      "objectPrompt": "Find something you draw or write with",
       "clue": "Crayon, marker, or chalk.",
-      "picture": "\ud83d\udd8d\ufe0f"
+      "picture": "🖍️"
     },
     {
       "type": "hunt",
       "huntCategory": "combo",
       "hueName": "Animal Duo",
       "hex": "#8B4513",
-      "objectPrompt": "Find something brown AND round",
+      "objectPrompt": "Find something round AND wooden",
       "clue": "Teddy, ball, or cookie.",
-      "picture": "\ud83d\udc3b"
+      "picture": "🐻"
     },
     {
       "type": "hunt",
@@ -551,23 +551,23 @@
       "hex": "#FF69B4",
       "objectPrompt": "Find something squishy",
       "clue": "Pillow, slime, or stress ball.",
-      "picture": "\ud83e\udee7"
+      "picture": "🫧"
     },
     {
       "type": "relay",
       "hueName": "Candy Lane",
       "hex": "#FF1493",
-      "clue": "Snack, toy, or colorful wrapper.",
-      "picture": "\ud83c\udf6d",
+      "clue": "Snack, toy, or shiny wrapper.",
+      "picture": "🍭",
       "objectPrompt": "Each kid finds one sweet or fun object"
     },
     {
       "type": "duel",
-      "hueName": "Super Blue",
+      "hueName": "Logo Hunt",
       "hex": "#1E90FF",
       "clue": "Pen, cup, or toy.",
-      "picture": "\ud83e\uddb8",
-      "objectPrompt": "Find something blue in the room"
+      "picture": "🦸",
+      "objectPrompt": "Find something with a logo or brand on it"
     },
     {
       "type": "hunt",
@@ -576,14 +576,14 @@
       "hex": "#9370DB",
       "objectPrompt": "Find a book or story character toy",
       "clue": "Picture book, comic, or figurine.",
-      "picture": "\ud83d\udcd6"
+      "picture": "📖"
     },
     {
       "type": "forge",
       "hueName": "Grass Hop",
       "hex": "#7CFC00",
       "clue": "Toy, game piece, or stuffed animal.",
-      "picture": "\ud83e\udd97",
+      "picture": "🦗",
       "objectPrompt": "Collect 3 playful kid-friendly objects"
     },
     {
@@ -591,7 +591,7 @@
       "hueName": "Star Party",
       "hex": "#FFD700",
       "clue": "Point and cheer!",
-      "picture": "\u2b50",
+      "picture": "⭐",
       "objectPrompt": "Everyone shows their sparkliest or favorite find"
     }
   ]

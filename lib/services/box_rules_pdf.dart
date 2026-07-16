@@ -29,7 +29,7 @@ class BoxRulesPdf {
           pw.SizedBox(height: 4),
           pw.Center(
             child: pw.Text(
-              'Official tabletop rules · NovaLumina Studio',
+              'Room Raiders tabletop rules · NovaLumina Studio',
               style: const pw.TextStyle(fontSize: 12, color: PdfColors.grey700),
             ),
           ),
@@ -37,7 +37,7 @@ class BoxRulesPdf {
           ...body,
           pw.Divider(),
           pw.Text(
-            'Companion app: Hue Hunt — scan QR on box for digital scorekeeper & bonus missions.',
+            'Companion app: Room Raiders — scan QR on box for digital scorekeeper, sudden death, and bonus missions.',
             style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey600),
           ),
         ],
@@ -75,13 +75,12 @@ const _sections = [
   ),
   _Section(
     'Card types',
-    'Colour: match the hue in the room.\n'
     'Object: find the described thing.\n'
     'Texture: find by feel (soft, rough, cold…).\n'
-    'Combo: two constraints (e.g. red AND round).\n'
+    'Combo: two constraints (e.g. round AND bouncy) — not colour hunts.\n'
     'Relay: each player adds one find.\n'
     'Duel: teams race; winner takes points.\n'
-    'Ritual: group finale — glow hunt (+2 if all succeed).',
+    'Ritual: group finale showcase (+2 if all succeed).',
   ),
   _Section(
     'Scoring',
@@ -90,11 +89,11 @@ const _sections = [
   ),
   _Section(
     'Optional app',
-    'One phone may run Hunt-Hue Box mode in the Hue Hunt app as scorekeeper. '
+    'One phone may run Hunt-Hue Box mode in the Room Raiders app as scorekeeper. '
     'No camera required. QR on box unlocks bonus digital cards.',
   ),
   _Section(
     'Win',
-    'First team to 10 points wins. Ties: sudden-death duel card.',
+    'First team to 10 points wins the Raid Crown. Ties: sudden-death duel card.',
   ),
 ];

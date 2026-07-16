@@ -7,12 +7,16 @@ class ChaosTwist {
     required this.rule,
     required this.spiritLine,
     required this.emoji,
+    this.forcesSuddenDeath = false,
+    this.suddenDeathSeconds = 45,
   });
 
   final String title;
   final String rule;
   final String spiritLine;
   final String emoji;
+  final bool forcesSuddenDeath;
+  final int suddenDeathSeconds;
 
   static final _pool = [
     ChaosTwist(
@@ -62,6 +66,50 @@ class ChaosTwist {
       rule: 'One person who is NOT playing picks the winner of this mission.',
       spiritLine: 'Plot twist! Grab a spectator — they are the judge now.',
       emoji: '⭐',
+    ),
+    ChaosTwist(
+      title: 'NO TALKING 30s',
+      rule: 'Absolute silence for 30 seconds — gestures only.',
+      spiritLine: 'Chaos! No talking for thirty seconds. Mime your way to victory!',
+      emoji: '🤐',
+    ),
+    ChaosTwist(
+      title: 'SUDDEN DEATH 45',
+      rule: 'Everyone has 45 seconds — when time is up, the mission ends.',
+      spiritLine: 'Emergency timer! Forty-five seconds. Sudden death — go!',
+      emoji: '⏱️',
+      forcesSuddenDeath: true,
+      suddenDeathSeconds: 45,
+    ),
+    ChaosTwist(
+      title: 'FREEZE FRAME',
+      rule: 'Stand frozen until someone holds up a valid find.',
+      spiritLine: 'Freeze! Nobody moves until the object is in the air!',
+      emoji: '🧊',
+    ),
+    ChaosTwist(
+      title: 'REVERSE ROLES',
+      rule: 'Youngest player hunts; everyone else can only give clues.',
+      spiritLine: 'Role swap! Youngest Raiders hunt — adults whisper clues only.',
+      emoji: '🔁',
+    ),
+    ChaosTwist(
+      title: 'DOUBLE POINTS',
+      rule: 'The next confirmed find is worth double points.',
+      spiritLine: 'Bonus chaos! Next confirmed find counts double!',
+      emoji: '✖️2',
+    ),
+    ChaosTwist(
+      title: 'MUTE CAPTAIN',
+      rule: 'Team captain cannot speak this mission — teammates lead.',
+      spiritLine: 'Captain\'s muted! Teammates, you\'re in charge now.',
+      emoji: '🔇',
+    ),
+    ChaosTwist(
+      title: 'BLINDFOLD HINT',
+      rule: 'Hunter closes eyes — team describes objects nearby.',
+      spiritLine: 'Blindfold hunt! Eyes closed, ears open. Trust your squad.',
+      emoji: '👁️',
     ),
   ];
 

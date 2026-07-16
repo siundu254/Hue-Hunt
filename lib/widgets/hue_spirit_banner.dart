@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hue_hunt/constants/app_branding.dart';
 import 'package:hue_hunt/models/spirit_mood.dart';
+import 'package:hue_hunt/theme/app_colors.dart';
 
 class HueSpiritBanner extends StatefulWidget {
   const HueSpiritBanner({
@@ -63,10 +65,10 @@ class _HueSpiritBannerState extends State<HueSpiritBanner>
   }
 
   Color _accentForMood() => switch (widget.mood) {
-        SpiritMood.neutral => Colors.deepPurple,
-        SpiritMood.excited => Colors.indigo,
-        SpiritMood.celebrating => Colors.pinkAccent,
-        SpiritMood.rematch => Colors.orange,
+        SpiritMood.neutral => AppColors.mysteryPurple,
+        SpiritMood.excited => AppColors.adventureOrange,
+        SpiritMood.celebrating => AppColors.treasureYellow,
+        SpiritMood.rematch => const Color(0xFFFF6B35),
       };
 
   @override
@@ -82,9 +84,11 @@ class _HueSpiritBannerState extends State<HueSpiritBanner>
             padding: EdgeInsets.all(widget.compact ? 12 : 16),
             decoration: BoxDecoration(
               gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
                 colors: [
-                  accent.withValues(alpha: 0.55 + _glow.value * 0.2),
-                  Colors.indigo.withValues(alpha: 0.35),
+                  accent.withValues(alpha: 0.5 + _glow.value * 0.15),
+                  AppColors.backgroundMid.withValues(alpha: 0.85),
                 ],
               ),
               borderRadius: BorderRadius.circular(16),
@@ -106,7 +110,6 @@ class _HueSpiritBannerState extends State<HueSpiritBanner>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _SpiritAvatar(
-                  emoji: widget.mood.emoji,
                   compact: widget.compact,
                   wobble: _pulseController.value,
                   celebrating: widget.mood == SpiritMood.celebrating,
@@ -117,11 +120,12 @@ class _HueSpiritBannerState extends State<HueSpiritBanner>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hue Spirit',
+                        'Raid Captain',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w800,
                           fontSize: widget.compact ? 13 : 15,
-                          color: Colors.amber.shade200,
+                          color: AppColors.treasureYellow,
+                          letterSpacing: 0.3,
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -160,33 +164,39 @@ class _HueSpiritBannerState extends State<HueSpiritBanner>
 
 class _SpiritAvatar extends StatelessWidget {
   const _SpiritAvatar({
-    required this.emoji,
     required this.compact,
     required this.wobble,
     required this.celebrating,
   });
 
-  final String emoji;
   final bool compact;
   final double wobble;
   final bool celebrating;
 
   @override
   Widget build(BuildContext context) {
-    final size = compact ? 36.0 : 48.0;
+    final size = compact ? 40.0 : 52.0;
     return Transform.rotate(
-      angle: celebrating ? (wobble - 0.5) * 0.12 : 0,
+      angle: celebrating ? (wobble - 0.5) * 0.1 : 0,
       child: Transform.scale(
-        scale: celebrating ? 1.0 + (wobble * 0.08) : 1.0,
+        scale: celebrating ? 1.0 + (wobble * 0.06) : 1.0,
         child: Container(
           width: size,
           height: size,
-          alignment: Alignment.center,
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(compact ? 10 : 12),
+            border: Border.all(color: AppColors.adventureOrange.withValues(alpha: 0.5)),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.adventureOrange.withValues(alpha: 0.25),
+                blurRadius: 8,
+              ),
+            ],
           ),
-          child: Text(emoji, style: TextStyle(fontSize: compact ? 22 : 28)),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(compact ? 9 : 11),
+            child: Image.asset(AppBranding.logoAsset, fit: BoxFit.cover),
+          ),
         ),
       ),
     );

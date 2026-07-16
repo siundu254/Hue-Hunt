@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hue_hunt/constants/app_branding.dart';
 import 'package:hue_hunt/models/team_config.dart';
 import 'package:hue_hunt/theme/app_colors.dart';
 
-/// Visual expedition card for social / Kickstarter clips.
+/// Visual expedition card for social sharing.
 class ExpeditionShareCard extends StatelessWidget {
   const ExpeditionShareCard({
     super.key,
@@ -10,7 +11,7 @@ class ExpeditionShareCard extends StatelessWidget {
     required this.score,
     required this.meter,
     required this.teams,
-    this.spiritQuote = 'The Chroma Expedition continues!',
+    this.spiritQuote = 'Another room conquered!',
   });
 
   final String modeTitle;
@@ -33,38 +34,39 @@ class ExpeditionShareCard extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xFF141424), Color(0xFF2D1B69), Color(0xFF0D1B2A)],
+          colors: [AppColors.backgroundDark, AppColors.mysteryPurple, Color(0xFF1A1028)],
         ),
-        border: Border.all(color: AppColors.accent.withValues(alpha: 0.5), width: 2),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.accent.withValues(alpha: 0.25),
-            blurRadius: 24,
-            spreadRadius: 2,
-          ),
-        ],
+        border: Border.all(color: AppColors.adventureOrange.withValues(alpha: 0.5), width: 2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Row(
+          Row(
             children: [
-              Text('✨', style: TextStyle(fontSize: 28)),
-              SizedBox(width: 8),
-              Text(
-                'Hue Hunt',
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  AppBranding.logoAsset,
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(width: 8),
+              const Text(
+                AppBranding.productName,
                 style: TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 18,
-                  color: AppColors.amber,
+                  color: AppColors.treasureYellow,
                 ),
               ),
             ],
           ),
           const SizedBox(height: 12),
           Text(
-            'Chapter Complete',
+            'Raid Complete',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -79,7 +81,7 @@ class ExpeditionShareCard extends StatelessWidget {
             children: [
               _StatChip(label: 'Score', value: '$score'),
               const SizedBox(width: 10),
-              _StatChip(label: 'Chroma', value: '$meter%'),
+              _StatChip(label: 'Raid Meter', value: '$meter%'),
             ],
           ),
           if (winner != null) ...[
@@ -89,7 +91,7 @@ class ExpeditionShareCard extends StatelessWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
-                color: AppColors.accent,
+                color: AppColors.adventureOrange,
               ),
             ),
             Text('${winner.score} pts', style: const TextStyle(color: Colors.white70)),
@@ -99,13 +101,13 @@ class ExpeditionShareCard extends StatelessWidget {
             '"$spiritQuote"',
             style: TextStyle(
               fontStyle: FontStyle.italic,
-              color: Colors.amber.shade100.withValues(alpha: 0.9),
+              color: AppColors.treasureYellow.withValues(alpha: 0.9),
               height: 1.35,
             ),
           ),
           const SizedBox(height: 12),
           Text(
-            'NovaLumina Studio · novaluminastudio.com',
+            '${AppBranding.studioName} · novaluminastudio.com',
             textAlign: TextAlign.right,
             style: TextStyle(fontSize: 10, color: Colors.white.withValues(alpha: 0.45)),
           ),

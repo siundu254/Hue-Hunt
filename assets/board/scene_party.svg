@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="pt-bg" x1="0" y1="0" x2="400" y2="280"><stop stop-color="#2A1048"/><stop offset="1" stop-color="#100820"/></linearGradient>
+    <radialGradient id="pt-disco1" cx="120" cy="60" r="80"><stop stop-color="#B5179E" stop-opacity="0.5"/><stop offset="1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="pt-disco2" cx="280" cy="80" r="80"><stop stop-color="#4ECDC4" stop-opacity="0.4"/><stop offset="1" stop-opacity="0"/></radialGradient>
+    <linearGradient id="pt-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE566"/><stop offset="1" stop-color="#9A7420"/></linearGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#pt-bg)" rx="8"/>
+  <ellipse cx="120" cy="60" rx="80" ry="60" fill="url(#pt-disco1)"/>
+  <ellipse cx="280" cy="80" rx="80" ry="60" fill="url(#pt-disco2)"/>
+  <!-- Dance floor -->
+  <rect x="48" y="140" width="304" height="120" rx="4" fill="#1A0828" fill-opacity="0.6"/>
+  <g stroke="#E8C547" stroke-opacity="0.15">
+    <line x1="48" y1="180" x2="352" y2="180"/><line x1="48" y1="220" x2="352" y2="220"/>
+    <line x1="120" y1="140" x2="120" y2="260"/><line x1="200" y1="140" x2="200" y2="260"/><line x1="280" y1="140" x2="280" y2="260"/>
+  </g>
+  <!-- Speakers -->
+  <rect x="24" y="100" width="32" height="56" rx="3" fill="#2A2820"/><rect x="344" y="100" width="32" height="56" rx="3" fill="#2A2820"/>
+  <circle cx="40" cy="128" r="10" fill="#1A1818"/><circle cx="360" cy="128" r="10" fill="#1A1818"/>
+  <!-- Disco ball -->
+  <circle cx="200" cy="36" r="20" fill="#C8D0D8" fill-opacity="0.6" stroke="url(#pt-gold)"/>
+  <line x1="200" y1="16" x2="200" y2="36" stroke="#8A8078"/>
+  <!-- Balloons -->
+  <ellipse cx="80" cy="72" rx="14" ry="18" fill="#FF8A00" fill-opacity="0.7"/>
+  <ellipse cx="100" cy="64" rx="12" ry="16" fill="#4ECDC4" fill-opacity="0.6"/>
+  <ellipse cx="320" cy="68" rx="14" ry="18" fill="#B5179E" fill-opacity="0.7"/>
+  <!-- Photo backdrop -->
+  <rect x="280" y="148" width="64" height="80" rx="2" fill="#FFE566" fill-opacity="0.2" stroke="url(#pt-gold)" stroke-opacity="0.4"/>
+  <!-- Confetti -->
+  <rect x="160" y="180" width="6" height="6" fill="#FFE566" transform="rotate(25 163 183)"/>
+  <rect x="220" y="200" width="5" height="5" fill="#4ECDC4" transform="rotate(-15 222 202)"/>
+  <rect x="180" y="220" width="6" height="6" fill="#E85D04" transform="rotate(40 183 223)"/>
+</svg>

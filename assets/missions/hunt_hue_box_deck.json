@@ -21,11 +21,12 @@
     {
       "boxCardId": "HHB-02",
       "type": "hunt",
-      "hueName": "Aqua Rush",
+      "hueName": "Smooth Rush",
       "hex": "#4ECDC4",
-      "clue": "First team to show this colour wins.",
-      "picture": "\ud83c\udfa8",
-      "huntCategory": "color"
+      "clue": "Glass, tile, or phone screen.",
+      "picture": "🌊",
+      "huntCategory": "combo",
+      "objectPrompt": "Something smooth AND cool"
     },
     {
       "boxCardId": "HHB-03",
@@ -40,12 +41,12 @@
     {
       "boxCardId": "HHB-04",
       "type": "hunt",
-      "hueName": "Green Life",
+      "hueName": "Living Green",
       "hex": "#81C784",
-      "clue": "Plant, salad, or shirt.",
+      "clue": "Plant, herb, or fruit.",
       "picture": "\ud83c\udf31",
       "huntCategory": "combo",
-      "objectPrompt": "Something green AND living"
+      "objectPrompt": "Something living AND growing"
     },
     {
       "boxCardId": "HHB-05",
@@ -60,11 +61,11 @@
     {
       "boxCardId": "HHB-06",
       "type": "relay",
-      "hueName": "Blue Relay",
+      "hueName": "Smooth Relay",
       "hex": "#FCBAD3",
       "clue": "Pass the device after each find.",
       "picture": "\u23f1\ufe0f",
-      "objectPrompt": "Each player finds one object for \u201cBlue Relay\u201d"
+      "objectPrompt": "Each player finds one smooth object"
     },
     {
       "boxCardId": "HHB-07",
@@ -73,7 +74,7 @@
       "hex": "#FFFFD2",
       "clue": "Tap when your team has a match in the room.",
       "picture": "\ud83c\udfc1",
-      "objectPrompt": "Both teams hunt: S-Print Duel"
+      "objectPrompt": "Find the fastest object to grab in the room"
     },
     {
       "boxCardId": "HHB-08",
@@ -97,11 +98,12 @@
     {
       "boxCardId": "HHB-10",
       "type": "hunt",
-      "hueName": "Orange Burst",
+      "hueName": "Round Rush",
       "hex": "#E17055",
-      "clue": "Orange hunt \u2014 no duplicate objects!",
-      "picture": "\ud83c\udf4a",
-      "huntCategory": "color"
+      "clue": "Ball, fruit, or cup — no duplicates!",
+      "picture": "🍊",
+      "huntCategory": "combo",
+      "objectPrompt": "Something round AND bouncy"
     },
     {
       "boxCardId": "HHB-11",
@@ -136,11 +138,12 @@
     {
       "boxCardId": "HHB-14",
       "type": "hunt",
-      "hueName": "Royal Plum",
+      "hueName": "Pocket Prize",
       "hex": "#7E57C2",
-      "clue": "Purple power \u2014 show the hue!",
-      "picture": "\ud83d\udc9c",
-      "huntCategory": "color"
+      "clue": "Keychain, marker, or small toy.",
+      "picture": "💜",
+      "huntCategory": "object",
+      "objectPrompt": "Something small you can hold in one hand"
     },
     {
       "boxCardId": "HHB-15",
@@ -180,16 +183,16 @@
       "clue": "Banana, sponge, or pillow.",
       "picture": "\ud83c\udf4c",
       "huntCategory": "combo",
-      "objectPrompt": "Something yellow AND soft"
+      "objectPrompt": "Something soft AND fluffy"
     },
     {
       "boxCardId": "HHB-19",
       "type": "relay",
-      "hueName": "Red Relay",
+      "hueName": "Loud Relay",
       "hex": "#AB47BC",
       "clue": "Pass the device after each find.",
       "picture": "\u23f1\ufe0f",
-      "objectPrompt": "Each player finds one object for \u201cRed Relay\u201d"
+      "objectPrompt": "Each player finds one loud object"
     },
     {
       "boxCardId": "HHB-20",
@@ -198,7 +201,7 @@
       "hex": "#26A69A",
       "clue": "Tap when your team has a match in the room.",
       "picture": "\u2694\ufe0f",
-      "objectPrompt": "Both teams hunt: Metal Duel"
+      "objectPrompt": "Find the most metallic object nearby"
     },
     {
       "boxCardId": "HHB-21",
@@ -213,11 +216,12 @@
     {
       "boxCardId": "HHB-22",
       "type": "hunt",
-      "hueName": "True Red",
+      "hueName": "Soft Spot",
       "hex": "#C62828",
-      "clue": "True red \u2014 crimson counts!",
-      "picture": "\u2764\ufe0f",
-      "huntCategory": "color"
+      "clue": "Pillow, plush, or scarf.",
+      "picture": "❤️",
+      "huntCategory": "combo",
+      "objectPrompt": "Something soft AND squishy"
     },
     {
       "boxCardId": "HHB-23",
@@ -262,11 +266,12 @@
     {
       "boxCardId": "HHB-27",
       "type": "hunt",
-      "hueName": "Teal Tide",
+      "hueName": "Bath Raid",
       "hex": "#00897B",
-      "clue": "Teal team showdown!",
-      "picture": "\ud83c\udf0a",
-      "huntCategory": "color"
+      "clue": "Soap, mug, or coaster.",
+      "picture": "🌊",
+      "huntCategory": "object",
+      "objectPrompt": "Something from a bathroom or kitchen"
     },
     {
       "boxCardId": "HHB-28",
@@ -281,11 +286,11 @@
     {
       "boxCardId": "HHB-29",
       "type": "relay",
-      "hueName": "Rainbow Relay",
+      "hueName": "Pattern Relay",
       "hex": "#FFD54F",
       "clue": "Pass the device after each find.",
       "picture": "\u23f1\ufe0f",
-      "objectPrompt": "Each player finds one object for \u201cRainbow Relay\u201d"
+      "objectPrompt": "Each player finds one patterned object"
     },
     {
       "boxCardId": "HHB-30",
@@ -294,7 +299,7 @@
       "hex": "#5E35B1",
       "clue": "Tap when your team has a match in the room.",
       "picture": "\ud83c\udfaf",
-      "objectPrompt": "Both teams hunt: Round Duel"
+      "objectPrompt": "Find the roundest object in sight"
     },
     {
       "boxCardId": "HHB-31",
@@ -319,21 +324,22 @@
     {
       "boxCardId": "HHB-33",
       "type": "hunt",
-      "hueName": "Cold Blue",
+      "hueName": "Cold Touch",
       "hex": "#42A5F5",
       "clue": "Ice pack, drink, or tile.",
       "picture": "\ud83e\uddca",
       "huntCategory": "combo",
-      "objectPrompt": "Something blue AND cold"
+      "objectPrompt": "Something cold AND smooth"
     },
     {
       "boxCardId": "HHB-34",
       "type": "hunt",
-      "hueName": "Autumn Hue",
+      "hueName": "Rough Nature",
       "hex": "#D84315",
-      "clue": "Burnt orange \u2014 autumn vibes.",
-      "picture": "\ud83c\udf42",
-      "huntCategory": "color"
+      "clue": "Leaf, pinecone, or bark.",
+      "picture": "🍂",
+      "huntCategory": "combo",
+      "objectPrompt": "Something rough AND natural"
     },
     {
       "boxCardId": "HHB-35",
@@ -387,11 +393,12 @@
     {
       "boxCardId": "HHB-40",
       "type": "hunt",
-      "hueName": "Hot Pink",
+      "hueName": "Fluffy Find",
       "hex": "#EC407A",
-      "clue": "Hot pink \u2014 bold choices only!",
-      "picture": "\ud83d\udc97",
-      "huntCategory": "color"
+      "clue": "Slipper, plush, or towel.",
+      "picture": "💗",
+      "huntCategory": "combo",
+      "objectPrompt": "Something fluffy AND cozy"
     },
     {
       "boxCardId": "HHB-41",
@@ -400,7 +407,7 @@
       "hex": "#7CB342",
       "clue": "Pass the device after each find.",
       "picture": "\u23f1\ufe0f",
-      "objectPrompt": "Each player finds one object for \u201cNature Relay\u201d"
+      "objectPrompt": "Each player finds one natural object"
     },
     {
       "boxCardId": "HHB-42",
@@ -409,7 +416,7 @@
       "hex": "#3949AB",
       "clue": "Tap when your team has a match in the room.",
       "picture": "\ud83d\udcc4",
-      "objectPrompt": "Both teams hunt: Paper Race"
+      "objectPrompt": "Find something made of paper"
     },
     {
       "boxCardId": "HHB-43",
@@ -454,11 +461,12 @@
     {
       "boxCardId": "HHB-47",
       "type": "hunt",
-      "hueName": "Forest Deep",
+      "hueName": "Plant Parent",
       "hex": "#1B5E20",
-      "clue": "Deep forest green.",
-      "picture": "\ud83c\udf32",
-      "huntCategory": "color"
+      "clue": "Plant, leaf, or flower.",
+      "picture": "🌲",
+      "huntCategory": "object",
+      "objectPrompt": "Something natural from a plant"
     },
     {
       "boxCardId": "HHB-48",

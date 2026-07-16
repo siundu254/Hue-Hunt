@@ -13,7 +13,7 @@ class ForgeMissionPanel extends StatefulWidget {
 
   final MissionDefinition mission;
   final ModeProfile profile;
-  final void Function({required int meterGain, required bool success, int? teamIndex}) onComplete;
+  final MissionCompleteCallback onComplete;
 
   @override
   State<ForgeMissionPanel> createState() => _ForgeMissionPanelState();

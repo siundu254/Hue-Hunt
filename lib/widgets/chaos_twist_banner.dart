@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hue_hunt/models/chaos_twist.dart';
 import 'package:hue_hunt/theme/app_colors.dart';
+import 'package:hue_hunt/theme/raid_ui.dart';
 
 class ChaosTwistBanner extends StatelessWidget {
   const ChaosTwistBanner({super.key, required this.twist});
@@ -13,19 +14,21 @@ class ChaosTwistBanner extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(RaidUi.radiusMd),
         gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
           colors: [
-            const Color(0xFF7C2D12),
-            AppColors.accent.withValues(alpha: 0.85),
+            AppColors.adventureOrange.withValues(alpha: 0.85),
+            AppColors.mysteryPurple.withValues(alpha: 0.75),
           ],
         ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.amber.withValues(alpha: 0.6), width: 2),
+        border: Border.all(color: AppColors.treasureYellow.withValues(alpha: 0.55), width: 2),
         boxShadow: [
           BoxShadow(
-            color: AppColors.accent.withValues(alpha: 0.35),
-            blurRadius: 16,
-            spreadRadius: 1,
+            color: AppColors.adventureOrange.withValues(alpha: 0.4),
+            blurRadius: 20,
+            offset: const Offset(0, 6),
           ),
         ],
       ),

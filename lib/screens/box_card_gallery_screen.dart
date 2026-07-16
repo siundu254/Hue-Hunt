@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hue_hunt/data/mission_repository.dart';
 import 'package:hue_hunt/models/hunt_category.dart';
 import 'package:hue_hunt/models/mission.dart';
-import 'package:hue_hunt/services/color_math.dart';
+import 'package:hue_hunt/theme/app_colors.dart';
 
 /// Print-layout reference: all Hunt-Hue Box cards (48) for retail / playtesting.
 class BoxCardGalleryScreen extends StatefulWidget {
@@ -47,9 +47,9 @@ class _BoxCardGalleryScreenState extends State<BoxCardGalleryScreen> {
                 ),
                 Expanded(
                   child: ListView.builder(
-              padding: const EdgeInsets.all(12),
-              itemCount: _cards.length,
-              itemBuilder: (context, i) => _CardTile(card: _cards[i], index: i + 1),
+                    padding: const EdgeInsets.all(12),
+                    itemCount: _cards.length,
+                    itemBuilder: (context, i) => _CardTile(card: _cards[i], index: i + 1),
                   ),
                 ),
               ],
@@ -65,8 +65,7 @@ class _CardTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = card.targetColor;
-    final headline = card.isScavengerHunt ? card.huntHeadline : card.hueName;
+    final headline = card.challengePrompt;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 10),
@@ -79,7 +78,9 @@ class _CardTile extends StatelessWidget {
               width: 56,
               height: 72,
               decoration: BoxDecoration(
-                color: color,
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF1B263B), Color(0xFF3D5A80)],
+                ),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.white24),
               ),
@@ -93,8 +94,8 @@ class _CardTile extends StatelessWidget {
                 children: [
                   Text(
                     '${card.boxCardId ?? 'Card'} · ${missionTypeLabel(card.type)}',
-                    style: TextStyle(
-                      color: color,
+                    style: const TextStyle(
+                      color: AppColors.amber,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
@@ -105,10 +106,10 @@ class _CardTile extends StatelessWidget {
                       style: TextStyle(fontSize: 11, color: Colors.white.withValues(alpha: 0.6)),
                     ),
                   const SizedBox(height: 4),
+                  Text(card.hueName, style: TextStyle(color: Colors.white.withValues(alpha: 0.7), fontSize: 13)),
                   Text(headline, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
-                  Text(card.clue, style: TextStyle(color: Colors.white.withValues(alpha: 0.75), height: 1.3)),
-                  if (!card.isScavengerHunt)
-                    Text(ColorMath.toHex(color), style: const TextStyle(fontSize: 11)),
+                  if (card.clue.isNotEmpty && card.clue != headline)
+                    Text(card.clue, style: TextStyle(color: Colors.white.withValues(alpha: 0.75), height: 1.3)),
                 ],
               ),
             ),

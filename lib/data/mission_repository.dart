@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:hue_hunt/models/mission.dart';
 import 'package:hue_hunt/models/session_mode.dart';
+import 'package:hue_hunt/services/spirit_forge_service.dart';
 import 'package:hue_hunt/services/unlock_service.dart';
 
 class MissionRepository {
@@ -29,9 +30,7 @@ class MissionRepository {
 
   Future<List<MissionDefinition>> boxChapter({int count = 5}) async {
     await _ensureBoxLoaded();
-    final deck = List<MissionDefinition>.from(_boxDeck!);
-    deck.shuffle();
-    return deck.take(count).toList();
+    return SpiritForgeService.forgeFromBoxDeck(_boxDeck!, count: count);
   }
 
   String get boxTagline => _boxTagline ?? 'Device-optional Hunt-Hue Box play';

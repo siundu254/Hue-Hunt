@@ -20,7 +20,7 @@ class RelayMissionPanel extends StatefulWidget {
   final ModeProfile profile;
   final int seconds;
   final int playerCount;
-  final void Function({required int meterGain, required bool success, int? teamIndex}) onComplete;
+  final MissionCompleteCallback onComplete;
 
   @override
   State<RelayMissionPanel> createState() => _RelayMissionPanelState();

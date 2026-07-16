@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="kt-bg" x1="0" y1="0" x2="400" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E4A3A"/>
+      <stop offset="0.6" stop-color="#163528"/>
+      <stop offset="1" stop-color="#0E2218"/>
+    </linearGradient>
+    <linearGradient id="kt-cabinet" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F0E8D8"/>
+      <stop offset="0.5" stop-color="#D8C8B0"/>
+      <stop offset="1" stop-color="#B8A890"/>
+    </linearGradient>
+    <linearGradient id="kt-cabinet-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#C8B8A0"/>
+      <stop offset="1" stop-color="#9A8878"/>
+    </linearGradient>
+    <linearGradient id="kt-counter" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F5F0E8"/>
+      <stop offset="0.4" stop-color="#E0D8C8"/>
+      <stop offset="1" stop-color="#C0B8A8"/>
+    </linearGradient>
+    <linearGradient id="kt-marble" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F8F4EE"/>
+      <stop offset="0.5" stop-color="#E8E0D4"/>
+      <stop offset="1" stop-color="#D0C8BC"/>
+    </linearGradient>
+    <linearGradient id="kt-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFE566"/>
+      <stop offset="0.5" stop-color="#E8C547"/>
+      <stop offset="1" stop-color="#9A7420"/>
+    </linearGradient>
+    <linearGradient id="kt-floor" x1="0" y1="200" x2="0" y2="280">
+      <stop stop-color="#5A5048"/>
+      <stop offset="1" stop-color="#3A3428"/>
+    </linearGradient>
+    <pattern id="kt-subway" width="16" height="8" patternUnits="userSpaceOnUse">
+      <rect width="16" height="8" fill="#E8E0D4"/>
+      <line x1="0" y1="8" x2="16" y2="8" stroke="#C8C0B4" stroke-width="0.6"/>
+      <line x1="8" y1="0" x2="8" y2="8" stroke="#D0C8BC" stroke-width="0.4" stroke-opacity="0.5"/>
+    </pattern>
+    <pattern id="kt-tile" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="#4A4840"/>
+      <line x1="0" y1="32" x2="32" y2="32" stroke="#3A3830" stroke-width="0.8"/>
+      <line x1="32" y1="0" x2="32" y2="32" stroke="#3A3830" stroke-width="0.8"/>
+    </pattern>
+    <radialGradient id="kt-pendant-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(120 52) rotate(90) scale(50)">
+      <stop stop-color="#FFE566" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#FFE566" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="kt-pendant-glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 52) rotate(90) scale(50)">
+      <stop stop-color="#FFE566" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#FFE566" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="kt-pendant-glow3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(280 52) rotate(90) scale(50)">
+      <stop stop-color="#FFE566" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#FFE566" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Room shell -->
+  <rect width="400" height="280" fill="url(#kt-bg)" rx="8"/>
+  <rect x="0" y="196" width="400" height="84" fill="url(#kt-floor)"/>
+  <rect x="0" y="196" width="400" height="84" fill="url(#kt-tile)" fill-opacity="0.65"/>
+
+  <!-- Upper cabinets -->
+  <g>
+    <rect x="20" y="22" width="68" height="58" rx="3" fill="url(#kt-cabinet)" stroke="#A89880" stroke-width="0.8"/>
+    <rect x="28" y="30" width="52" height="42" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.25"/>
+    <rect x="96" y="22" width="68" height="58" rx="3" fill="url(#kt-cabinet)" stroke="#A89880" stroke-width="0.8"/>
+    <rect x="104" y="30" width="52" height="42" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.25"/>
+    <rect x="172" y="22" width="68" height="58" rx="3" fill="url(#kt-cabinet)" stroke="#A89880" stroke-width="0.8"/>
+    <rect x="180" y="30" width="52" height="42" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.25"/>
+    <rect x="248" y="22" width="68" height="58" rx="3" fill="url(#kt-cabinet)" stroke="#A89880" stroke-width="0.8"/>
+    <rect x="256" y="30" width="52" height="42" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.25"/>
+    <!-- Knobs -->
+    <circle cx="56" cy="74" r="3" fill="url(#kt-gold)"/>
+    <circle cx="132" cy="74" r="3" fill="url(#kt-gold)"/>
+    <circle cx="208" cy="74" r="3" fill="url(#kt-gold)"/>
+    <circle cx="284" cy="74" r="3" fill="url(#kt-gold)"/>
+  </g>
+
+  <!-- Range hood -->
+  <rect x="172" y="82" width="68" height="12" rx="2" fill="#8A8078" fill-opacity="0.6"/>
+  <path d="M168 94 L240 94 L236 108 L172 108 Z" fill="#6A6058" fill-opacity="0.7"/>
+
+  <!-- Backsplash subway tile -->
+  <rect x="20" y="84" width="296" height="28" fill="url(#kt-subway)"/>
+  <rect x="20" y="84" width="296" height="28" fill="#4ECDC4" fill-opacity="0.06"/>
+
+  <!-- Counter run -->
+  <rect x="16" y="112" width="304" height="20" rx="3" fill="url(#kt-marble)" stroke="#A89888" stroke-width="0.8"/>
+  <rect x="16" y="132" width="304" height="52" rx="2" fill="url(#kt-cabinet)"/>
+  <line x1="16" y1="148" x2="320" y2="148" stroke="#A89880" stroke-opacity="0.3"/>
+
+  <!-- Lower cabinet doors -->
+  <rect x="24" y="136" width="60" height="44" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.2" stroke="#A89880" stroke-opacity="0.4"/>
+  <rect x="92" y="136" width="60" height="44" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.2" stroke="#A89880" stroke-opacity="0.4"/>
+  <rect x="160" y="136" width="60" height="44" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.2" stroke="#A89880" stroke-opacity="0.4"/>
+  <rect x="228" y="136" width="84" height="44" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.2" stroke="#A89880" stroke-opacity="0.4"/>
+  <circle cx="54" cy="158" r="2.5" fill="url(#kt-gold)"/>
+  <circle cx="122" cy="158" r="2.5" fill="url(#kt-gold)"/>
+  <circle cx="190" cy="158" r="2.5" fill="url(#kt-gold)"/>
+  <circle cx="270" cy="158" r="2.5" fill="url(#kt-gold)"/>
+
+  <!-- Gas range -->
+  <rect x="168" y="100" width="72" height="16" rx="2" fill="#4A4840" fill-opacity="0.8"/>
+  <circle cx="188" cy="108" r="5" fill="#2A2820" stroke="#8A8078" stroke-width="0.8"/>
+  <circle cx="208" cy="108" r="5" fill="#2A2820" stroke="#8A8078" stroke-width="0.8"/>
+  <circle cx="228" cy="108" r="5" fill="#2A2820" stroke="#8A8078" stroke-width="0.8"/>
+  <circle cx="188" cy="108" r="2" fill="#E85D04" fill-opacity="0.5"/>
+  <circle cx="208" cy="108" r="2" fill="#E85D04" fill-opacity="0.4"/>
+
+  <!-- Sink -->
+  <rect x="96" y="100" width="56" height="14" rx="4" fill="#B8C8C8" fill-opacity="0.6" stroke="#8A9898" stroke-width="1"/>
+  <rect x="104" y="104" width="40" height="8" rx="2" fill="#8ECAE6" fill-opacity="0.35"/>
+  <!-- Faucet -->
+  <path d="M128 88 Q128 78 138 78 Q148 78 148 88" stroke="#C0C8C8" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <rect x="126" y="88" width="4" height="14" rx="1" fill="#A8B0B0"/>
+  <ellipse cx="148" cy="90" rx="3" ry="2" fill="#98A0A0"/>
+
+  <!-- Kettle -->
+  <ellipse cx="52" cy="104" rx="14" ry="10" fill="#4ECDC4" fill-opacity="0.7"/>
+  <path d="M44 98 Q52 90 60 98" stroke="url(#kt-gold)" stroke-width="1.8" fill="none"/>
+  <rect x="60" y="100" width="8" height="4" rx="1" fill="#3AB8B0" fill-opacity="0.6"/>
+
+  <!-- Fruit bowl -->
+  <ellipse cx="280" cy="106" rx="18" ry="8" fill="#E8D8C0" fill-opacity="0.7"/>
+  <circle cx="272" cy="100" r="6" fill="#E85D04" fill-opacity="0.75"/>
+  <circle cx="286" cy="98" r="5" fill="#FFE566" fill-opacity="0.7"/>
+  <circle cx="278" cy="94" r="4" fill="#81C784" fill-opacity="0.7"/>
+
+  <!-- Pendant lights -->
+  <ellipse cx="120" cy="52" rx="50" ry="50" fill="url(#kt-pendant-glow)"/>
+  <ellipse cx="200" cy="52" rx="50" ry="50" fill="url(#kt-pendant-glow2)"/>
+  <ellipse cx="280" cy="52" rx="50" ry="50" fill="url(#kt-pendant-glow3)"/>
+  <line x1="120" y1="22" x2="120" y2="48" stroke="#E8C547" stroke-opacity="0.5" stroke-width="1"/>
+  <line x1="200" y1="22" x2="200" y2="48" stroke="#E8C547" stroke-opacity="0.5" stroke-width="1"/>
+  <line x1="280" y1="22" x2="280" y2="48" stroke="#E8C547" stroke-opacity="0.5" stroke-width="1"/>
+  <path d="M108 48 Q120 36 132 48" fill="#F5F0E8" stroke="#A89880" stroke-width="0.8"/>
+  <path d="M188 48 Q200 36 212 48" fill="#F5F0E8" stroke="#A89880" stroke-width="0.8"/>
+  <path d="M268 48 Q280 36 292 48" fill="#F5F0E8" stroke="#A89880" stroke-width="0.8"/>
+  <ellipse cx="120" cy="44" rx="6" ry="4" fill="#FFE566" fill-opacity="0.6"/>
+  <ellipse cx="200" cy="44" rx="6" ry="4" fill="#FFE566" fill-opacity="0.6"/>
+  <ellipse cx="280" cy="44" rx="6" ry="4" fill="#FFE566" fill-opacity="0.6"/>
+
+  <!-- Kitchen island -->
+  <rect x="48" y="168" width="200" height="16" rx="3" fill="url(#kt-marble)" stroke="#A89888" stroke-width="0.8"/>
+  <rect x="48" y="184" width="200" height="36" rx="2" fill="url(#kt-cabinet)"/>
+  <rect x="56" y="190" width="84" height="26" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.15" stroke="#A89880" stroke-opacity="0.3"/>
+  <rect x="148" y="190" width="92" height="26" rx="2" fill="url(#kt-cabinet-dark)" fill-opacity="0.15" stroke="#A89880" stroke-opacity="0.3"/>
+
+  <!-- Bar stools -->
+  <ellipse cx="88" cy="228" rx="16" ry="6" fill="#3A2410" fill-opacity="0.4"/>
+  <ellipse cx="152" cy="228" rx="16" ry="6" fill="#3A2410" fill-opacity="0.4"/>
+  <ellipse cx="216" cy="228" rx="16" ry="6" fill="#3A2410" fill-opacity="0.4"/>
+  <rect x="82" y="196" width="12" height="36" rx="2" fill="#5C3820"/>
+  <rect x="146" y="196" width="12" height="36" rx="2" fill="#5C3820"/>
+  <rect x="210" y="196" width="12" height="36" rx="2" fill="#5C3820"/>
+  <ellipse cx="88" cy="196" rx="14" ry="5" fill="#6A4830"/>
+  <ellipse cx="152" cy="196" rx="14" ry="5" fill="#6A4830"/>
+  <ellipse cx="216" cy="196" rx="14" ry="5" fill="#6A4830"/>
+
+  <!-- Stainless fridge -->
+  <rect x="328" y="22" width="56" height="168" rx="5" fill="#E8ECEE" stroke="#A8B0B4" stroke-width="1.2"/>
+  <line x1="328" y1="108" x2="384" y2="108" stroke="#B8C0C4" stroke-width="1"/>
+  <rect x="336" y="30" width="40" height="68" rx="2" fill="#D0D8DC" fill-opacity="0.5"/>
+  <rect x="336" y="116" width="40" height="66" rx="2" fill="#D8E0E4" fill-opacity="0.4"/>
+  <rect x="368" y="72" width="4" height="24" rx="1" fill="#C0C8CC"/>
+  <rect x="368" y="140" width="4" height="32" rx="1" fill="#C0C8CC"/>
+  <rect x="340" y="48" width="8" height="4" rx="1" fill="#4ECDC4" fill-opacity="0.35"/>
+
+  <!-- Window herbs -->
+  <rect x="328" y="196" width="52" height="48" rx="3" fill="#6BA8C8" fill-opacity="0.25" stroke="#E8C547" stroke-opacity="0.25"/>
+  <rect x="336" y="228" width="10" height="12" rx="2" fill="#6A4030"/>
+  <rect x="352" y="226" width="10" height="14" rx="2" fill="#6A4030"/>
+  <rect x="368" y="230" width="8" height="10" rx="2" fill="#6A4030"/>
+  <ellipse cx="341" cy="222" rx="8" ry="10" fill="#3A8A58" fill-opacity="0.7"/>
+  <ellipse cx="357" cy="220" rx="8" ry="10" fill="#4A9A68" fill-opacity="0.7"/>
+  <ellipse cx="372" cy="224" rx="6" ry="8" fill="#3A8A58" fill-opacity="0.7"/>
+</svg>

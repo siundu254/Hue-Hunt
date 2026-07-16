@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="st-bg" x1="0" y1="0" x2="400" y2="280"><stop stop-color="#1E3048"/><stop offset="1" stop-color="#101828"/></linearGradient>
+    <linearGradient id="st-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE566"/><stop offset="1" stop-color="#9A7420"/></linearGradient>
+    <radialGradient id="st-lamp" cx="210" cy="150" r="70"><stop stop-color="#FFE566" stop-opacity="0.45"/><stop offset="1" stop-opacity="0"/></radialGradient>
+    <linearGradient id="st-floor" x1="0" y1="200" x2="0" y2="280"><stop stop-color="#5C3820"/><stop offset="1" stop-color="#3A2410"/></linearGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#st-bg)" rx="8"/>
+  <rect x="0" y="200" width="400" height="80" fill="url(#st-floor)"/>
+  <!-- Built-in bookshelves -->
+  <rect x="20" y="18" width="360" height="108" rx="4" fill="#2A1808" fill-opacity="0.55" stroke="url(#st-gold)" stroke-opacity="0.4"/>
+  <line x1="20" y1="54" x2="380" y2="54" stroke="#E8C547" stroke-opacity="0.22"/>
+  <line x1="20" y1="90" x2="380" y2="90" stroke="#E8C547" stroke-opacity="0.22"/>
+  <g>
+    <rect x="30" y="26" width="14" height="24" rx="1" fill="#6B3FA0"/><rect x="48" y="22" width="12" height="28" rx="1" fill="#4ECDC4"/>
+    <rect x="64" y="28" width="14" height="22" rx="1" fill="#E67E22"/><rect x="82" y="24" width="11" height="26" rx="1" fill="#8B4513"/>
+    <rect x="98" y="26" width="14" height="24" rx="1" fill="#2C5282"/><rect x="116" y="22" width="12" height="28" rx="1" fill="#9B2C2C"/>
+    <rect x="132" y="28" width="14" height="22" rx="1" fill="#276749"/><rect x="150" y="24" width="11" height="26" rx="1" fill="#744210"/>
+    <rect x="166" y="26" width="14" height="24" rx="1" fill="#553C9A"/><rect x="184" y="22" width="12" height="28" rx="1" fill="#C05621"/>
+    <rect x="200" y="28" width="14" height="22" rx="1" fill="#2B6CB0"/><rect x="218" y="24" width="11" height="26" rx="1" fill="#38A169"/>
+    <rect x="234" y="26" width="14" height="24" rx="1" fill="#805AD5"/><rect x="252" y="22" width="12" height="28" rx="1" fill="#DD6B20"/>
+    <rect x="268" y="28" width="14" height="22" rx="1" fill="#319795"/><rect x="286" y="24" width="11" height="26" rx="1" fill="#B7791F"/>
+    <rect x="302" y="26" width="14" height="24" rx="1" fill="#6B46C1"/><rect x="320" y="22" width="12" height="28" rx="1" fill="#E53E3E"/>
+    <rect x="336" y="28" width="14" height="22" rx="1" fill="#4299E1"/><rect x="354" y="24" width="11" height="26" rx="1" fill="#48BB78"/>
+  </g>
+  <!-- Desk -->
+  <rect x="36" y="164" width="208" height="14" rx="3" fill="#5C3820"/>
+  <rect x="52" y="178" width="8" height="48" fill="#3A2410"/><rect x="220" y="178" width="8" height="48" fill="#3A2410"/>
+  <!-- Desk lamp glow -->
+  <ellipse cx="220" cy="150" rx="70" ry="60" fill="url(#st-lamp)"/>
+  <line x1="206" y1="164" x2="220" y2="124" stroke="url(#st-gold)" stroke-width="2"/>
+  <path d="M204 128 Q220 108 236 128" fill="#FFE566" fill-opacity="0.65" stroke="#E8C547"/>
+  <!-- Globe -->
+  <circle cx="328" cy="196" r="30" fill="#4ECDC4" fill-opacity="0.35" stroke="url(#st-gold)" stroke-width="1.2"/>
+  <ellipse cx="328" cy="196" rx="30" ry="11" stroke="#E8C547" stroke-opacity="0.4" fill="none"/>
+  <line x1="298" y1="196" x2="358" y2="196" stroke="#E8C547" stroke-opacity="0.35"/>
+  <!-- Leather chair -->
+  <rect x="88" y="196" width="52" height="38" rx="8" fill="#5C3820" fill-opacity="0.85"/>
+  <rect x="96" y="188" width="36" height="16" rx="6" fill="#6A4830" fill-opacity="0.8"/>
+  <!-- Open book on desk -->
+  <path d="M120 156 Q140 148 160 156 L160 168 Q140 176 120 168 Z" fill="#F5F0E8" fill-opacity="0.7"/>
+  <path d="M160 156 Q180 148 200 156 L200 168 Q180 176 160 168 Z" fill="#E8E0D4" fill-opacity="0.7"/>
+</svg>

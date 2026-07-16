@@ -9,20 +9,20 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Hue Hunt';
+  String get appTitle => 'Room Raiders';
 
   @override
-  String get subBrand => 'Family Mission';
+  String get subBrand => 'Raid Missions';
 
   @override
-  String get tagline => 'The Chroma Expedition';
+  String get tagline => 'Search the room. Beat the clock.';
 
   @override
   String get studioName => 'NovaLumina Studio';
 
   @override
   String get homeHeroBody =>
-      'Spirit Forge invents missions for your room — app, team phones, spectators, or Hunt-Hue Box tabletop.';
+      'Room Raiders forges object-led missions for your room — app, team phones, spectators, or Hunt-Hue Box tabletop.';
 
   @override
   String get statBestScore => 'Best score';
@@ -48,7 +48,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get huntHueBoxButton => 'Hunt-Hue Box — tabletop + app';
 
   @override
-  String get chromaMap => 'Chroma Map';
+  String get chromaMap => 'Raid Map';
 
   @override
   String get journal => 'Journal';
@@ -73,14 +73,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboardingHuntBody =>
-      'Every mission asks your group to find objects, textures, or combos in the room — not flat colour swatches. Works in any home, office, or party.';
+      'Every mission asks your group to find objects, textures, or combos in the room — never colour-based hunts or swatches. Works in any home, office, or party.';
 
   @override
   String get onboardingPassTitle => 'One phone, whole group';
 
   @override
   String get onboardingPassBody =>
-      'Pass the device between players. Confirm finds together. Teams, scoring, and the Hue Spirit guide keep energy high without everyone on a screen.';
+      'Pass the device between players. Secret objectives, sudden-death timers, and the Raid Captain keep energy high without everyone on a screen.';
 
   @override
   String get onboardingBoxTitle => 'Digital or tabletop';
@@ -121,10 +121,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsSoundEffectsSub =>
-      'Spirit voice, Game Show Drop, and mission cues';
+      'Raid Captain voice, Game Show Drop, and mission cues';
 
   @override
-  String get settingsSpiritHost => 'Hue Spirit host';
+  String get settingsSpiritHost => 'Raid Captain host';
 
   @override
   String get settingsForgeDefaults => 'Spirit Forge';
@@ -154,7 +154,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsHapticsSub => 'Vibration on pass-device and confirms';
 
   @override
-  String get settingsSpiritHints => 'Hue Spirit hints';
+  String get settingsSpiritHints => 'Raid Captain hints';
 
   @override
   String get settingsSpiritHintsSub => 'Narrator messages between missions';
@@ -210,7 +210,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resetProgressBody =>
-      'This clears your Chroma Map nodes, journal stickers, and best score. It cannot be undone.';
+      'This clears your Raid Map nodes, journal stickers, and best score. It cannot be undone.';
 
   @override
   String get cancel => 'Cancel';
@@ -369,7 +369,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spiritBoxIntro =>
-      'Hunt-Hue Box mode! Draw missions from your physical deck — this device is the scorekeeper.';
+      'Hunt-Hue Box mode! Draw object-led missions from your physical deck — Room Raiders is the scorekeeper.';
 
   @override
   String spiritMissionReady(int number, String team) {
@@ -380,22 +380,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get spiritExplorers => 'Explorers';
 
   @override
-  String get spiritHuntGreat => 'Stunning hunt! The Chroma Meter surges.';
+  String get spiritHuntGreat => 'Stunning hunt! The Raid Meter surges.';
 
   @override
-  String get spiritHuntGood => 'Nice find — keep the expedition rolling.';
+  String get spiritHuntGood => 'Nice find — keep the raid rolling.';
 
   @override
   String get spiritRematch =>
-      'Spirit Rematch! Twist: try the object hunt another way.';
+      'Raid Rematch! Twist: try the object hunt another way.';
 
   @override
   String get spiritMapUnlock =>
-      'Brilliant sync! A new region glows on the Chroma Map.';
+      'Brilliant sync! A new region glows on the Raid Map.';
 
   @override
   String get spiritMapProgress =>
-      'Nice hunt — the Expedition remembers this chapter.';
+      'Nice hunt — Room Raiders remembers this chapter.';
 
   @override
   String get huntHueBox => 'Hunt-Hue Box';

@@ -31,7 +31,7 @@ class JournalScreen extends StatelessWidget {
               title: Text(profile.title),
               subtitle: Text(
                 stickers.contains(profile.mode.name)
-                    ? 'Region unlocked on Chroma Map'
+                    ? 'Region unlocked on Raid Map'
                     : 'Complete a chapter to unlock',
               ),
             ),

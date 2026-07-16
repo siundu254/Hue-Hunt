@@ -1,10 +1,10 @@
-# Hue Hunt — Spirit Forge Platform
+# Room Raiders
 
-**The Chroma Expedition** — NovaLumina Studio’s AI-hosted mission platform for any room.
+**Raid Missions** — NovaLumina Studio’s room-based scavenger platform.
 
-Hunt real **objects, textures, and combos** — not colour swatches. **Spirit Forge** is the default way to play: the Hue Spirit forges missions for your room, runs a game-show countdown, and can host **multiple phones** plus **Hunt-Hue Box** tabletop.
+Hunt real **objects, textures, and combos** — never colour-based hunts. **Spirit Forge** forges missions for your room; **Raid Captain** hosts game-show drops, sudden-death timers, secret objectives, decoys, and chaos twists.
 
-Platform spec: [docs/HUE_HUNT_V20_PLATFORM_SPEC.md](docs/HUE_HUNT_V20_PLATFORM_SPEC.md)
+**Platform spec:** [docs/ROOM_RAIDERS_V21_PLATFORM_SPEC.md](docs/ROOM_RAIDERS_V21_PLATFORM_SPEC.md)
 
 ## Run
 
@@ -14,36 +14,29 @@ flutter pub get
 flutter run
 ```
 
-## Primary path (v2.0)
+## v2.1 highlights
+
+- **Room Raiders** branding (logo, orange/purple palette)
+- **Secret objectives** per player
+- **Sudden death** timers + chaos events (16 twists)
+- **Decoy missions** mixed into chapters
+- **Multi-stage clue chains** on select hunts
+- **Raid awards** + MVP highlight share cards
+- **No colour-category hunts** in app or box deck
+
+## Primary path
 
 **Home → Spirit Forge** → App or **Hunt-Hue Box** → pick venue → **Forge & launch**
 
-Optional: **Open expedition room** → lobby QR → team/spectator phones join on same Wi‑Fi.
+## Documents
 
-## Multi-device
-
-| Role | Action |
-|------|--------|
-| Host | Spirit Forge → open room → start chapter |
-| Team phone | Join expedition → Team |
-| Spectator | Join expedition → Spectator → vote ★1–5 on finds |
-
-## Board game
-
-**Hunt-Hue Box** → **Spirit Forge with Hunt-Hue Box** — draw physical cards; app is AI host + scorekeeper. Same JSON pipeline as digital (`hunt_hue_box_deck.json`).
-
-Classic box scorekeeper (no forge) still available under Hunt-Hue Box.
-
-## Classic modes
-
-Home → **Classic: Family Mission** (or mode cards) — original chapter decks without Spirit Forge.
+| Path | Purpose |
+|------|---------|
+| `docs/ROOM_RAIDERS_V21_PLATFORM_SPEC.md` | Product + mechanics spec |
+| `assets/box/hunt_hue_box_rules.md` | Hunt-Hue Box tabletop rules |
+| `documents/DOCUMENTS.txt` | Investor DOCX + deck regeneration index |
+| `documents/generate_room_raiders_documents.py` | Regenerate business plan, roadmap, pitch |
 
 ## Version
 
-`2.0.0` — Spirit Forge core, expedition room LAN, box integration. See `pubspec.yaml` and `lib/constants/app_branding.dart`.
-
-## Tech
-
-- Flutter · Provider · LAN HTTP room sync (port 8765)
-- Mission content: `assets/missions/*.json`
-- Box rules: `assets/box/hunt_hue_box_rules.md`
+`2.1.0` — see `pubspec.yaml` and `lib/constants/app_branding.dart`.

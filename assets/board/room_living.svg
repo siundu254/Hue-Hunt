@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="lr-bg" x1="0" y1="0" x2="400" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E4A38"/>
+      <stop offset="0.55" stop-color="#163528"/>
+      <stop offset="1" stop-color="#0E2218"/>
+    </linearGradient>
+    <linearGradient id="lr-floor" x1="0" y1="180" x2="0" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5C3D24"/>
+      <stop offset="1" stop-color="#3A2414"/>
+    </linearGradient>
+    <linearGradient id="lr-sofa" x1="30" y1="120" x2="280" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8A85A"/>
+      <stop offset="0.5" stop-color="#C87838"/>
+      <stop offset="1" stop-color="#9A5820"/>
+    </linearGradient>
+    <linearGradient id="lr-sofa-shadow" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.35"/>
+    </linearGradient>
+    <radialGradient id="lr-lamp-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(318 72) rotate(90) scale(110 90)">
+      <stop stop-color="#FFE566" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#FFB830" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#FFB830" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lr-lamp-floor" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(310 218) rotate(90) scale(80 28)">
+      <stop stop-color="#FFE566" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FFE566" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lr-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFE566"/>
+      <stop offset="0.5" stop-color="#E8C547"/>
+      <stop offset="1" stop-color="#9A7420"/>
+    </linearGradient>
+    <linearGradient id="lr-window-sky" x1="40" y1="20" x2="160" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6BA8C8"/>
+      <stop offset="0.6" stop-color="#3A6888"/>
+      <stop offset="1" stop-color="#1A3848"/>
+    </linearGradient>
+    <pattern id="lr-planks" width="40" height="8" patternUnits="userSpaceOnUse">
+      <rect width="40" height="8" fill="#4A3020"/>
+      <line x1="0" y1="8" x2="40" y2="8" stroke="#2A1810" stroke-width="0.8"/>
+      <line x1="20" y1="0" x2="20" y2="8" stroke="#3A2418" stroke-width="0.4" stroke-opacity="0.5"/>
+    </pattern>
+    <pattern id="lr-rug" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#1A4A38"/>
+      <path d="M0 12h24M12 0v24" stroke="#E8C547" stroke-opacity="0.15" stroke-width="0.6"/>
+      <circle cx="12" cy="12" r="3" fill="#E8C547" fill-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <!-- Room shell -->
+  <rect width="400" height="280" fill="url(#lr-bg)" rx="8"/>
+  <rect x="0" y="168" width="400" height="112" fill="url(#lr-floor)"/>
+  <rect x="0" y="168" width="400" height="112" fill="url(#lr-planks)" fill-opacity="0.55"/>
+  <line x1="0" y1="168" x2="400" y2="168" stroke="#9A7420" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Crown molding -->
+  <rect x="0" y="14" width="400" height="6" fill="#2A5C48" fill-opacity="0.4"/>
+  <line x1="0" y1="20" x2="400" y2="20" stroke="#E8C547" stroke-opacity="0.2"/>
+
+  <!-- Window bay -->
+  <rect x="24" y="28" width="136" height="88" rx="3" fill="#1A3028" fill-opacity="0.5"/>
+  <rect x="32" y="36" width="120" height="72" rx="2" fill="url(#lr-window-sky)"/>
+  <line x1="92" y1="36" x2="92" y2="108" stroke="#E8C547" stroke-opacity="0.35" stroke-width="1.2"/>
+  <line x1="32" y1="72" x2="152" y2="72" stroke="#E8C547" stroke-opacity="0.35" stroke-width="1.2"/>
+  <!-- Stars -->
+  <circle cx="52" cy="52" r="1.2" fill="#FFE566" fill-opacity="0.7"/>
+  <circle cx="78" cy="46" r="0.9" fill="#FFE566" fill-opacity="0.5"/>
+  <circle cx="118" cy="58" r="1" fill="#FFE566" fill-opacity="0.6"/>
+  <circle cx="68" cy="64" r="0.7" fill="#FFE566" fill-opacity="0.4"/>
+  <!-- Curtains -->
+  <path d="M24 28 Q36 52 28 116 L24 116 Z" fill="#C97B4A" fill-opacity="0.65"/>
+  <path d="M160 28 Q148 52 156 116 L160 116 Z" fill="#C97B4A" fill-opacity="0.65"/>
+  <path d="M28 28 Q80 22 152 28" stroke="#E8C547" stroke-opacity="0.3" stroke-width="1.5" fill="none"/>
+
+  <!-- Wall art -->
+  <rect x="196" y="34" width="64" height="46" rx="2" fill="#1A1008" fill-opacity="0.55" stroke="url(#lr-gold)" stroke-width="1.5"/>
+  <rect x="204" y="42" width="48" height="30" rx="1" fill="#2A5C48" fill-opacity="0.5"/>
+  <path d="M212 58 Q228 48 244 58" stroke="#E8C547" stroke-opacity="0.4" stroke-width="1.2" fill="none"/>
+
+  <!-- TV console -->
+  <rect x="268" y="88" width="88" height="52" rx="3" fill="#2A1810" fill-opacity="0.75" stroke="#4A3020" stroke-width="1"/>
+  <rect x="276" y="72" width="72" height="20" rx="2" fill="#1A1008" fill-opacity="0.8" stroke="#E8C547" stroke-opacity="0.25"/>
+  <rect x="280" y="108" width="8" height="28" fill="#3A2410"/>
+  <rect x="336" y="108" width="8" height="28" fill="#3A2410"/>
+
+  <!-- Lamp glow layers -->
+  <ellipse cx="318" cy="72" rx="110" ry="90" fill="url(#lr-lamp-glow)"/>
+  <ellipse cx="310" cy="218" rx="80" ry="28" fill="url(#lr-lamp-floor)"/>
+
+  <!-- Area rug -->
+  <ellipse cx="168" cy="214" rx="138" ry="44" fill="url(#lr-rug)" stroke="#E8C547" stroke-opacity="0.3" stroke-width="1.2"/>
+  <ellipse cx="168" cy="214" rx="100" ry="30" fill="none" stroke="#E8C547" stroke-opacity="0.15" stroke-width="0.8"/>
+
+  <!-- L-shaped sectional sofa -->
+  <rect x="28" y="148" width="210" height="48" rx="12" fill="url(#lr-sofa)"/>
+  <rect x="28" y="134" width="210" height="22" rx="10" fill="#D4883E"/>
+  <rect x="28" y="148" width="210" height="48" rx="12" fill="url(#lr-sofa-shadow)" fill-opacity="0.4"/>
+  <!-- Back cushions -->
+  <rect x="40" y="122" width="52" height="26" rx="8" fill="#E8B060" fill-opacity="0.85"/>
+  <rect x="98" y="122" width="52" height="26" rx="8" fill="#E8B060" fill-opacity="0.85"/>
+  <rect x="156" y="122" width="52" height="26" rx="8" fill="#E8B060" fill-opacity="0.85"/>
+  <!-- Throw pillows -->
+  <rect x="52" y="128" width="28" height="18" rx="6" fill="#F0D890" fill-opacity="0.7" transform="rotate(-8 66 137)"/>
+  <rect x="170" y="126" width="30" height="20" rx="6" fill="#4ECDC4" fill-opacity="0.35" transform="rotate(6 185 136)"/>
+  <!-- L-arm -->
+  <rect x="28" y="168" width="44" height="56" rx="10" fill="url(#lr-sofa)"/>
+  <rect x="28" y="156" width="44" height="18" rx="8" fill="#D4883E"/>
+
+  <!-- Coffee table -->
+  <rect x="118" y="178" width="88" height="10" rx="3" fill="#5C3820"/>
+  <rect x="128" y="188" width="6" height="22" fill="#3A2410"/>
+  <rect x="190" y="188" width="6" height="22" fill="#3A2410"/>
+  <rect x="142" y="172" width="36" height="8" rx="2" fill="#E8D8C0" fill-opacity="0.5"/>
+  <rect x="148" y="166" width="22" height="8" rx="1" fill="#8A6040" fill-opacity="0.6"/>
+
+  <!-- Side table + plant -->
+  <rect x="248" y="168" width="48" height="8" rx="2" fill="#4A3020"/>
+  <rect x="268" y="128" width="6" height="48" fill="#3A2410"/>
+  <ellipse cx="272" cy="118" rx="18" ry="22" fill="#2A6A48" fill-opacity="0.75"/>
+  <ellipse cx="272" cy="108" rx="14" ry="16" fill="#3A8A58" fill-opacity="0.8"/>
+  <rect x="268" y="118" width="8" height="14" rx="2" fill="#6A4030"/>
+
+  <!-- Floor lamp -->
+  <rect x="312" y="78" width="5" height="108" fill="url(#lr-gold)"/>
+  <ellipse cx="314" cy="74" rx="4" ry="3" fill="#9A7420"/>
+  <path d="M296 78 Q314 52 332 78" stroke="#E8C547" stroke-width="2.5" fill="none"/>
+  <ellipse cx="314" cy="56" rx="22" ry="14" fill="#FFE566" fill-opacity="0.75"/>
+  <ellipse cx="314" cy="54" rx="14" ry="8" fill="#FFF8D0" fill-opacity="0.5"/>
+
+  <!-- Bookshelf edge -->
+  <rect x="348" y="36" width="36" height="120" rx="2" fill="#3A2410" fill-opacity="0.7"/>
+  <line x1="348" y1="56" x2="384" y2="56" stroke="#E8C547" stroke-opacity="0.2"/>
+  <line x1="348" y1="76" x2="384" y2="76" stroke="#E8C547" stroke-opacity="0.2"/>
+  <line x1="348" y1="96" x2="384" y2="96" stroke="#E8C547" stroke-opacity="0.2"/>
+  <rect x="352" y="40" width="8" height="14" rx="1" fill="#C87838" fill-opacity="0.6"/>
+  <rect x="362" y="42" width="6" height="12" rx="1" fill="#4ECDC4" fill-opacity="0.4"/>
+  <rect x="370" y="60" width="10" height="14" rx="1" fill="#E8A85A" fill-opacity="0.5"/>
+</svg>
